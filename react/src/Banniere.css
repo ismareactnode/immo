@@ -1,0 +1,57 @@
+#banniere{
+	margin-top: 68px;
+	height: 400px;
+
+}
+
+#banniere>img{
+
+	width: 100%;
+
+}
+
+
+#presentation{
+	position: absolute;
+	z-index: 30;
+	left: 20%;
+	margin: auto;
+	margin-top: 70px;
+	color: white;
+	text-align: center;
+
+}
+
+#presentation>h1{
+	font-size: 2.9em;
+}
+
+
+
+.titre{color: black;
+
+	text-align: center;
+	padding-top: 20px;
+}
+
+#presentation>img{
+	position: absolute;
+	right: 0;
+}
+
+#tofs{
+	padding-top: 20px;
+}
+
+#gallerie{
+	display: flex;
+	justify-content: space-around;
+	list-style-type: none;
+
+}
+
+#gallerie>li>img{
+height: 200px;
+width: 260px;
+border-radius: 5px;
+}
