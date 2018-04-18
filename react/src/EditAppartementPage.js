@@ -2,8 +2,9 @@ import React from 'react';
 import AppartementForm from './AppartementForm';
 import { connect } from 'react-redux';
 import { removeAppartementFromMongo } from './actions/appartementsActions';
+import { Link } from 'react-router-dom';
 
-// import { startEditAppartment, startRemoveAppartment } from './actions/appartementsActions';
+import { startEditAppartment } from './actions/appartementsActions';
 
 // import { startRemoveAppartment } from './actions/appartementsActions';;
 import { removeAppartementFromRedux } from './actions/appartementsActions';
@@ -16,20 +17,13 @@ const EditAppartementPage = (props)=> {
     <AppartementForm
     appartement = {props.appartement}
 
-    // onSubmit={(appartement)=>{
-    //     props.dispatch(startEditAppartment(props.appartement._id, appartement));
-    //     props.history.push('/catalogue');
-    //   }
-    // }
+    onSubmit={(updates)=>{
+        props.dispatch(startEditAppartment(props.appartement._id, updates));
+        props.history.push('/catalogue');
+      }
+    }
   />
- <button
- onClick={()=>{
-  props.dispatch(removeAppartementFromMongo(props.appartement._id));
-  //  props.dispatch(removeAppartementFromMongo(props.appartement));
-  //   props.history.push('/catalogue');
-}}
- >Supprimer</button>
-   <p></p>
+  <Link to={`/confirmationSuppression/${props.appartement._id}`}><li>Supprimer</li></Link>
   </div>
 );
 }
