@@ -36,7 +36,7 @@ app.get('/apparts', (req, res)=> {
 
 
 app.post('/addAppart', (req, res) => {
-  var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix']);
+  var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces']);
   var appart = new Appart(body);
   appart.save()
   .then((appart)=>{res.status(200).send(appart)})

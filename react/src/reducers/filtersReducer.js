@@ -1,4 +1,5 @@
-import { INITIALIZE_FILTERS, ET_TEXT_FILTER, SORT_BY_PRIX, SORT_BY_SUPERFICIE , SET_GENRE_FILTER } from '../actions/filtersActions.js';
+import { INITIALIZE_FILTERS, SET_TEXT_FILTER, SORT_BY_PRIX, SORT_BY_SUPERFICIE ,
+  SET_NB_PIECES, SET_GENRE_FILTER } from '../actions/filtersActions.js';
 
 export default (state=filtersDefaultState, action)=>{
   switch(action.type){
@@ -7,9 +8,17 @@ export default (state=filtersDefaultState, action)=>{
       ...state,
       text: action.text
     };
+
+    case 'SET_NB_PIECES':
+    return {
+      ...state,
+      nbPieces: action.nbPieces
+    };
+
     case 'SET_GENRE_FILTER':
     return{
       ...state,
+      nbPieces:'studio 2 pièces 3 pièces 4 pièces 5 pièces',
       genre: action.genre
     };
 
@@ -28,6 +37,7 @@ export default (state=filtersDefaultState, action)=>{
       ...state,
       text: '',
       genre: 'AppartementMaisonCommerceTerrain',
+      nbPieces: 'studio 2 pièces 3 pièces 4 pièces 5 pièces',
       sortBy: 'superficie',
     };
   default:  return state;
@@ -38,5 +48,6 @@ export default (state=filtersDefaultState, action)=>{
 const filtersDefaultState={
     text: '',
     genre: 'AppartementMaisonCommerceTerrain',
+    nbPieces: 'studio 2 pièces 3 pièces 4 pièces 5 pièces',
     sortBy: 'superficie',
 }

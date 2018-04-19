@@ -3,7 +3,7 @@ var {mongoose} = require('../mongoose');
 var Appart = mongoose.model('Appart',{
   genre:{
     type: String,
-    default: 'Appartement',
+    default: 'appartement',
     required: true,
     minlength: 3,
     trim: true
@@ -20,11 +20,10 @@ var Appart = mongoose.model('Appart',{
   },
   prix: {
     type: Number
+  },
+  nbPieces: {
+    type: String,
   }
-  // nbPieces: {
-  //   type: Number,
-  //   min: 1,
-  // },
   // etage: {
   //   type: Number,
   // },

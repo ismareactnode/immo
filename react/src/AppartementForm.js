@@ -9,6 +9,7 @@ class AppartementForm extends React.Component{
     super(props);
     this.state = {
       genre: props.appartement ? props.appartement.genre : 'appartement',
+      nbPieces: props.appartement ? props.appartement.nbPieces : 'studio',
       superficie: props.appartement ? props.appartement.superficie : '',
       prix: props.appartement ? props.appartement.prix.toString()  : '',
       quartier: props.appartement ? props.appartement.quartier : '',
@@ -37,6 +38,12 @@ onGenreChange = e => {
   }));
 }
 
+onNbPiecesChange = e => {
+  const nbPieces = e.target.value;
+  this.setState(() => ({
+    nbPieces
+  }));
+}
 onPrixChange = e => {
   const prix = e.target.value;
   if(!prix || prix.match(/^\d{1,}(\.\d{0,2})?$/))
@@ -50,10 +57,18 @@ onPrixChange = e => {
 
 onSubmit = e => {
   e.preventDefault();
-if(!this.state.quartier || !this.state.prix || !this.state.superficie){
-  this.setState(()=>({
-    error: 'il faut tout remplir'
-  }))
+
+
+
+if(!this.state.quartier || !this.state.prix || !this.state.superficie
+   || !this.state.genre ){
+      this.setState(()=>({
+        error: 'il faut tout remplir'
+      }))
+
+
+
+
 }else{
   this.setState(()=>({
     error: '',
@@ -63,6 +78,7 @@ if(!this.state.quartier || !this.state.prix || !this.state.superficie){
     prix: parseFloat(this.state.prix, 10),
     superficie: this.state.superficie,
     genre: this.state.genre,
+    nbPieces: this.state.nbPieces,
   });
 }
 
@@ -86,6 +102,23 @@ render(){
          <option>Commerce</option>
         </select>
       </p>
+  { this.state.genre.toLowerCase() === 'appartement' ||
+   this.state.genre.toLowerCase() === 'maison'?
+      <p>
+        <select
+         name="nbPieces"
+         onChange={e=>this.onNbPiecesChange(e)}
+          value = {this.state.nbPieces}
+          >
+         <option defaultValue>Studio</option>
+         <option>2 pièces</option>
+         <option>3 pièces</option>
+         <option>4 pièces</option>
+         <option>5 pièces et +</option>
+        </select>
+      </p>
+    : null
+  }
        <p>Quartier : <input name="quartier"
        value={this.state.quartier}
        onChange={e=>{this.onQuartierChange(e)}}

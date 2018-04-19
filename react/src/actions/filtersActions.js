@@ -3,6 +3,15 @@ export const SORT_BY_PRIX = 'SORT_BY_PRIX';
 export const SORT_BY_SUPERFICIE = 'SORT_BY_SUPERFICIE';
 export const SET_GENRE_FILTER = 'SET_GENRE_FILTER';
 export const INITIALIZE_FILTERS = 'INITIALIZE_FILTERS';
+export const SET_NB_PIECES = 'SET_NB_PIECES';
+
+
+export const setNbPieces = (nbPieces = 0) => {
+  return {
+    type: SET_NB_PIECES,
+    nbPieces,
+  }
+}
 
 export const initializeFilters = () => (
   {

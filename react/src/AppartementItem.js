@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './AppartementItem.css';
 
-const AppartementItem = ({ _id, genre, quartier, superficie, prix }) => {
-
+const AppartementItem = ({ _id, genre, nbPieces, quartier, superficie, prix }) => {
+   genre = genre.toLowerCase();
   return(
     <div id="appartItem">
   <Link to={`/editAppartement/${_id}`}>
     <ul>
       <li>{genre}</li>
+      {
+        genre === 'appartement' || genre === 'maison'?
+          <li>{nbPieces}</li>
+        : null
+      }
       <li>{superficie} m2</li>
       <li>{quartier}</li>
       <li>{prix} €</li>

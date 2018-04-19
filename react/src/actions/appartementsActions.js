@@ -57,7 +57,8 @@ export const startAddAppartement = (appartementData = {}) => {
 
 return function(dispatch){
     const {
-      genre = 'Appartement',
+      genre = 'appartement',
+      nbPieces = 'studio',
       superficie = 0,
       quartier = '',
       prix = 0,

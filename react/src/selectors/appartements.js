@@ -2,12 +2,13 @@
 
 
 
-export default (appartements, {text, genre,sortBy})=>{
+export default (appartements, {text, genre,sortBy, nbPieces})=>{
   return appartements
       .filter(appartement => {
         const textQuartier = appartement.quartier.toLowerCase().includes(text.toLowerCase());
         const genreMatch = genre.toLowerCase().includes(appartement.genre.toLowerCase());
-        return textQuartier && genreMatch;})
+        const nbPiecesMatch = nbPieces.toLowerCase().includes(appartement.nbPieces.toLowerCase());
+        return textQuartier && genreMatch && nbPiecesMatch;})
 
       .sort((a, b)=>{
         if(sortBy === "prix"){
