@@ -1,0 +1,14 @@
+#appartItem{
+  margin: 10px 3px;
+  border-bottom: 1px solid rgba(46 ,68, 130, 0.8);
+  list-style-type: none;
+}
+#appartItem>a>ul>li{
+  list-style-type: none;
+}
+
+
+#appartItem>a:hover{
+  text-decoration: none;
+  color: rgb(46 ,68, 130);
+}

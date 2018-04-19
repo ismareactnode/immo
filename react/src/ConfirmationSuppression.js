@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AppartementForm from './AppartementForm';
 import { connect } from 'react-redux';
 import { removeAppartementFromMongo } from './actions/appartementsActions';
 import './ConfirmationSuppression.css'
 // import { startRemoveAppartment } from './actions/appartementsActions';
-
 
 
 const ConfirmationSuppression = ({ history, dispatch, appartement })=> {
@@ -13,6 +13,7 @@ const ConfirmationSuppression = ({ history, dispatch, appartement })=> {
   <div id="confirmation">
   <p>Produit</p>
   <ul>
+  <li>{appartement.type}</li>
     <li>{appartement.quartier}</li>
       <li>{appartement.superficie} m2</li>
         <li>{appartement.prix} €</li>
@@ -24,7 +25,7 @@ const ConfirmationSuppression = ({ history, dispatch, appartement })=> {
   history.push('/catalogue');
 }}
  >Confirmer</button>
-
+  <Link to={`/editAppartement/${appartement._id}`}>Retour</Link>
   </div>
 );
 }

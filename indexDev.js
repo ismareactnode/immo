@@ -36,11 +36,11 @@ app.get('/apparts', (req, res)=> {
 
 
 app.post('/addAppart', (req, res) => {
-  var body = _.pick(req.body, ['quartier', 'superficie', 'prix']);
+  var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix']);
   var appart = new Appart(body);
   appart.save()
   .then((appart)=>{res.status(200).send(appart)})
-  .catch((err)=>{res.status(400).send('error : ', err)});
+  .catch((err)=>{res.status(404).send('error : ', err)});
 });
 
 

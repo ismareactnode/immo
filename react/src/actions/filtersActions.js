@@ -1,7 +1,14 @@
 export const SET_TEXT_FILTER = 'SET_TEXT_FILTER';
 export const SORT_BY_PRIX = 'SORT_BY_PRIX';
 export const SORT_BY_SUPERFICIE = 'SORT_BY_SUPERFICIE';
+export const SET_GENRE_FILTER = 'SET_GENRE_FILTER';
+export const INITIALIZE_FILTERS = 'INITIALIZE_FILTERS';
 
+export const initializeFilters = () => (
+  {
+    type: INITIALIZE_FILTERS,
+  }
+)
 
 export const setTextFilter = (text='') => (
   {
@@ -9,6 +16,14 @@ export const setTextFilter = (text='') => (
     text,
   }
 );
+
+export const setGenreFilter = (genre='')=>{
+  return {
+    type: SET_GENRE_FILTER,
+    genre,
+  }
+}
+
 
 export const sortByPrix = () => (
   {

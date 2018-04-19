@@ -30,7 +30,7 @@ export const startEditAppartment = (id, updates = {}) => {
   return function(){
    fetch(`/apparts/${id}`,
      {
-       method: 'patch',
+       method:- 'patch',
        headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
@@ -57,6 +57,7 @@ export const startAddAppartement = (appartementData = {}) => {
 
 return function(dispatch){
     const {
+      genre = 'Appartement',
       superficie = 0,
       quartier = '',
       prix = 0,

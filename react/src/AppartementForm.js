@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { removeAppartment } from './actions/appartementsActions';
 import { connect } from 'react-redux';
 import './AppartementForm.css';
@@ -69,24 +70,26 @@ if(!this.state.quartier || !this.state.prix || !this.state.superficie){
 render(){
 
   return(
-
+  <div>
     <form
     id="appartementForm"
     onSubmit={e=>{this.onSubmit(e)}}
       className="appartAddForm"
       >
- <h2>{this.props.appartement?'Editer' : 'Créer'}</h2>
+     <h2>{this.props.appartement?'Modifier' : 'Créer'}</h2>
+      <p>
+        <select name="genre" onChange={e=>this.onGenreChange(e)}
+          value = {this.state.genre}>
+         <option>Appartement</option>
+         <option>Maison</option>
+         <option>Terrain</option>
+         <option>Commerce</option>
+        </select>
+      </p>
        <p>Quartier : <input name="quartier"
        value={this.state.quartier}
        onChange={e=>{this.onQuartierChange(e)}}
         type="text" /></p>
-    <select name="genre"
-    onChange={e=>{this.onGenreChange(e)}}
-    value={this.state.genre}>
-      <option>appartement</option>
-       <option>maison </option>
-        <option>terrain</option>
-    </select>
     <p>Superficie : <input name="superficie" value={this.state.superficie}
     onChange={e=>{this.onSuperficieChange(e)}}
     type="number" /></p>
@@ -95,9 +98,12 @@ render(){
     onChange={e=>{this.onPrixChange(e)}}
     type="text" /></p>
        <p><button type="submit">
-       {this.props.appartement?'Modifier':'Ajouter'}</button></p>
+       {this.props.appartement?'Confirmer':'Ajouter'}</button></p>
        {this.state.error && <p>{this.state.error}</p>}
     </form>
+
+    <Link to={'/catalogue'}>Retour à la liste</Link>
+  </div>
   );
 }
 }

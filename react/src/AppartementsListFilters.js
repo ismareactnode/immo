@@ -1,16 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setTextFilter, sortByPrix, sortBySuperficie } from './actions/filtersActions';
+import { setTextFilter, setGenreFilter, sortByPrix, sortBySuperficie } from './actions/filtersActions';
 
-const AppartementsListFilters = (props)=>(
+const AppartementsListFilters = ({dispatch, filters})=>(
   <div>
-  <input type="text"
-  onChange={e=>props.dispatch(setTextFilter(e.target.value))} value={props.filters.text}/>
+    <select
+      name = 'genre'
+      onChange={
+        e=>dispatch(setGenreFilter(e.target.value))}
+    >
+      <option
+        value="AppartementMaisonTerrainCommerce"
+      >Sélectionner un type</option>
+      <option>Appartement</option>
+      <option>Maison</option>
+      <option>Terrain</option>
+      <option>Commerce</option>
+    </select>
+
+  <input type="text" placeholder="quartier"
+  onChange={e=>dispatch(setTextFilter(e.target.value))} value={filters.text}/>
   <button
-  onClick={() => {props.dispatch(sortByPrix())}}
+  onClick={() => {dispatch(sortByPrix())}}
   >Prix</button>
     <button
-  onClick={()=>{props.dispatch(sortBySuperficie())}}  >Superficie</button>
+  onClick={()=>{dispatch(sortBySuperficie())}}  >Superficie</button>
   </div>
 );
 
