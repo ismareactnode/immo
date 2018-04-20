@@ -1,24 +1,55 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import OptionModal from './OptionModal';
 
+import { addEstimationDebut } from './actions/estimActions';
 class Estimation extends React.Component{
 
-  state = {
-    type: 'Appartement',
-    number: 0,
-    rue: '',
+constructor(props){
+  super(props);
+  this.state = {
+    genre: 'appartement',
+    superficie: '',
     ville: '',
+    rue: '',
     sended: undefined,
-};
+  };
+  this.estimer = this.estimer.bind(this);
+}
 
+ estimer(e){
+  e.preventDefault();
+  const estimation = {
+    genre: this.state.genre,
+    superficie: this.state.superficie,
+    ville: this.state.ville,
+    rue: this.state.rue
+  };
+  this.props.dispatch(addEstimationDebut(estimation));
+  console.log(this.state, 'state');
+  this.setState(()=>({sended: true}));
+}
 
+onChangeSuperficie(e){
+  const superficie = e.target.value;
+  this.setState({superficie});
+}
+
+onChangeGenre(e){
+  const genre = e.target.value;
+  this.setState({genre});
+}
+onChangeVille(e){
+  const ville = e.target.value;
+  this.setState({ville});
+}
+onChangeRue(e){
+  const rue = e.target.value;
+  this.setState({rue});
+}
   render(){
 
-    const estimer = (e) => {
-      e.preventDefault();
-    console.log(this.state, 'state');
-    this.setState(()=>({sended: true}));
-  }
+
 
     const desend = (e)=>{
       e.preventDefault();
@@ -54,33 +85,45 @@ class Estimation extends React.Component{
     					</div>
   			  	</div>
 
-  			  	<h2>Estimez la valeur de votre logement : </h2>
+  			  	<h3>Estimez gratuitement la valeur de votre bien : </h3>
 
   			  	<form
-  			  	onSubmit={estimer}
+  			  	onSubmit={this.estimer}
   			  	>
 
   				<select
-          onChange={(e)=>this.setState({type: e.target.value})}
+          name="genre"
+          value={this.state.genre}
+          onChange={(e)=>this.onChangeGenre(e)}
           selected="Appartement" name="genre">
     					<option>Appartement</option>
     					<option>Maison</option>
     					<option>Terrain</option>
+              <option>Fond de commerce</option>
   				</select><br/><br/>
 
   				<input
-          onChange = {e=>this.setState({number: e.target.value})}
-           type="number" min="0"
-  				name="numero"  placeholder="numéro" className="input-group"/><br/>
+          name="superficie"
+          placeholder="superficie"
+          value= {this.state.superficie}
+
+          onChange = {e=>this.onChangeSuperficie(e)
+            // this.setState(()=>({superficie: e.target.value}))
+          }
+           type="text"
+  				name="superficie"  placeholder="superficie" className="input-group"/><br/>
 
   				<input
-  				name="rue"
-          onChange = {e => this.setState({rue: e.target.value})}
-  				 type="text"  placeholder="rue" className="input-group"/><br/>
-  				<input
-          onChange = { e => this.setState({ville: e.target.value})}
   				name="ville"
+            placeholder="ville"
+          value={this.state.ville}
+          onChange = {e => this.onChangeVille(e)}
   				 type="text"  placeholder="ville" className="input-group"/><br/>
+  				<input
+          onChange = { e => this.onChangeRue(e)}
+  				name="rue"
+          value={this.state.rue}
+  				 type="text"  placeholder="rue" className="input-group"/><br/>
   				<button type="submit" className="btn btn-primary" >Estimer</button>
   			  </form>
           <OptionModal sended={this.state.sended} desend={desend} envoyer={envoyer}/>
@@ -90,4 +133,4 @@ class Estimation extends React.Component{
   }
 
 };
-export default Estimation;
+export default connect(null, null)(Estimation);

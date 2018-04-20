@@ -1,8 +1,8 @@
-export const EDIT_ESTIM = 'EDIT_ESTIM';
-export const editEstim = (id, updates) => (
+export const ADD_ESTIMATION_DEBUT = 'ADD_ESTIMATION_DEBUT';
+
+export const addEstimationDebut = (estimation) => (
   {
-    type: EDIT_ESTIM,
-    id,
-    updates,
+    type: ADD_ESTIMATION_DEBUT,
+    estimation,
   }
 );

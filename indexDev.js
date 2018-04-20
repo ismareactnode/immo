@@ -17,6 +17,9 @@ require('dotenv').config();
 var { mongoose, db } = require('./server/db/mongoose');
 var { Appart } = require('./server/db/models/Appart');
 var { User } = require('./server/db/models/User');
+var { Estimation } = require('./server/db/models/Estimation');
+var { Vendeur } = require('./server/db/models/Vendeur');
+var { Acheteur } = require('./server/db/models/Acheteur');
 
 const app = express();
 const PORT = process.env.PORT || 4000;

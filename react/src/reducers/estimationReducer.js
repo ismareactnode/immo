@@ -1,25 +1,24 @@
 
-import EDIT_ESTIM from '../actions/estimActions.js';
+import { ADD_ESTIMATION_DEBUT } from '../actions/estimActions.js';
 
-const estimationsDefaultState = [{
-  genre: 'appart',
-  numero: '12',
-  rue: 'vignolles',
-  superficie: '220',
-  quartier: 'Eglise de Pantin',
-}];
-
-export default (state=estimationsDefaultState, { type, id, updates }) => {
+export default (state={}, {type, estimation}) => {
 
   switch(type){
-    case 'EDIT_ESTIM':
-      return state.map(estim=>{
-        if (estim.id === id){
-          return {...estim, updates};
-        }else{
-          return estim;
-        }});
-    default:  return state;
-    }
+    // case 'EDIT_ESTIM':
+    //   return state.map(estim=>{
+    //     if (estim.id === id){
+    //       return {...estim, updates};
+    //     }else{
+    //       return estim;
+    //     }});
+    // default:  return state;
+    // }
 
+     case ADD_ESTIMATION_DEBUT:
+     return [...state, estimation];
+     break;
+
+     default:
+     return state;
+   }
 }

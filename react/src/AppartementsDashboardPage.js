@@ -19,9 +19,10 @@ componentWillMount(){
    render(){
      return(
        <div id='AppartDashboard'>
+         <Link to='/addAppartement'>Ajouter un bien</Link>
        <AppartementsListFilters />
           <AppartementsList />
-          <Link to='/addAppartement'>Ajouter un bien</Link>
+
        </div>
      );
 }};
