@@ -9,7 +9,7 @@ const Footer = () => (
          Copyright © 2018 IsmaWeb
          </div>
          <div id="dev">
-           DEVAUX PANTIN
+              DEVAUX PANTIN
          </div>
 
           <ul>

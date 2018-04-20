@@ -25,12 +25,32 @@ export const editAppartment = (id, updates) => {
 //     });
 //   };
 // };
+export const startAddAppartement = (appartementData = {}) => {
+return function(dispatch){
+    const {
+      genre = 'appartement',
+      nbPieces = 'studio',
+      superficie = 0,
+      quartier = '',
+      prix = 0,
+    } = appartementData;
+   fetch('/addAppart',
+   {
+     method: 'post',
+     headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(appartementData)
+    })
+  .then(res=>res.json())
+}}
 
 export const startEditAppartment = (id, updates = {}) => {
-  return function(){
-   fetch(`/apparts/${id}`,
+  return async function(){
+   await fetch(`/apparts/${id}`,
      {
-       method:- 'patch',
+       method: 'put',
        headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
@@ -53,29 +73,6 @@ export const startSetAppartements = () => {
   };
 };
 
-export const startAddAppartement = (appartementData = {}) => {
-
-return function(dispatch){
-    const {
-      genre = 'appartement',
-      nbPieces = 'studio',
-      superficie = 0,
-      quartier = '',
-      prix = 0,
-    } = appartementData;
-
-   fetch('/addAppart',
-   {
-     method: 'post',
-     headers: {
-      'Accept': 'application/json, text/plain, */*',
-      'Content-Type': 'application/json'
-     },
-     body: JSON.stringify(appartementData)
-    })
-  .then(res=>res.json())
-}
-}
 
 
 

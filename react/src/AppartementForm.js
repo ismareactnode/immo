@@ -57,18 +57,11 @@ onPrixChange = e => {
 
 onSubmit = e => {
   e.preventDefault();
-
-
-
 if(!this.state.quartier || !this.state.prix || !this.state.superficie
    || !this.state.genre ){
       this.setState(()=>({
         error: 'il faut tout remplir'
       }))
-
-
-
-
 }else{
   this.setState(()=>({
     error: '',
@@ -80,9 +73,8 @@ if(!this.state.quartier || !this.state.prix || !this.state.superficie
     genre: this.state.genre,
     nbPieces: this.state.nbPieces,
   });
-}
+}}
 
-}
 render(){
 
   return(

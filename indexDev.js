@@ -43,20 +43,9 @@ app.post('/addAppart', (req, res) => {
   .catch((err)=>{res.status(404).send('error : ', err)});
 });
 
-
-app.delete('/apparts/:id', (req, res) => {
-  var id = req.params.id;
-  if(!ObjectID.isValid(id)){
-    return res.sendStatus(404).send('unexisting id!');
-  }
-  Appart.findByIdAndRemove(id)
-  .then(res.status(200).send(`appart ${id} removed`))
-  .catch((e)=>console.error(e));
-});
-
 app.patch('/apparts/:id', (req, res)=>{
   var id = req.params.id;
-  var body = _.pick(req.body, ['quartier', 'superficie', 'prix']);
+  var body = _.pick(req.body, ['quartier', 'superficie', 'prix', 'genre', 'nbPieces']);
   if(!ObjectID.isValid(id)){
     return res.sendStatus(404).send('unexisting id!');
   }
@@ -70,6 +59,37 @@ app.patch('/apparts/:id', (req, res)=>{
   })
   .catch(e=>console.log('error :', e));
 })
+
+app.delete('/apparts/:id', (req, res) => {
+  var id = req.params.id;
+  if(!ObjectID.isValid(id)){
+    return res.sendStatus(404).send('unexisting id!');
+  }
+  Appart.findByIdAndRemove(id)
+  .then(res.status(200).send(`appart ${id} removed`))
+  .catch((e)=>console.error(e));
+});
+
+app.put('/apparts/:id', (req, res)=>{
+  var id = req.params.id;
+    if(!ObjectID.isValid(id)){
+      return res.sendStatus(404).send('unexisting id!');
+    }
+    var updates = req.body;
+  Appart.findByIdAndUpdate(id,
+   {$set:updates},
+   {new: true}
+ )
+  .then(appart => {
+    if(!appart){
+      return res.status(404).send('pas d\'appart');
+    }
+    res.status(200).send('updated!');
+  })
+  .catch((e)=>res.status(400).send('error :', e));
+});
+
+
 
 
 
