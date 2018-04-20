@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/styles.css';
-import AppRouter from './AppRouter.js';
-import configureStore from './store/configureStore.js';
+import AppRouter from './AppRouter';
+import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import { startSetAppartements } from './actions/appartementsActions';
+import Loading from './Loading';
 
 const store = configureStore();
 
-ReactDOM.render(<p style={{fontSize: '3em', color: 'red', backgroundColor: 'gold', display: 'inline'}}>Loading...</p>,
+ReactDOM.render(<Loading />,
 document.getElementById('root'));
 
 store.dispatch(startSetAppartements())
