@@ -37,10 +37,10 @@ app.get('/apparts', (req, res)=> {
   .catch((e)=>{res.status(400).send('error : ', e);})
 });
 
-
 app.post('/addAppart', (req, res) => {
   var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces']);
   var appart = new Appart(body);
+
   appart.save()
   .then((appart)=>{res.status(200).send(appart)})
   .catch((err)=>{res.status(404).send('error : ', err)});
@@ -109,14 +109,20 @@ app.get('/', (req,res) => {
 // })
 
 
-//
-// app.post('/users', (req, res) => {
-//   var body = _.pick(req.body, ['email', 'password']);
-//   var user = new User(body);
-//   user.save()
-//   .then((user)=>{res.send('inserted : ', user)})
-//   // .catch((err)=>{res.status(400).send('error : ', err)});
-//   })
+
+app.post('/users', (req, res) => {
+  var body = _.pick(req.body, ['email', 'password']);
+  var user = new User(body);
+  user.save().then((user)=>{
+    return user.generateAuthToken();
+  }).then((token)=>{
+    res.header('x-auth', token).send(user);
+  })
+  .catch((e)=>{
+    console.log('error : ', e);
+    res.status(400);
+});
+});
 
 
 /* on relie la racine, la page d'accueil de l'appli, à la version buildée de
