@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { ObjectID } = require('mongodb');
 const _ = require('lodash');
 
+
 /*  on a installé dotenv et dans le fichier env à la racine, qui n'est plus
 visible car on l'a mis dans gitignore, on rajoute la variable
 DATABASE_URL à process.env, aux variables d'environnement
@@ -20,6 +21,7 @@ var { User } = require('./server/db/models/User');
 var { Estimation } = require('./server/db/models/Estimation');
 var { Vendeur } = require('./server/db/models/Vendeur');
 var { Acheteur } = require('./server/db/models/Acheteur');
+var {authenticate} = require('./server/middleware/authenticate');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -109,6 +111,10 @@ app.get('/', (req,res) => {
 // })
 
 
+
+app.get('/users/me', authenticate, (req, res)=>{
+  res.send(req.user);
+});
 
 app.post('/users', (req, res) => {
   var body = _.pick(req.body, ['email', 'password']);
