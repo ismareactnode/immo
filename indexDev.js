@@ -130,6 +130,18 @@ app.post('/users', (req, res) => {
 });
 });
 
+app.post('/users/login', (req, res) => {
+  var body = _.pick(req.body, ['email', 'password']);
+User.findByCredentials(body.email, body.password)
+.then((user)=>{
+  return user.generateAuthToken().then(token =>{
+    res.header('x-auth', token).send(user);
+  })
+})
+.catch((e)=>{
+  res.status(400).send();
+});
+});
 
 /* on relie la racine, la page d'accueil de l'appli, à la version buildée de
 react/ On relie ainsi le front au back. */
