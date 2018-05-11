@@ -29,12 +29,12 @@ class Header extends React.Component{
 						      <li>
 									   <div className="dropdown">
 		                    <button className="btn btn-primary dropdown-toggle" id="menu1" type="button"
-		                    data-toggle="dropdown">L'AGENCE
+		                    data-toggle="dropdown">L' AGENCE
 		                    <span className="caret"></span></button>
 		                      <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
 		                    		<li role="presentation">
 		                      			<NavLink role="menuitem" tabindex="-1" to="/votreAgence">
-		                       		 		L'AGENCE DEVAUX
+		                       		 		L' AGENCE DEVAUX
 		                      			</NavLink>
 		                      		</li>
 		                       		<li role="presentation" className="divider"></li>
@@ -49,9 +49,14 @@ class Header extends React.Component{
 		                       		CONTACT
 		                      		</NavLink>
 		                     		</li>
+
 		                      </ul>
+
                     </div>
  									</li>
+									<NavLink to="/admin" activeClassName="is-active"><li>
+									Connexion
+									</li></NavLink>
 								</ul>
 					</div>
 				</div>
