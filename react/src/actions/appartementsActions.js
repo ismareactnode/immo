@@ -26,7 +26,7 @@ export const editAppartment = (id, updates) => {
 //   };
 // };
 export const startAddAppartement = (appartementData = {}) => {
-return function(dispatch){
+return function(){
     const {
       genre = 'appartement',
       nbPieces = 'studio',
@@ -34,16 +34,20 @@ return function(dispatch){
       quartier = '',
       prix = 0,
     } = appartementData;
-   fetch('/addAppart',
-   {
-     method: 'post',
-     headers: {
-      'Accept': 'application/json, text/plain, */*',
-      'Content-Type': 'application/json'
-     },
-     body: JSON.stringify(appartementData)
-    })
-  .then(res=>res.json())
+    try{
+       fetch('/apparts',
+      {
+        method: 'post',
+        headers: {
+         'Accept': 'application/json, text/plain, */*',
+         'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(appartementData)
+      });
+    }catch(e){
+      return Promise.reject();
+    }
+
 }}
 
 export const startEditAppartment = (id, updates = {}) => {
@@ -73,13 +77,10 @@ export const startSetAppartements = () => {
   };
 };
 
-
-
-
 export const removeAppartementFromMongo = (_id) => {
-  return function (){
+  return async function (){
     try{
-      fetch(`/apparts/${_id}`,
+    await fetch(`/apparts/${_id}`,
         {
           method: 'delete'
         })

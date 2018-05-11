@@ -39,13 +39,13 @@ app.get('/apparts', (req, res)=> {
   .catch((e)=>{res.status(400).send('error : ', e);})
 });
 
-app.post('/addAppart', (req, res) => {
+app.post('/apparts', authenticate, (req, res) => {
   var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces']);
+  body.creator = req.user._id;
   var appart = new Appart(body);
-
   appart.save()
   .then((appart)=>{res.status(200).send(appart)})
-  .catch((err)=>{res.status(404).send('error : ', err)});
+  .catch((err)=>{res.status(404).send(err)});
 });
 
 app.patch('/apparts/:id', (req, res)=>{
@@ -65,7 +65,7 @@ app.patch('/apparts/:id', (req, res)=>{
   .catch(e=>console.log('error :', e));
 })
 
-app.delete('/apparts/:id', (req, res) => {
+app.delete('/apparts/:id', authenticate, (req, res) => {
   var id = req.params.id;
   if(!ObjectID.isValid(id)){
     return res.sendStatus(404).send('unexisting id!');
@@ -75,7 +75,7 @@ app.delete('/apparts/:id', (req, res) => {
   .catch((e)=>console.error(e));
 });
 
-app.put('/apparts/:id', (req, res)=>{
+app.put('/apparts/:id', authenticate, (req, res)=>{
   var id = req.params.id;
     if(!ObjectID.isValid(id)){
       return res.sendStatus(404).send('unexisting id!');
@@ -97,12 +97,6 @@ app.put('/apparts/:id', (req, res)=>{
 
 
 
-
-app.get('/', (req,res) => {
-  res.send('ceci est le back, mec.');
-})
-
-
 // app.get('/users', (req, res) => {
 //   User.findById({_id:"5aaa4c81734d1d6b71217f6b"})
 //   .then((users)=>{console.log('users :', users);
@@ -116,7 +110,10 @@ app.get('/users/me', authenticate, (req, res)=>{
   res.send(req.user);
 });
 
+
+//logOut
 app.delete('/users/me/token', authenticate, (req, res) => {
+  console.log('yup');
   req.user.removeToken(req.token).then(()=>{
     res.status(200).send();
   }, () => {
@@ -124,13 +121,15 @@ app.delete('/users/me/token', authenticate, (req, res) => {
   });
 });
 
+//Création de user   (uniquement par le superAdmin)
 app.post('/users', (req, res) => {
-  var body = _.pick(req.body, ['email', 'password']);
+  var body = _.pick(req.body, ['email', 'password', 'name']);
   var user = new User(body);
   user.save().then((user)=>{
-    return user.generateAuthToken();
-  }).then((token)=>{
-    res.header('x-auth', token).send(user);
+  //   return user.generateAuthToken();
+  // }).then((token)=>{
+    // res.header('x-auth', token).send(user);
+    res.send(user);
   })
   .catch((e)=>{
     console.log('error : ', e);
@@ -140,16 +139,23 @@ app.post('/users', (req, res) => {
 
 app.post('/users/login', (req, res) => {
   var body = _.pick(req.body, ['email', 'password']);
+  console.log('body :', body);
 User.findByCredentials(body.email, body.password)
 .then((user)=>{
   return user.generateAuthToken().then(token =>{
+    console.log('authentifié');
+    console.log('user : ', user.name);
     res.header('x-auth', token).send(user);
   })
 })
 .catch((e)=>{
+  console.log('wrong user!!!!');
   res.status(400).send();
 });
 });
+
+
+
 
 /* on relie la racine, la page d'accueil de l'appli, à la version buildée de
 react/ On relie ainsi le front au back. */

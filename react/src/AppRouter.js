@@ -13,6 +13,9 @@ import AppartementsDashboardPage from './AppartementsDashboardPage';
 import AppartementAddPage from './AppartementAddPage';
 import EditAppartementPage from './EditAppartementPage';
 import ConfirmationSuppression from './ConfirmationSuppression';
+import AdminLogin from './AdminLogin';
+import AdminDashboard from './AdminDashboard';
+import authorized from './HOC/authorized';
 
 class AppRouter extends React.Component{
   render(){
@@ -22,8 +25,10 @@ class AppRouter extends React.Component{
 <div id="main">
 <Header />
 <Switch>
-  <Route path="/estimation" component={Estimation} />
-    <Route exact path="/addAppartement" component={AppartementAddPage} />
+        <Route exact path="/AdminDashboard" component={authorized(AdminDashboard)} />
+        <Route exact path="/admin" component={AdminLogin} />
+        <Route path="/estimation" component={Estimation} />
+        <Route exact path="/addAppartement" component={AppartementAddPage} />
         <Route exact path="/editAppartement/:id" component={EditAppartementPage} />
         <Route exact path="/confirmationSuppression/:id" component={ConfirmationSuppression} />
   <Route exact path="/" component={Home} />

@@ -23,6 +23,10 @@ var Appart = mongoose.model('Appart',{
   },
   nbPieces: {
     type: String,
+  },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    // required: true,
   }
   // etage: {
   //   type: Number,

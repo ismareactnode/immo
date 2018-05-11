@@ -1,0 +1,14 @@
+#adminLogin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 140px;
+}
+
+#adminLogin>form>p>label{
+  width: 120px;
+}
+#adminLogin>form{
+  border: 2px solid black;
+  padding: 45px 18px;
+}

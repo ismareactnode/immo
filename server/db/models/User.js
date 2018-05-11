@@ -10,11 +10,17 @@ var UserSchema = new mongoose.Schema({
       minlength: 2,
       trim: true,
       required: true,
-      // unique: true,
+      unique: true,
       validate: {
         validator: validator.isEmail,
         message: '{VALUE} is not a valid email.'
       }
+  },
+  name: {
+    type: String,
+    trim: true,
+    minlength: 2,
+   required: true,
   },
   password: {
       type: String,
@@ -32,11 +38,11 @@ var UserSchema = new mongoose.Schema({
       }
   }],
 });
-UserSchema.methods.toJSON = function(){
-  var user = this;
-  var userObject = user.toObject();
-  return _.pick(userObject, ['_id', 'email']);
-}
+// UserSchema.methods.toJSON = function(){
+//   var user = this;
+//   var userObject = user.toObject();
+//   return _.pick(userObject, ['_id', 'email']);
+// }
 
 UserSchema.statics.findByToken = function(token){
   var User = this;
