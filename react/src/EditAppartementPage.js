@@ -18,7 +18,7 @@ const EditAppartementPage = (props)=> {
     appartement = {props.appartement}
 
     onSubmit={(updates)=>{
-        props.dispatch(startEditAppartment(props.appartement._id, updates));
+        props.dispatch(startEditAppartment(props.appartement._id, updates, localStorage.getItem('token')));
         props.history.push('/catalogue');
       }
     }

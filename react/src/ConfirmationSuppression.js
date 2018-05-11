@@ -21,7 +21,7 @@ const ConfirmationSuppression = ({ history, dispatch, appartement })=> {
      <p>Etes vous sur de vouloir supprimer cet appartement ? </p>
  <button
  onClick={()=>{
-  dispatch(removeAppartementFromMongo(appartement._id));
+  dispatch(removeAppartementFromMongo(appartement._id, localStorage.getItem('token')));
   history.push('/catalogue');
 }}
  >Confirmer</button>

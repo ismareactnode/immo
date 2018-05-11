@@ -25,7 +25,7 @@ export const editAppartment = (id, updates) => {
 //     });
 //   };
 // };
-export const startAddAppartement = (appartementData = {}) => {
+export const startAddAppartement = (appartementData = {}, token) => {
 return function(){
     const {
       genre = 'appartement',
@@ -40,7 +40,8 @@ return function(){
         method: 'post',
         headers: {
          'Accept': 'application/json, text/plain, */*',
-         'Content-Type': 'application/json'
+         'Content-Type': 'application/json',
+         'x-auth': token
         },
         body: JSON.stringify(appartementData)
       });
@@ -50,14 +51,15 @@ return function(){
 
 }}
 
-export const startEditAppartment = (id, updates = {}) => {
+export const startEditAppartment = (id, updates = {}, token) => {
   return async function(){
    await fetch(`/apparts/${id}`,
      {
        method: 'put',
        headers: {
         'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-auth': token
        },
        body: JSON.stringify(updates)
     });
@@ -77,12 +79,16 @@ export const startSetAppartements = () => {
   };
 };
 
-export const removeAppartementFromMongo = (_id) => {
+export const removeAppartementFromMongo = (_id, token) => {
   return async function (){
     try{
     await fetch(`/apparts/${_id}`,
         {
-          method: 'delete'
+          method: 'delete',
+          headers:
+          {
+            'x-auth': token
+          }
         })
       .then(()=>{console.log('removed.');})
     }catch(e){

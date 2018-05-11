@@ -48,7 +48,7 @@ app.post('/apparts', authenticate, (req, res) => {
   .catch((err)=>{res.status(404).send(err)});
 });
 
-app.patch('/apparts/:id', (req, res)=>{
+app.patch('/apparts/:id', authenticate, (req, res)=>{
   var id = req.params.id;
   var body = _.pick(req.body, ['quartier', 'superficie', 'prix', 'genre', 'nbPieces']);
   if(!ObjectID.isValid(id)){
@@ -121,7 +121,7 @@ app.delete('/users/me/token', authenticate, (req, res) => {
   });
 });
 
-//Création de user   (uniquement par le superAdmin)
+//Création de user   (uniquement par le superAdmin) avec un autre authenticate propre à moi
 app.post('/users', (req, res) => {
   var body = _.pick(req.body, ['email', 'password', 'name']);
   var user = new User(body);

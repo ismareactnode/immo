@@ -56,7 +56,8 @@ background-color: rgb(9, 153, 214);
 	color: rgb(1,63,138);
 }
 
-#header>ul>li:hover{
+#header>ul>li:nth-child(1):hover, #header>ul>li:nth-child(2):hover,
+ #header>ul>li:nth-child(3):hover{
 	background-color: rgb(1,63,138);
 
 }

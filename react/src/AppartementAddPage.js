@@ -7,13 +7,11 @@ import { startAddAppartement } from './actions/appartementsActions';
  class AppartementAddPage extends React.Component{
 
    render(){
-
+   const token = localStorage.getItem('token');
     return(
       <AppartementForm
-
-        onSubmit= {
-          (appartement)=>{
-            this.props.startAddAppartement(appartement);
+        onSubmit= {(appartement)=>{
+            this.props.startAddAppartement(appartement, token);
             this.props.history.push('/catalogue');
              }
          }
@@ -23,7 +21,7 @@ import { startAddAppartement } from './actions/appartementsActions';
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddAppartement: (appartement) => dispatch(startAddAppartement(appartement))
+  startAddAppartement: (appartement, token) => dispatch(startAddAppartement(appartement, token))
 });
 
 export default connect (null, mapDispatchToProps)(AppartementAddPage);

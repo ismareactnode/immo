@@ -4,12 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 class Header extends React.Component{
 
-
-
-
-
 	render(){
-		 const name = localStorage.getItem("authorized");
+
 		return(
 
 			<div>
