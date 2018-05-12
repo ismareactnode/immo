@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import OptionModal from './OptionModal';
 
-import { addEstimationDebut } from './actions/estimActions';
 class Estimation extends React.Component{
 
 constructor(props){
@@ -15,18 +14,32 @@ constructor(props){
     sended: undefined,
   };
   this.estimer = this.estimer.bind(this);
+  this.getCookie = this.getCookie.bind(this);
+  this.desend = this.desend.bind(this);
+}
+
+ getCookie(cname){
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 
  estimer(e){
   e.preventDefault();
-  const estimation = {
-    genre: this.state.genre,
-    superficie: this.state.superficie,
-    ville: this.state.ville,
-    rue: this.state.rue
-  };
-  this.props.dispatch(addEstimationDebut(estimation));
-  console.log(this.state, 'state');
+  document.cookie=`genre=${this.state.genre}`
+  document.cookie=`superficie=${this.state.superficie}`;
+  document.cookie=`ville=${this.state.ville}`;
+  document.cookie=`rue=${this.state.rue}`;
   this.setState(()=>({sended: true}));
 }
 
@@ -47,20 +60,26 @@ onChangeRue(e){
   const rue = e.target.value;
   this.setState({rue});
 }
+desend(e){
+  e.preventDefault();
+  this.setState(() => ({sended: undefined}));
+}
+
+componentWillMount(){
+  const genreCookie = this.getCookie('genre');
+  const superficieCookie = this.getCookie('superficie');
+  const villeCookie = this.getCookie('ville');
+  const rueCookie = this.getCookie('rue');
+  this.setState(()=>({
+    genre: genreCookie,
+    superficie: superficieCookie,
+    ville: villeCookie,
+    rue: rueCookie
+  }));
+}
+
+
   render(){
-
-
-
-    const desend = (e)=>{
-      e.preventDefault();
-      this.setState(() => ({sended: undefined}));
-    }
-
-    const envoyer = (e) => {
-      e.preventDefault();
-      console.log('appel à une api d envoi de mail confirmant l enregistrement de la demande d estimation gratuite');
-    }
-
 
 
     return(
@@ -126,7 +145,7 @@ onChangeRue(e){
   				 type="text"  placeholder="rue" className="input-group"/><br/>
   				<button type="submit" className="btn btn-primary" >Estimer</button>
   			  </form>
-          <OptionModal sended={this.state.sended} desend={desend} envoyer={envoyer}/>
+          <OptionModal sended={this.state.sended} desend={this.desend} />
           <p>{this.state.appartements}</p>
   			</div>
     );
