@@ -48,7 +48,6 @@ return function(){
     }catch(e){
       return Promise.reject();
     }
-
 }}
 
 export const startEditAppartment = (id, updates = {}, token) => {

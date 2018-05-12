@@ -31,7 +31,7 @@ color: rgb(1,63,138);
 
 
 
-#header>ul>li{
+#header>ul>a>li{
 list-style: none;
 text-align: center;
 line-height: 64px;
@@ -45,23 +45,23 @@ margin-top: -20px;
 }
 
 
-#preHeader>ul>li:nth-child(1):hover, #preHeader>ul>li:nth-child(2):hover,
-#preHeader>ul>li:nth-child(3):hover, #preHeader>ul>li:nth-child(4):hover,
-#preHeader>ul>li:nth-child(5):hover{
+#preHeader>ul>a>li:nth-child(1):hover, #preHeader>ul>a>li:nth-child(2):hover,
+#preHeader>ul>a>li:nth-child(3):hover, #preHeader>ul>a>li:nth-child(4):hover,
+#preHeader>ul>a>li:nth-child(5):hover{
 
 background-color: rgb(9, 153, 214);
 }
 
-#header>ul>li>a{
+#header>ul>a>li{
 	color: rgb(1,63,138);
 }
 
-#header>ul>li:nth-child(1):hover, #header>ul>li:nth-child(2):hover,
- #header>ul>li:nth-child(3):hover{
+#header>ul>a>li:nth-child(1):hover, #header>ul>a>li:nth-child(2):hover,
+ #header>ul>a>li:nth-child(3):hover{
 	background-color: rgb(1,63,138);
 
 }
-#header>ul>li:hover a{
+#header>ul>a:hover li{
 color: white;
 text-decoration: none;
 }

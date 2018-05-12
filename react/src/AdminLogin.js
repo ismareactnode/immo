@@ -48,7 +48,7 @@ class AdminLogin extends Component{
           return user;
         })
         .catch((err) => {
-          console.log('errora :', err);
+          console.log('error :', err);
           this.props.history.push('/');
         })
 

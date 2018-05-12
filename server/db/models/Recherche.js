@@ -1,6 +1,6 @@
 var { mongoose } = require('../mongoose');
 
-var Estimation = mongoose.model('Estimation',{
+var Recherche = mongoose.model('Recherche',{
   genre:{
     type: String,
     required: true,

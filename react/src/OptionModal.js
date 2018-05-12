@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import './OptionModal.css';
 
@@ -52,17 +53,43 @@ getCookie(cname){
     const nom = this.state.nom;
     const mail = this.state.mail;
     const tel = this.state.tel;
+    document.cookie=`name=${nom}`;
 
     const genre = this.getCookie('genre');
+    const etat = this.getCookie('etat');
     const superficie = this.getCookie('superficie');
     const ville = this.getCookie('ville');
     const rue = this.getCookie('rue');
 
-    console.log(nom, mail, tel, genre, superficie, ville, rue);
+    const produit = {
+      nom,
+      mail,
+      tel,
+      genre,
+      etat,
+      superficie,
+      ville,
+      rue
+    };
+    fetch('/estimation',
+    {
+      method: 'POST',
+      headers: {
+        'Accept' : 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({produit})
+    })
+    .then((res)=>{
+      this.props.notify();
+     this.props.desend();
+   })
+    .catch((err)=>{console.log('error :', err);})
 
     /* ici, je vais fetcher toutes les infos vers une route express dans laquelle
     je vais faire l'insertion dans la collection estimation
     puis je peux ensuite effacer tous les cookies en les = ''
+
 
     à part ca, dans contact : enregistrement d'une question qui sera
     enregistrée ensuite dans une collection question avec informations
@@ -123,4 +150,4 @@ getCookie(cname){
   };
 }
 
-export default OptionModal;
+export default connect(null, null)(OptionModal);

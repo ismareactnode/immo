@@ -113,7 +113,6 @@ app.get('/users/me', authenticate, (req, res)=>{
 
 //logOut
 app.delete('/users/me/token', authenticate, (req, res) => {
-  console.log('yup');
   req.user.removeToken(req.token).then(()=>{
     res.status(200).send();
   }, () => {
@@ -154,7 +153,15 @@ User.findByCredentials(body.email, body.password)
 });
 });
 
+app.post('/estimation', (req, res)=>{
+  var produit = req.body.produit;
+   var nouvelleEstimation = new Estimation(produit);
 
+
+  nouvelleEstimation.save().then((nouvelleEstimation)=>{
+    res.status(200).send(nouvelleEstimation);
+  }).catch((err)=>{console.log('error : ', err);});
+});
 
 
 /* on relie la racine, la page d'accueil de l'appli, à la version buildée de

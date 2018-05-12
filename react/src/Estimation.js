@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import OptionModal from './OptionModal';
+import NotificationEstimation from './NotificationEstimation';
 
 class Estimation extends React.Component{
 
@@ -11,12 +12,22 @@ constructor(props){
     superficie: '',
     ville: '',
     rue: '',
+    etat: 'Moyen',
     sended: undefined,
+    notification: false,
+    name: '',
   };
   this.estimer = this.estimer.bind(this);
   this.getCookie = this.getCookie.bind(this);
   this.desend = this.desend.bind(this);
+  this.notify = this.notify.bind(this);
 }
+
+  notify(){
+    this.setState(()=>({notification: true}));
+    var name = this.getCookie('name');
+    this.setState(()=>({name}));
+  }
 
  getCookie(cname){
     var name = cname + "=";
@@ -36,7 +47,8 @@ constructor(props){
 
  estimer(e){
   e.preventDefault();
-  document.cookie=`genre=${this.state.genre}`
+  document.cookie=`genre=${this.state.genre}`;
+  document.cookie=`etat=${this.state.etat}`;
   document.cookie=`superficie=${this.state.superficie}`;
   document.cookie=`ville=${this.state.ville}`;
   document.cookie=`rue=${this.state.rue}`;
@@ -60,96 +72,118 @@ onChangeRue(e){
   const rue = e.target.value;
   this.setState({rue});
 }
+onChangeEtat(e){
+  const etat = e.target.value;
+  this.setState({etat});
+}
 desend(e){
-  e.preventDefault();
+
   this.setState(() => ({sended: undefined}));
 }
 
 componentWillMount(){
   const genreCookie = this.getCookie('genre');
+  const etatCookie = this.getCookie('etat');
   const superficieCookie = this.getCookie('superficie');
   const villeCookie = this.getCookie('ville');
   const rueCookie = this.getCookie('rue');
   this.setState(()=>({
     genre: genreCookie,
+    etat: etatCookie,
     superficie: superficieCookie,
     ville: villeCookie,
     rue: rueCookie
   }));
+
 }
 
 
   render(){
 
+        if(this.state.notification){
 
-    return(
-      <div className="col-sm-12 estimation">
+            return <NotificationEstimation name={this.state.name}/>;  
+      }else{
+          return(
+            <div className="col-sm-12 estimation">
 
-  			    <div className="jumbotron">
-    	 				<div className="container">
-       		     		 <h2>Bien estimez, pour mieux vendre</h2>
-   	 		        	 	<p>Vous souhaitez connaitre la valeur de votre bien
-   	 		         	selon sa localisation et différents critères ?
+                  <div className="jumbotron">
+                    <div className="container">
+                         <h2>Bien estimez, pour mieux vendre</h2>
+                          <p>Vous souhaitez connaitre la valeur de votre bien
+                        selon sa localisation et différents critères ?
 
-  						Utilisez notre outil d'estimation, nos agents vous
-  						répondront dans les plus brefs délais.
-  						Veuillez choisir le type de bien et saisissez l'adresse
-  						pour accéder
-  						 au formulaire plus complet.
-  						</p>
+                    Utilisez notre outil d'estimation, nos agents vous
+                    répondront dans les plus brefs délais.
+                    Veuillez choisir le type de bien et saisissez l'adresse
+                    pour accéder
+                     au formulaire plus complet.
+                    </p>
 
-    						<p><a className="btn btn-primary btn-lg"
-    						 role="button">
-    						Plus de conseils</a></p>
-    					</div>
-  			  	</div>
+                      <p><a className="btn btn-primary btn-lg"
+                       role="button">
+                      Plus de conseils</a></p>
+                    </div>
+                  </div>
 
-  			  	<h3>Estimez gratuitement la valeur de votre bien : </h3>
+                  <h3>Estimez gratuitement la valeur de votre bien : </h3>
 
-  			  	<form
-  			  	onSubmit={this.estimer}
-  			  	>
+                  <form
+                  onSubmit={this.estimer}
+                  >
+                  <label>Type</label>
+                <select
+                name="genre"
+                value={this.state.genre}
+                onChange={(e)=>this.onChangeGenre(e)}
+                selected="Appartement" name="genre">
+                    <option>Appartement</option>
+                    <option>Maison</option>
+                    <option>Terrain</option>
+                    <option>Fond de commerce</option>
+                </select><br/><br/>
+                <label>Etat</label>
+                <select
+                 onChange = { e => this.onChangeEtat(e)}
+                name="etat"
+                 value={this.state.etat}
+                 >
+                   <option>Moyen</option>
+                   <option>Neuf</option>
+                   <option>Ancien</option>
+                   <option>A rénover</option>
+                 </select><br/>
+                <label>superficie</label>
+                <input
+                name="superficie"
+                placeholder="superficie"
+                value= {this.state.superficie}
+                onChange = {e=>this.onChangeSuperficie(e)
+                  // this.setState(()=>({superficie: e.target.value}))
+                }
+                 type="text"
+                name="superficie"  placeholder="superficie" className="input-group"/><br/>
 
-  				<select
-          name="genre"
-          value={this.state.genre}
-          onChange={(e)=>this.onChangeGenre(e)}
-          selected="Appartement" name="genre">
-    					<option>Appartement</option>
-    					<option>Maison</option>
-    					<option>Terrain</option>
-              <option>Fond de commerce</option>
-  				</select><br/><br/>
+                <label>Ville</label><input
+                name="ville"
+                  placeholder="ville"
+                value={this.state.ville}
+                onChange = {e => this.onChangeVille(e)}
+                 type="text"  placeholder="ville" className="input-group"/><br/>
+                <label>Rue</label><input
+                onChange = { e => this.onChangeRue(e)}
+                name="rue"
+                value={this.state.rue}
+                 type="text"  placeholder="rue" className="input-group"/><br/>
 
-  				<input
-          name="superficie"
-          placeholder="superficie"
-          value= {this.state.superficie}
-
-          onChange = {e=>this.onChangeSuperficie(e)
-            // this.setState(()=>({superficie: e.target.value}))
-          }
-           type="text"
-  				name="superficie"  placeholder="superficie" className="input-group"/><br/>
-
-  				<input
-  				name="ville"
-            placeholder="ville"
-          value={this.state.ville}
-          onChange = {e => this.onChangeVille(e)}
-  				 type="text"  placeholder="ville" className="input-group"/><br/>
-  				<input
-          onChange = { e => this.onChangeRue(e)}
-  				name="rue"
-          value={this.state.rue}
-  				 type="text"  placeholder="rue" className="input-group"/><br/>
-  				<button type="submit" className="btn btn-primary" >Estimer</button>
-  			  </form>
-          <OptionModal sended={this.state.sended} desend={this.desend} />
-          <p>{this.state.appartements}</p>
-  			</div>
-    );
+                <button type="submit" className="btn btn-primary" >Estimer</button>
+                </form>
+                <OptionModal sended={this.state.sended} desend={this.desend}
+                notify={this.notify} />
+                <p>{this.state.appartements}</p>
+              </div>
+          );
+      }
   }
-
 };
 export default connect(null, null)(Estimation);

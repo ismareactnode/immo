@@ -5,28 +5,25 @@ import { NavLink } from 'react-router-dom';
 class Header extends React.Component{
 
 	render(){
-
+		console.log(this.props);
 		return(
-
 			<div>
-
 					<div id="header" className="col-sm-12">
 						<div id="agence">
 						  <img id="logoAgence" src="logoD.png"/>
 						    Immo DEVAUX
-
 						  </div>
 								<ul>
-									<li>
-									   <NavLink exact to="/" activeClassName="is-active">ACCUEIL</NavLink>
-									</li>
-									<li>
-									   <NavLink to="/catalogue" activeClassName="is-active">ACHETER</NavLink>
-									</li>
-									<li>
-									  <NavLink to="/estimation" activeClassName="is-active">ESTIMATION</NavLink>
-									</li>
-						      <li>
+
+									   <NavLink exact to="/" activeClassName="is-active"><li>ACCUEIL</li></NavLink>
+
+
+									   <NavLink to="/catalogue" activeClassName="is-active"><li>ACHETER</li>
+	 									</NavLink>
+
+									  <NavLink to="/estimation" activeClassName="is-active"><li>ESTIMATION</li></NavLink>
+
+						   
 									   <div className="dropdown">
 		                    <button className="btn btn-primary dropdown-toggle" id="menu1" type="button"
 		                    data-toggle="dropdown">L' AGENCE
@@ -53,7 +50,7 @@ class Header extends React.Component{
 		                      </ul>
 
                     </div>
- 									</li>
+
 									<NavLink to="/admin" activeClassName="is-active"><li>
 									Connexion
 									</li></NavLink>
