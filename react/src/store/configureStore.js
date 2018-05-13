@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import catalogueReducer from '../reducers/catalogueReducer.js';
-import filtersReducer from '../reducers/filtersReducer.js';
+import catalogueReducer from '../reducers/catalogueReducer';
+import filtersReducer from '../reducers/filtersReducer';
+import connectedReducer from '../reducers/connectedReducer';
 import thunk from 'redux-thunk';
 
 
@@ -8,6 +9,7 @@ export default () => {
   const rootReducer = combineReducers({
     catalogue: catalogueReducer,
     filters: filtersReducer,
+    connected: connectedReducer
   });
 
 

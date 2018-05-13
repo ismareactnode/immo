@@ -127,7 +127,7 @@ render(){
        {this.state.error && <p>{this.state.error}</p>}
     </form>
 
-    <Link to={'/catalogue'}>Retour à la liste</Link>
+    <Link to={'/AdminCatalogue'}>Retour à la liste</Link>
   </div>
   );
 }

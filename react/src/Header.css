@@ -16,20 +16,37 @@ font-weight: bold;
 }
 
 
-
-
-#header>ul{
+#headerAdmin{
+height: 68px;
+width: 100%;
+top: 0;
+left: 0;
+position: fixed;
+z-index: 300;
+background-color: white;
 display: flex;
 justify-content: space-between;
-width: 60%;
-
-margin-left: 2px;
-margin-top: 22px;
-padding-right: 32px;
+padding-right: 20px;
 color: rgb(1,63,138);
+font-size: 0.8em;
+font-weight: bold;
+/*opacity: 0.8;*/
 }
 
+#headerAdmin>ul>li{
+	list-style-type: none;
+}
 
+#headerAdmin>ul{
+	flex: 2;
+	display: flex;
+	justify-content: space-around;
+}
+#header>ul{
+	flex: 2;
+	display: flex;
+	justify-content: space-around;
+}
 
 #header>ul>a>li{
 list-style: none;
@@ -39,9 +56,7 @@ font-size: 1.1em;
 border-radius: 7px;
 width: 130px;
 height: 64px;
-margin-top: -20px;
-
-
+/*margin-top: -20px;*/
 }
 
 

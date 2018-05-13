@@ -13,6 +13,10 @@ import Dernieres from './Dernieres';
 
 class Home extends Component{
 
+componentWillMount(){
+  console.log('yo');
+  console.log(localStorage.getItem('token'));
+}
   render(){
     return(
     <div>

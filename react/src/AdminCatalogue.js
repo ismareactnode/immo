@@ -10,7 +10,7 @@ import AppartementAddPage from './AppartementAddPage';
 import { Link } from 'react-router-dom';
 import './AppartementDashboard.css';
 
-class AppartementsDashboardPage extends Component{
+class AdminCatalogue extends Component{
 
 componentWillMount(){
   this.props.dispatch(startSetAppartements());
@@ -27,4 +27,4 @@ componentWillMount(){
      );
 }};
 
-export default connect(null, null)(AppartementsDashboardPage);
+export default connect(null, null)(AdminCatalogue);

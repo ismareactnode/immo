@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
+import { connected } from './actions/connectedAction';
 
 import './AdminDashboard.css';
 
@@ -8,7 +11,9 @@ class AdminDashboard extends Component{
     super(props);
     this.logOut = this.logOut.bind(this);
   };
-
+componentWillMount(){
+  this.props.connected();
+}
   logOut(e){
     e.preventDefault();
     const token = localStorage.getItem('token');
@@ -40,17 +45,63 @@ class AdminDashboard extends Component{
       // Connectez vous pour accéder à ce contenu
       // }
       // </p>
-<div>
-       <div id="AdminDashboard">
-         <div>
-            <p>Bienvenue, {localStorage.getItem('name')} ! </p>
-            <button onClick={e => {this.logOut(e)}}>Déconnection</button>
+     <div id="adminMain">
+
+       <header>
+          <div id="titre">
+            <h2>ADMINISTRATEUR</h2>
+          </div>
+          <div id="button">
+            <button onClick={e => {this.logOut(e)}}>Déconnexion</button>
          </div>
+       </header>
+
+       <div id="AdminDashboard">
+
+          <div id="contenu">
+            <div id="gauche">
+            <NavLink to="/Admincatalogue">
+              <div id="catalogueProduits">
+
+                    <h4>Catalogue</h4>
+                    <p>Gérer tous vos biens</p>
+
+                  </div>
+            </NavLink>
+
+            <NavLink to="/AdminQuestions">
+              <div id="questions">
+                <h4>Visiteurs</h4>
+                <p>Leurs questions posées</p>
+              </div>
+            </NavLink>
+            </div>
+
+            <div id= "droite">
+               <NavLink to="AdminEstimation">
+                  <div id="demandesEstimation">
+                    <h4>Vendeurs</h4>
+                    Leur demandes d estimation
+                  </div>
+                </NavLink>
+
+
+              <NavLink to="AdminAlertes">
+                <div id="alertes">
+                  <h4>Acheteurs</h4>
+                    Leurs critères de recherche
+                 </div>
+              </NavLink>
+           </div>
+
+          </div>
        </div>
+
+
     </div>
 
     );
   };
 }
 
-export default connect(null, null)(AdminDashboard);
+export default connect(null, {connected})(AdminDashboard);

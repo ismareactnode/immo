@@ -1,0 +1,12 @@
+#notFound{
+  width: 100%;
+  padding: 17%;
+  height: 70vh;
+  background: url('./notFound4.jpg') no-repeat fixed;
+  margin-top: 70px;
+}
+
+#notFound>h2{
+  color: white;
+  text-align: center;
+}
