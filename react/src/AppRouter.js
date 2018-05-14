@@ -17,6 +17,7 @@ import AdminLogin from './AdminLogin';
 import AdminDashboard from './AdminDashboard';
 import Contact from './Contact';
 import authorized from './HOC/authorized';
+import AdminEstimation from './AdminEstimation';
 
 class AppRouter extends React.Component{
   render(){
@@ -31,6 +32,7 @@ class AppRouter extends React.Component{
         <Route exact path="/addAppartement" component={authorized(AppartementAddPage)} />
         <Route exact path="/confirmationSuppression/:id" component={authorized(ConfirmationSuppression)} />
         <Route exact path="/editAppartement/:id" component={authorized(EditAppartementPage)} />
+        <Route exact path="/AdminEstimation" component={authorized(AdminEstimation)} />
 
         <Route exact path="/admin" component={AdminLogin} />
         <Route path="/estimation" component={Estimation} />

@@ -52,6 +52,7 @@ float: right;
 }
 #catalogueProduits, #questions, #demandesEstimation, #alertes{
   text-align:  center;
+  padding: 35px;
 }
 #gauche>a, #droite>a{
   flex-grow: 1;

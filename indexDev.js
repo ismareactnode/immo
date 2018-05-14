@@ -39,6 +39,17 @@ app.get('/apparts', (req, res)=> {
   .catch((e)=>{res.status(400).send('error : ', e);})
 });
 
+
+app.get('/estimations', (req, res)=>{
+   Estimation.find()
+  .then((estimations) => {
+    res.status(200).send(estimations);
+  })
+  .catch((err)=>{
+    res.status(400).send('error :',err);
+  });
+})
+
 app.post('/apparts', authenticate, (req, res) => {
   var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces']);
   body.creator = req.user._id;
@@ -156,12 +167,11 @@ User.findByCredentials(body.email, body.password)
 app.post('/estimation', (req, res)=>{
   var produit = req.body.produit;
    var nouvelleEstimation = new Estimation(produit);
-
-
   nouvelleEstimation.save().then((nouvelleEstimation)=>{
     res.status(200).send(nouvelleEstimation);
   }).catch((err)=>{console.log('error : ', err);});
 });
+
 
 
 /* on relie la racine, la page d'accueil de l'appli, à la version buildée de

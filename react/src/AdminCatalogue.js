@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import './AdminCatalogue.css';
+
 import { startSetAppartements } from './actions/appartementsActions';
 import { initializeFilters } from './actions/filtersActions';
 
@@ -19,8 +21,10 @@ componentWillMount(){
    render(){
      return(
        <div id='AppartDashboard'>
-         <Link to='/addAppartement'>Ajouter un bien</Link>
-       <AppartementsListFilters />
+         <button
+         className="btn btn-primary"
+         id="ajouter"><Link to='/addAppartement'>Ajouter un bien</Link></button>
+          <AppartementsListFilters />
           <AppartementsList />
 
        </div>
