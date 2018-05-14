@@ -1,0 +1,14 @@
+/*#estimationsList>table{
+  width: 90vw;
+  margin: auto;
+}*/
+
+#estimationsList{
+  margin-top: 10vh;
+  padding: 7px;
+}
+
+#estimationsList>h3{
+  margin-bottom: 4vh;
+  margin-left: 2vw;
+}

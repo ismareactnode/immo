@@ -5,7 +5,7 @@ var Estimation = mongoose.model('Estimation',{
     type: String,
     required: true,
     default: 'appartement',
-    minlength: 3,
+    // minlength: 3,
     trim: true
   },
   etat: {
@@ -34,6 +34,9 @@ var Estimation = mongoose.model('Estimation',{
   },
   mail: {
     type: String,
+  },
+  date:{
+    type: String,
   }
 });
 
@@ -45,7 +48,8 @@ var exemple = new Estimation({
   rue: 'rue',
   nom: 'nom',
   tel: 'tel',
-  mail: 'mail'
+  mail: 'mail',
+  date: ''
 });
 exemple.save();
 

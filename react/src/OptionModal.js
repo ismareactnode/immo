@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import './OptionModal.css';
-
+import moment from 'moment-js';
 
 class OptionModal extends Component{
 
@@ -60,6 +60,7 @@ getCookie(cname){
     const superficie = this.getCookie('superficie');
     const ville = this.getCookie('ville');
     const rue = this.getCookie('rue');
+    const date = moment().format(' DD/MM/YYYY, h:mm ');
 
     const produit = {
       nom,
@@ -69,8 +70,10 @@ getCookie(cname){
       etat,
       superficie,
       ville,
-      rue
+      rue,
+      date
     };
+    console.log('produit', produit);
     fetch('/estimation',
     {
       method: 'POST',
@@ -82,9 +85,15 @@ getCookie(cname){
     })
     .then((res)=>{
       this.props.notify();
-     this.props.desend();
+      this.props.desend();
+      this.setState(()=>({
+       nom:'',
+       mail:'',
+       tel:''
+     })
+    );
    })
-    .catch((err)=>{console.log('error :', err);})
+  .catch((err)=>{console.log('error :', err);})
 
     /* ici, je vais fetcher toutes les infos vers une route express dans laquelle
     je vais faire l'insertion dans la collection estimation
@@ -120,29 +129,31 @@ getCookie(cname){
             <label>Votre nom</label>
             <input
              type="text"
+            required
              value={this.state.nom}
              onChange={e=>this.onChangeNom(e)}/>
             <label>Votre adresse mail</label>
             <input
-             type="text"
+             required
+             type="email"
              value={this.state.mail}
              onChange={e=>this.onChangeMail(e)}/>
               <label>Votre numéro</label>
               <input
               type="text"
+              placeholder="facultatif"
               value={this.state.tel}
               onChange={e=>this.onChangeTel(e)}/>
-
+                <p>
+              <button
+              onClick={this.envoyer}>recevoir votre estimation gratuitement</button>
+              </p>
 
           </form>
           <p>Vous allez recevoir un mail de
            confirmation de votre envoi, puis vous recevrez la
             réponse à votre question dans les 24 heures. Vous serez
             contacté si besoin est pour de plus amples informations.</p>
-              <p>
-            <button
-            onClick={this.envoyer}>recevoir votre estimation gratuitement</button>
-            </p>
           <button
           onClick={desend}>Retour</button>
         </Modal>

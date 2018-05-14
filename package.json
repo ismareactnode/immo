@@ -24,6 +24,7 @@
     "express": "^4.15.2",
     "jsonwebtoken": "^8.2.1",
     "lodash": "^4.17.5",
+    "momentjs": "^2.0.0",
     "mongodb": "^2.2.33",
     "mongoose": "^5.0.10",
     "validator": "^9.4.1"

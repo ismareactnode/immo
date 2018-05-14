@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const { ObjectID } = require('mongodb');
 const _ = require('lodash');
 
-
 /*  on a installé dotenv et dans le fichier env à la racine, qui n'est plus
 visible car on l'a mis dans gitignore, on rajoute la variable
 DATABASE_URL à process.env, aux variables d'environnement
@@ -21,6 +20,7 @@ var { User } = require('./server/db/models/User');
 var { Estimation } = require('./server/db/models/Estimation');
 var { Vendeur } = require('./server/db/models/Vendeur');
 var { Acheteur } = require('./server/db/models/Acheteur');
+var { Question } = require('./server/db/models/Question');
 var {authenticate} = require('./server/middleware/authenticate');
 
 const app = express();
@@ -58,6 +58,26 @@ app.post('/apparts', authenticate, (req, res) => {
   .then((appart)=>{res.status(200).send(appart)})
   .catch((err)=>{res.status(404).send(err)});
 });
+
+app.post('/question', (req, res)=>{
+
+  const {nom, mail, interrogation} = req.body;
+console.log(`nom:${nom}, mail:${mail}, interrogation:${interrogation}`);
+  var nouvelleQuestion = new Question({nom, mail, interrogation});
+  console.log(nouvelleQuestion);
+  nouvelleQuestion.save().then((nouvelleQuestion)=>{
+    res.send(nouvelleQuestion);
+  }).catch((err)=>{console.log('error : ', err);});
+});
+
+app.post('/estimation', (req, res)=>{
+  var produit = req.body.produit;
+   var nouvelleEstimation = new Estimation(produit);
+  nouvelleEstimation.save().then((nouvelleEstimation)=>{
+    res.send(nouvelleEstimation);
+  }).catch((err)=>{console.log('error : ', err);});
+});
+
 
 app.patch('/apparts/:id', authenticate, (req, res)=>{
   var id = req.params.id;
@@ -164,13 +184,6 @@ User.findByCredentials(body.email, body.password)
 });
 });
 
-app.post('/estimation', (req, res)=>{
-  var produit = req.body.produit;
-   var nouvelleEstimation = new Estimation(produit);
-  nouvelleEstimation.save().then((nouvelleEstimation)=>{
-    res.status(200).send(nouvelleEstimation);
-  }).catch((err)=>{console.log('error : ', err);});
-});
 
 
 

@@ -1,9 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
 import catalogueReducer from '../reducers/catalogueReducer';
 import filtersReducer from '../reducers/filtersReducer';
 import connectedReducer from '../reducers/connectedReducer';
 import estimationsReducer from '../reducers/estimationsReducer';
-import thunk from 'redux-thunk';
+import questionsReducer from '../reducers/questionsReducer';
+
 
 
 export default () => {
@@ -11,7 +14,8 @@ export default () => {
     catalogue: catalogueReducer,
     filters: filtersReducer,
     estimations: estimationsReducer,
-    connected: connectedReducer
+    questions: questionsReducer,
+    connected: connectedReducer,
   });
 
 

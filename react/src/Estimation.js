@@ -8,7 +8,7 @@ class Estimation extends React.Component{
 constructor(props){
   super(props);
   this.state = {
-    genre: 'appartement',
+    genre: 'Maison',
     superficie: '',
     ville: '',
     rue: '',
@@ -47,6 +47,7 @@ constructor(props){
 
  estimer(e){
   e.preventDefault();
+  console.log('this.state : ', this.state);
   document.cookie=`genre=${this.state.genre}`;
   document.cookie=`etat=${this.state.etat}`;
   document.cookie=`superficie=${this.state.superficie}`;
@@ -77,7 +78,6 @@ onChangeEtat(e){
   this.setState({etat});
 }
 desend(e){
-
   this.setState(() => ({sended: undefined}));
 }
 
@@ -102,7 +102,7 @@ componentWillMount(){
 
         if(this.state.notification){
 
-            return <NotificationEstimation name={this.state.name}/>;  
+            return <NotificationEstimation name={this.state.name}/>;
       }else{
           return(
             <div className="col-sm-12 estimation">
@@ -135,17 +135,20 @@ componentWillMount(){
                 <select
                 name="genre"
                 value={this.state.genre}
+
                 onChange={(e)=>this.onChangeGenre(e)}
-                selected="Appartement" name="genre">
+                 name="genre">
+                    <option></option>
                     <option>Appartement</option>
                     <option>Maison</option>
                     <option>Terrain</option>
                     <option>Fond de commerce</option>
                 </select><br/><br/>
                 <label>Etat</label>
-                <select
+                <select required
                  onChange = { e => this.onChangeEtat(e)}
                 name="etat"
+
                  value={this.state.etat}
                  >
                    <option>Moyen</option>
@@ -155,6 +158,7 @@ componentWillMount(){
                  </select><br/>
                 <label>superficie</label>
                 <input
+                required
                 name="superficie"
                 placeholder="superficie"
                 value= {this.state.superficie}
@@ -164,8 +168,10 @@ componentWillMount(){
                  type="text"
                 name="superficie"  placeholder="superficie" className="input-group"/><br/>
 
-                <label>Ville</label><input
+                <label>Ville</label>
+                <input
                 name="ville"
+                required
                   placeholder="ville"
                 value={this.state.ville}
                 onChange = {e => this.onChangeVille(e)}
