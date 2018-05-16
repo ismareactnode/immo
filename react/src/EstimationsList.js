@@ -9,7 +9,7 @@ class EstimationsList extends Component{
     return(
       <div id="estimationsList">
         <h3>Demandes d estimation :</h3>
-           <table className="table table-striped table-bordered table-hover">
+           <table className="table table-striped table-bordered table-hover ">
             <thead className="thead-light">
              <tr>
                <th scope="col">Date</th>

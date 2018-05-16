@@ -60,7 +60,6 @@ app.post('/apparts', authenticate, (req, res) => {
 });
 
 app.post('/question', (req, res)=>{
-
   const {nom, mail, interrogation} = req.body;
 console.log(`nom:${nom}, mail:${mail}, interrogation:${interrogation}`);
   var nouvelleQuestion = new Question({nom, mail, interrogation});
@@ -69,6 +68,26 @@ console.log(`nom:${nom}, mail:${mail}, interrogation:${interrogation}`);
     res.send(nouvelleQuestion);
   }).catch((err)=>{console.log('error : ', err);});
 });
+
+app.get('/questions', (req, res)=>{
+  Question.find()
+  .then(() => {
+    res.status(200).send(questions);
+  })
+.catch((err)=>{
+  res.status(400).send();
+});
+})
+
+app.get('/estimations', (req, res)=>{
+   Estimation.find()
+  .then((estimations) => {
+    res.status(200).send(estimations);
+  })
+  .catch((err)=>{
+    res.status(400).send('error :',err);
+  });
+})
 
 app.post('/estimation', (req, res)=>{
   var produit = req.body.produit;

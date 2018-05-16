@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import OptionModal from './OptionModal';
 import NotificationEstimation from './NotificationEstimation';
+import './Estimation.css';
 
 class Estimation extends React.Component{
 
@@ -12,6 +13,7 @@ constructor(props){
     superficie: '',
     ville: '',
     rue: '',
+    // quartier: '',
     etat: 'Moyen',
     sended: undefined,
     notification: false,
@@ -53,6 +55,7 @@ constructor(props){
   document.cookie=`superficie=${this.state.superficie}`;
   document.cookie=`ville=${this.state.ville}`;
   document.cookie=`rue=${this.state.rue}`;
+  // document.cookie=`quartier=${this.state.quartier}`;
   this.setState(()=>({sended: true}));
 }
 
@@ -77,6 +80,10 @@ onChangeEtat(e){
   const etat = e.target.value;
   this.setState({etat});
 }
+onChangeQuartier(e){
+  const quartier = e.target.value;
+  this.setState({quartier});
+}
 desend(e){
   this.setState(() => ({sended: undefined}));
 }
@@ -94,96 +101,108 @@ componentWillMount(){
     ville: villeCookie,
     rue: rueCookie
   }));
-
 }
-
 
   render(){
 
         if(this.state.notification){
-
+          console.log('notification : ', this.state.notification);
             return <NotificationEstimation name={this.state.name}/>;
       }else{
-          return(
-            <div className="col-sm-12 estimation">
+        console.log('notification : ', this.state.notification);
 
+          return(
+            <div className="col-sm-12" id="estimation">
                   <div className="jumbotron">
-                    <div className="container">
-                         <h2>Bien estimez, pour mieux vendre</h2>
+                         <h3>Bien estimez, pour mieux vendre</h3>
                           <p>Vous souhaitez connaitre la valeur de votre bien
                         selon sa localisation et différents critères ?
-
-                    Utilisez notre outil d'estimation, nos agents vous
-                    répondront dans les plus brefs délais.
-                    Veuillez choisir le type de bien et saisissez l'adresse
-                    pour accéder
-                     au formulaire plus complet.
+                    Utilisez notre outil d estimation, et votre expert vous répond
+                     dans les plus brefs délais.
                     </p>
 
-                      <p><a className="btn btn-primary btn-lg"
-                       role="button">
-                      Plus de conseils</a></p>
-                    </div>
                   </div>
-
+                  <div id="partieFormulaire">
                   <h3>Estimez gratuitement la valeur de votre bien : </h3>
 
                   <form
+
                   onSubmit={this.estimer}
                   >
-                  <label>Type</label>
-                <select
-                name="genre"
-                value={this.state.genre}
+                    <div
+                    className="form-group col-sm-12 col-md-10 col-lg-6"  >
+                      <label>Type</label>
+                      <select
+                      className="form-control"
+                      name="genre"
+                      value={this.state.genre}
+                      onChange={(e)=>this.onChangeGenre(e)}
+                      name="genre">
+                        <option>Appartement</option>
+                        <option>Maison</option>
+                        <option>Terrain</option>
+                        <option>Fond de commerce</option>
+                      </select>
+                    </div>
 
-                onChange={(e)=>this.onChangeGenre(e)}
-                 name="genre">
-                    <option></option>
-                    <option>Appartement</option>
-                    <option>Maison</option>
-                    <option>Terrain</option>
-                    <option>Fond de commerce</option>
-                </select><br/><br/>
-                <label>Etat</label>
-                <select required
-                 onChange = { e => this.onChangeEtat(e)}
-                name="etat"
+                    <div className="form-group col-sm-12 col-lg-6">
+                      <label>Etat</label>
+                      <select
+                      className="form-control"
+                       required
+                      onChange = { e => this.onChangeEtat(e)}
+                      name="etat"
+                      value={this.state.etat}
+                      >
+                        <option>Moyen</option>
+                        <option>Neuf</option>
+                        <option>Ancien</option>
+                        <option>A rénover</option>
+                      </select>
+                    </div>
 
-                 value={this.state.etat}
-                 >
-                   <option>Moyen</option>
-                   <option>Neuf</option>
-                   <option>Ancien</option>
-                   <option>A rénover</option>
-                 </select><br/>
-                <label>superficie</label>
-                <input
-                required
-                name="superficie"
-                placeholder="superficie"
-                value= {this.state.superficie}
-                onChange = {e=>this.onChangeSuperficie(e)
-                  // this.setState(()=>({superficie: e.target.value}))
-                }
-                 type="text"
-                name="superficie"  placeholder="superficie" className="input-group"/><br/>
+                     <div className="form-group col-sm-12 col-lg-6">
+                      <label>Superficie</label>
+                      <input
+                      className="form-control"
+                      required
+                      name="superficie"
+                      placeholder="superficie"
+                      value= {this.state.superficie}
+                      onChange = {e=>this.onChangeSuperficie(e)
+                        // this.setState(()=>({superficie: e.target.value}))
+                      }
+                      type="text"
+                      name="superficie"  placeholder="superficie" />
+                    </div>
 
-                <label>Ville</label>
-                <input
-                name="ville"
-                required
-                  placeholder="ville"
-                value={this.state.ville}
-                onChange = {e => this.onChangeVille(e)}
-                 type="text"  placeholder="ville" className="input-group"/><br/>
-                <label>Rue</label><input
-                onChange = { e => this.onChangeRue(e)}
-                name="rue"
-                value={this.state.rue}
-                 type="text"  placeholder="rue" className="input-group"/><br/>
+                    <div className="form-group col-sm-12 col-lg-6">
+                      <label>Ville</label>
+                      <input
+                      className="form-control"
+                      name="ville"
+                      required
+                      placeholder="ville"
+                      value={this.state.ville}
+                      onChange = {e => this.onChangeVille(e)}
+                      type="text"  placeholder="ville" />
+                      </div>
 
-                <button type="submit" className="btn btn-primary" >Estimer</button>
+                    <div className="form-group col-sm-12 col-lg-6">
+                      <label>Rue</label>
+                      <input
+                      className="form-control"
+                      onChange = { e => this.onChangeRue(e)}
+                      name="rue"
+                      value={this.state.rue}
+                      type="text"  placeholder="rue"
+                      />
+                      </div>
+                      <div className="col-sm-12">
+                      <button type="submit" className="btn btn-primary col-sm-12" >Estimer</button>
+                      </div>
                 </form>
+                </div>
                 <OptionModal sended={this.state.sended} desend={this.desend}
                 notify={this.notify} />
                 <p>{this.state.appartements}</p>

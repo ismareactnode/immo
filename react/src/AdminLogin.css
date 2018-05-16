@@ -3,12 +3,16 @@
   justify-content: center;
   align-items: center;
   margin-top: 140px;
+  height: 100%;
+
 }
 
 #adminLogin>form>p>label{
   width: 120px;
 }
 #adminLogin>form{
-  border: 2px solid black;
+  border: 1px solid rgb(1,63,138);
+  border-radius: 6px;
   padding: 45px 18px;
+    width: 50%
 }

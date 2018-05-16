@@ -62,15 +62,18 @@ class AdminLogin extends Component{
     return(
       <div id="adminLogin">
         <form onSubmit={e=>this.onFormSubmit(e)}>
-          <p><label>Email : </label>
+          <div className="form-group"><label>Email : </label>
           <input
+          className="form-control"
           type="email"
-          onChange={e=>this.onChangeEmail(e)}/></p>
-            <p><label>Password : </label>
+          onChange={e=>this.onChangeEmail(e)}/></div>
+            <div className="form-group"><label>Password : </label>
             <input
             type="password"
-            onChange={e=>this.onChangePassword(e)}/></p>
-          <button>Connexion</button>
+            className="form-control"
+            onChange={e=>this.onChangePassword(e)}/></div>
+          <button type="submit" className="btn btn-primary col-sm-12">Connexion
+          </button>
         </form>
       </div>
     );

@@ -78,26 +78,33 @@ if(!this.state.quartier || !this.state.prix || !this.state.superficie
 render(){
 
   return(
-  <div>
+  <div id="appartementForm">
     <form
-    id="appartementForm"
-    onSubmit={e=>{this.onSubmit(e)}}
+      id="appartementForm"
+      onSubmit={e=>{this.onSubmit(e)}}
       className="appartAddForm"
       >
      <h2>{this.props.appartement?'Modifier' : 'Créer'}</h2>
-      <p>
-        <select name="genre" onChange={e=>this.onGenreChange(e)}
+
+
+        <div className="form-group">
+        <select
+         className="form-control"
+          name="genre"
+          onChange={e=>this.onGenreChange(e)}
           value = {this.state.genre}>
          <option>Appartement</option>
          <option>Maison</option>
          <option>Terrain</option>
          <option>Commerce</option>
         </select>
-      </p>
+        </div>
+
   { this.state.genre.toLowerCase() === 'appartement' ||
    this.state.genre.toLowerCase() === 'maison'?
-      <p>
+      <div className="form-group">
         <select
+        className="form-control"
          name="nbPieces"
          onChange={e=>this.onNbPiecesChange(e)}
           value = {this.state.nbPieces}
@@ -108,26 +115,46 @@ render(){
          <option>4 pièces</option>
          <option>5 pièces et +</option>
         </select>
-      </p>
+      </div>
     : null
   }
-       <p>Quartier : <input name="quartier"
-       value={this.state.quartier}
-       onChange={e=>{this.onQuartierChange(e)}}
-        type="text" /></p>
-    <p>Superficie : <input name="superficie" value={this.state.superficie}
-    onChange={e=>{this.onSuperficieChange(e)}}
-    type="number" /></p>
-    <p>Prix :   <input name="prix"
-    value={this.state.prix}
-    onChange={e=>{this.onPrixChange(e)}}
-    type="text" /></p>
-       <p><button type="submit">
+       <div className="form-group">
+         <label>Quartier : </label>
+         <input
+         className="form-control"
+         name="quartier"
+         value={this.state.quartier}
+         onChange={e=>{this.onQuartierChange(e)}}
+          type="text" />
+      </div>
+
+     <div className="form-group">
+       <label>Superficie : </label>
+       <input
+        className="form-control"
+        name="superficie" value={this.state.superficie}
+        onChange={e=>{this.onSuperficieChange(e)}}
+        type="number" />
+    </div>
+    <div className="form-group">
+      <label>Prix :   </label>
+      <input
+       className="form-control"
+      name="prix"
+      value={this.state.prix}
+      onChange={e=>{this.onPrixChange(e)}}
+      type="text" />
+    </div>
+       <p><button type="submit" className="btn btn-primary col-sm-12">
        {this.props.appartement?'Confirmer':'Ajouter'}</button></p>
        {this.state.error && <p>{this.state.error}</p>}
     </form>
 
-    <Link to={'/AdminCatalogue'}>Retour à la liste</Link>
+
+    <Link to={'/AdminCatalogue'}>
+   <button type="button" className="btn btn-light col-sm-4">Retour à la liste
+     </button></Link>
+
   </div>
   );
 }

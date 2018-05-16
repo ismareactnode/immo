@@ -1,4 +1,13 @@
  #modalForm{
+   margin-top: 60px;
   padding: 15px 45px;
-  background-color: gold;
+  /*background-color: gold;*/
+}
+
+#optionModal{
+  margin-top: 80px;
+}
+
+#retour{
+  margin: 40px;
 }

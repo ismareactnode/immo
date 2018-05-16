@@ -4,8 +4,10 @@
 }*/
 
 #estimationsList{
-  margin-top: 10vh;
+  margin-top: 7vh;
   padding: 7px;
+  width: 90vw;
+  margin: auto;
 }
 
 #estimationsList>h3{

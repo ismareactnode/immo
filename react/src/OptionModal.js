@@ -11,7 +11,8 @@ class OptionModal extends Component{
     this.state={
       nom: '',
       mail: '',
-      tel: ''
+      tel: '',
+      erreur: {}
     };
     this.onChangeNom = this.onChangeNom.bind(this);
     this.onChangeTel = this.onChangeTel.bind(this);
@@ -53,6 +54,12 @@ getCookie(cname){
     const nom = this.state.nom;
     const mail = this.state.mail;
     const tel = this.state.tel;
+    // if((nom.length)<2 || !nom.match(/^[a-zA-Z]$/)){
+    //   return console.log('nom non valide.')
+    // }
+    // if(mail===''){
+    //   return console.log('veuillez indiquer votre mail pour qu on vous contacte.');
+    // }
     document.cookie=`name=${nom}`;
 
     const genre = this.getCookie('genre');
@@ -83,9 +90,9 @@ getCookie(cname){
       },
       body: JSON.stringify({produit})
     })
-    .then((res)=>{
-      this.props.notify();
-      this.props.desend();
+    .then(async(res)=>{
+      await this.props.notify();
+      await this.props.desend();
       this.setState(()=>({
        nom:'',
        mail:'',
@@ -119,43 +126,55 @@ getCookie(cname){
   render(){
     const {sended, desend, envoyer} = this.props;
       return(
-        <Modal
+        <Modal id="modal"
         isOpen={!!sended}
         onRequestClose={desend}
         contentLabel="Bien envoyé">
-          <h1>Pour recevoir votre estimation gratuitement</h1>
-          <h2>dans les 24 heures</h2>
+        <div id="optionModal">
+          <h3>Pour recevoir votre estimation gratuitement</h3>
+          <h4>dans les 24 heures</h4>
           <form id="modalForm">
+            <div className="form-group col-sm-12 col-md-10 col-lg-6">
             <label>Votre nom</label>
             <input
+            className="form-control"
              type="text"
             required
              value={this.state.nom}
              onChange={e=>this.onChangeNom(e)}/>
-            <label>Votre adresse mail</label>
-            <input
-             required
-             type="email"
-             value={this.state.mail}
-             onChange={e=>this.onChangeMail(e)}/>
+             </div>
+            <div className="form-group col-sm-12 col-md-10 col-lg-6">
+              <label>Votre adresse mail</label>
+              <input
+                className="form-control"
+               required
+               type="email"
+               value={this.state.mail}
+               onChange={e=>this.onChangeMail(e)}/>
+              </div>
+              <div className="form-group col-sm-12 col-md-10 col-lg-6">
               <label>Votre numéro</label>
               <input
+                className="form-control"
               type="text"
               placeholder="facultatif"
               value={this.state.tel}
               onChange={e=>this.onChangeTel(e)}/>
-                <p>
-              <button
+              </div>
+
+              <button className="btn btn-primary col-sm-12"
               onClick={this.envoyer}>recevoir votre estimation gratuitement</button>
-              </p>
+
 
           </form>
-          <p>Vous allez recevoir un mail de
-           confirmation de votre envoi, puis vous recevrez la
-            réponse à votre question dans les 24 heures. Vous serez
-            contacté si besoin est pour de plus amples informations.</p>
-          <button
+
+          <p className="col-md-6 col-lg-6"> Notre expert immobilier se fera un
+          plaisir de vous répondre.</p>
+          <div id="retour">
+          <button type="button" className="btn btn-light"
           onClick={desend}>Retour</button>
+          </div>
+          </div>
         </Modal>
       );
   };
