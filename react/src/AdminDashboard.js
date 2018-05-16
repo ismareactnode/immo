@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { connected } from './actions/connectedAction';
+import { connected, setNotConnected } from './actions/connectedAction';
 
 import './AdminDashboard.css';
 
@@ -16,6 +16,7 @@ componentWillMount(){
 }
   logOut(e){
     e.preventDefault();
+    this.props.setNotConnected();
     const token = localStorage.getItem('token');
     this.props.history.push('/');
     try{
@@ -49,7 +50,7 @@ componentWillMount(){
 
        <header>
           <div id="titre">
-            <h2>ADMINISTRATEUR</h2>
+            <h2>MENU</h2>
           </div>
           <div id="button">
             <button onClick={e => {this.logOut(e)}}>Déconnexion</button>
@@ -104,4 +105,4 @@ componentWillMount(){
   };
 }
 
-export default connect(null, {connected})(AdminDashboard);
+export default connect(null, {connected, setNotConnected})(AdminDashboard);

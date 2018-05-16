@@ -9,7 +9,7 @@ class Header extends React.Component{
 	render(){
 
 		if(this.props.connected === true){
-			console.log(this.props.connected);
+			console.log('le header trouve le user connecté');
 			return(
 				<div>
 						<div id="headerAdmin" className="col-sm-12">
@@ -25,7 +25,7 @@ class Header extends React.Component{
 					</div>
 			);
 		}else{
-			console.log(this.props.connected);
+			console.log('le header trouve le user non connecté');
 			return(
 				<div>
 						<div id="header" className="col-sm-12">
@@ -85,7 +85,7 @@ class Header extends React.Component{
 
 function mapStateToProps(state){
 	return {
-		connected: state.connected
+		connected: state.userConnected
 	};
 }
 

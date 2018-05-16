@@ -16,6 +16,10 @@ var Recherche = mongoose.model('Recherche',{
     type: String,
     required: true
   },
+  proximite:
+    type: String,
+    required: true
+  },
   quartier:{
     type: String,
     required: true
@@ -23,7 +27,24 @@ var Recherche = mongoose.model('Recherche',{
   etat: {
     type: String
   },
-  budget_max:{
+  budget:{
     type: Number
+  },
+  nom:{
+    type: String,
+    required: true
+  },
+  mail:{
+    type: String,
+    required: true
+  },
+  tel:{
+    type: String,
+    required: true
+  },
+  precision:{
+    type: String
   }
 });
+
+module.exports = { Recherche };

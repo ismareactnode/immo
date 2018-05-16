@@ -163,13 +163,13 @@ getCookie(cname){
               </div>
 
               <button className="btn btn-primary col-sm-12"
-              onClick={this.envoyer}>recevoir votre estimation gratuitement</button>
+              onClick={this.envoyer}>Recevoir votre estimation gratuitement</button>
 
 
           </form>
 
-          <p className="col-md-6 col-lg-6"> Notre expert immobilier se fera un
-          plaisir de vous répondre.</p>
+          <div id="expert" className="col-md-6 col-lg-12"><h3> Notre expert immobilier se fera un
+          plaisir de vous répondre</h3></div>
           <div id="retour">
           <button type="button" className="btn btn-light"
           onClick={desend}>Retour</button>

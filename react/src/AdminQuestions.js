@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
+import { connected } from './actions/connectedAction';
+
 import { fetchQuestions } from './actions/questionsActions';
 
 import './AdminQuestions.css';
@@ -8,6 +10,7 @@ import './AdminQuestions.css';
 class AdminQuestions extends Component{
 
   componentWillMount(){
+    this.props.connected();
     this.props.fetchQuestions();
   }
   render(){
@@ -19,4 +22,4 @@ class AdminQuestions extends Component{
   };
 }
 
-export default connect(null, {fetchQuestions})(AdminQuestions);
+export default connect(null, {fetchQuestions, connected })(AdminQuestions);

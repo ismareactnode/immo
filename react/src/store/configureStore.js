@@ -6,6 +6,7 @@ import filtersReducer from '../reducers/filtersReducer';
 import connectedReducer from '../reducers/connectedReducer';
 import estimationsReducer from '../reducers/estimationsReducer';
 import questionsReducer from '../reducers/questionsReducer';
+import recherchesReducer from '../reducers/recherchesReducer';
 
 
 
@@ -13,9 +14,10 @@ export default () => {
   const rootReducer = combineReducers({
     catalogue: catalogueReducer,
     filters: filtersReducer,
+    recherches: recherchesReducer,
     estimations: estimationsReducer,
     questions: questionsReducer,
-    connected: connectedReducer,
+    userConnected: connectedReducer,
   });
 
 

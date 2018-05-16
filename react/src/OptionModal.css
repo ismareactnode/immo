@@ -7,7 +7,17 @@
 #optionModal{
   margin-top: 80px;
 }
+#optionModal>h3, #optionModal>h4 {
+    color: rgb(1,63,138);
+}
 
 #retour{
   margin: 40px;
+}
+
+#expert{
+  margin-top: 30px;
+  height: 15vh;
+  color: rgb(1,63,138);
+  text-align: center;
 }

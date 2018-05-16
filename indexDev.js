@@ -98,6 +98,25 @@ app.post('/estimation', (req, res)=>{
 });
 
 
+app.get('/recherches', (req, res)=>{
+   Recherches.find()
+  .then((recherches) => {
+    res.status(200).send(recherches);
+  })
+  .catch((err)=>{
+    res.status(400).send('error :',err);
+  });
+})
+
+app.post('/recherches', (req, res)=>{
+  var produit = req.body.produit;
+   var nouvelleRecherche = new Recherche(produit);
+  nouvelleRecherche.save().then((nouvelleRecherche)=>{
+    res.send(nouvelleRecherche);
+  }).catch((err)=>{console.log('error : ', err);});
+});
+
+
 app.patch('/apparts/:id', authenticate, (req, res)=>{
   var id = req.params.id;
   var body = _.pick(req.body, ['quartier', 'superficie', 'prix', 'genre', 'nbPieces']);
