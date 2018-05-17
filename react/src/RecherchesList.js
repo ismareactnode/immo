@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './RehcherchesList.css';
+import './RecherchesList.css';
 
 class RecherchesList extends Component{
   render(){

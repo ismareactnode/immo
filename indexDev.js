@@ -51,7 +51,11 @@ app.get('/estimations', (req, res)=>{
 })
 
 app.post('/apparts', authenticate, (req, res) => {
-  var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces']);
+  var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces', 'photo']);
+
+  if (body.photo === ''){
+    body.photo = 'default.jpeg';
+  }
   body.creator = req.user._id;
   var appart = new Appart(body);
   appart.save()

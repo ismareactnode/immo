@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import './AdminRecherche.css';
+import './AdminRecherches.css';
 
-import EstimationsList from './RecherchesList';
+import RecherchesList from './RecherchesList';
 import { connected } from './actions/connectedAction';
 import { fetchEstimations } from './actions/estimationsActions';
 
-class AdminRecherche extends Component{
+class AdminRecherches extends Component{
 
 componentWillMount(){
   this.props.connected();
@@ -25,4 +25,4 @@ componentWillMount(){
 
 
 
-export default connect (null, {fetchEstimations, connected }) (AdminRecherche);
+export default connect (null, {fetchEstimations, connected }) (AdminRecherches);

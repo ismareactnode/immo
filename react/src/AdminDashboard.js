@@ -15,10 +15,9 @@ componentWillMount(){
   this.props.connected();
 }
   logOut(e){
-    e.preventDefault();
     this.props.setNotConnected();
     const token = localStorage.getItem('token');
-    this.props.history.push('/');
+
     try{
       fetch('/users/me/token',
          {
@@ -31,6 +30,7 @@ componentWillMount(){
         localStorage.setItem('name','');
         localStorage.setItem('email', '');
         localStorage.setItem('token', '');
+        this.props.history.push('/');
       });
     }catch(e){
       console.log('error :', e);

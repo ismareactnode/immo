@@ -22,7 +22,7 @@ const ConfirmationSuppression = ({ history, dispatch, appartement })=> {
  <button
  onClick={()=>{
   dispatch(removeAppartementFromMongo(appartement._id, localStorage.getItem('token')));
-  history.push('/catalogue');
+  history.push('/AdminCatalogue');
 }}
  >Confirmer</button>
   <Link to={`/editAppartement/${appartement._id}`}>Retour</Link>

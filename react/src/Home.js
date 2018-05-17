@@ -16,7 +16,8 @@ import Dernieres from './Dernieres';
 class Home extends Component{
 
 componentWillMount(){
-// this.props.connected();
+  console.log("mounted");
+this.props.connected();
 }
   render(){
     return(

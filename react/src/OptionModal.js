@@ -50,7 +50,8 @@ getCookie(cname){
    return "";
 }
 
-  envoyer(){
+  envoyer(e){
+    e.preventDefault();
     const nom = this.state.nom;
     const mail = this.state.mail;
     const tel = this.state.tel;
@@ -93,12 +94,6 @@ getCookie(cname){
     .then(async(res)=>{
       await this.props.notify();
       await this.props.desend();
-      this.setState(()=>({
-       nom:'',
-       mail:'',
-       tel:''
-     })
-    );
    })
   .catch((err)=>{console.log('error :', err);})
 
@@ -124,7 +119,7 @@ getCookie(cname){
   }
 
   render(){
-    const {sended, desend, envoyer} = this.props;
+    const {sended, desend } = this.props;
       return(
         <Modal id="modal"
         isOpen={!!sended}

@@ -11,7 +11,7 @@ import { initializeFilters } from './actions/filtersActions';
 
 import AppartementsList from './AppartementsList';
 import AppartementsListFilters from './AppartementsListFilters';
-import AppartementAddPage from './AppartementAddPage';
+import AdminAppartementAddPage from './AdminAppartementAddPage';
 import { Link } from 'react-router-dom';
 import './AppartementDashboard.css';
 
@@ -30,7 +30,7 @@ componentWillMount(){
         <div id='AppartDashboard'>
          <button
          className="btn btn-primary"
-         id="ajouter"><Link to='/addAppartement'>Ajouter un bien</Link></button>
+         id="ajouter"><Link to='/AdminAddAppartement'>Ajouter un bien</Link></button>
           <AppartementsListFilters />
           <AppartementsList />
        </div>

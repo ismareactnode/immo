@@ -1,6 +1,6 @@
-#appartItem{
-  margin: 10px 3px;
-  border-bottom: 1px solid rgba(46 ,68, 130, 0.8);
+#carteSmallInfos>ul{
+  /*margin: 10px 3px;*/
+
   list-style-type: none;
 }
 #appartItem>a>ul>li{
@@ -11,4 +11,48 @@
 #appartItem>a:hover{
   text-decoration: none;
   color: rgb(46 ,68, 130);
+}
+
+#carteSmall{
+  margin-bottom: 6px;
+  border: 0.5px solid rgba(46 ,68, 130,0.1);
+  margin-left: 0px;
+}
+
+#carteSmallFlexBox{
+display: flex;
+}
+
+.responsiveTof{
+  width: 100%;
+  height: 100%;
+}
+
+#carteSmallPhoto{
+  border: 2px solid red;
+  background-color: pink;
+}
+#carteSmall>a:hover{
+  text-decoration: none;
+  color: rgb(100, 147, 206);
+}
+
+#carteSmall>a:hover ul>li{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+#carteSmallInfos, #carteSmallPhoto{
+  flex: 1;
+}
+#carteSmallInfos{
+color: rgb(46 ,68, 130);
+/*font-weight: bold;*/
+  font-size: 1.1em;
+}
+
+#delete{
+  float: right;
+  margin-bottom: 4px;
 }

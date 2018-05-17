@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { connected } from './actions/connectedAction';
+
 import './Contact.css';
 
 class Contact extends Component{
@@ -10,6 +14,10 @@ class Contact extends Component{
       interrogation: ''
     };
   }
+  componentWillMount(){
+    this.props.connected();
+  }
+
 onChangeNom(e){
   const nom = e.target.value;
   this.setState(()=>({nom}))
@@ -98,4 +106,4 @@ render(){
   }
 }
 
-export default Contact;
+export default connect(null, {connected})(Contact);

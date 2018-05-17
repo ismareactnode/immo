@@ -13,6 +13,7 @@ class AppartementForm extends React.Component{
       superficie: props.appartement ? props.appartement.superficie : '',
       prix: props.appartement ? props.appartement.prix.toString()  : '',
       quartier: props.appartement ? props.appartement.quartier : '',
+      photo: props.appartement ? props.appartement.photo : '',
       id: props.appartement ? props.appartement.id : '',
       error: '',
   }
@@ -44,6 +45,12 @@ onNbPiecesChange = e => {
     nbPieces
   }));
 }
+
+onPhotoChange = e => {
+  const photo = e.target.value;
+  this.setState(()=>({photo}));
+}
+
 onPrixChange = e => {
   const prix = e.target.value;
   if(!prix || prix.match(/^\d{1,}(\.\d{0,2})?$/))
@@ -72,6 +79,7 @@ if(!this.state.quartier || !this.state.prix || !this.state.superficie
     superficie: this.state.superficie,
     genre: this.state.genre,
     nbPieces: this.state.nbPieces,
+    photo: this.state.photo,
   });
 }}
 
@@ -144,6 +152,17 @@ render(){
       value={this.state.prix}
       onChange={e=>{this.onPrixChange(e)}}
       type="text" />
+    </div>
+    <div className = "form-group">
+      <label>nom du fichier photo : </label>
+      <input
+      onChange={e=>this.onPhotoChange(e)}
+       type="text"
+       className="form-control"
+       name="photo"
+       value = {this.state.photo}
+      placeholder="fichier à ranger dans le dossier public"
+      />
     </div>
        <p><button type="submit" className="btn btn-primary col-sm-12">
        {this.props.appartement?'Confirmer':'Ajouter'}</button></p>

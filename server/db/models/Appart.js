@@ -24,6 +24,9 @@ var Appart = mongoose.model('Appart',{
   nbPieces: {
     type: String,
   },
+  photo: {
+      type: String,
+  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     // required: true,

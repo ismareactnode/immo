@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { startAddAppartement } from './actions/appartementsActions';
 
 
- class AppartementAddPage extends React.Component{
+ class AdminAppartementAddPage extends React.Component{
 
    render(){
    const token = localStorage.getItem('token');
@@ -12,7 +12,7 @@ import { startAddAppartement } from './actions/appartementsActions';
       <AppartementForm
         onSubmit= {(appartement)=>{
             this.props.startAddAppartement(appartement, token);
-            this.props.history.push('/catalogue');
+            this.props.history.push('/Admincatalogue');
              }
          }
       />
@@ -24,4 +24,4 @@ const mapDispatchToProps = (dispatch) => ({
   startAddAppartement: (appartement, token) => dispatch(startAddAppartement(appartement, token))
 });
 
-export default connect (null, mapDispatchToProps)(AppartementAddPage);
+export default connect (null, mapDispatchToProps)(AdminAppartementAddPage);
