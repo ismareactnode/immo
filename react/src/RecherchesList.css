@@ -1,0 +1,12 @@
+
+#recherchesList{
+  margin-top: 7vh;
+  padding: 7px;
+  width: 90vw;
+  margin: auto;
+}
+
+#recherchesList>h3{
+  margin-bottom: 4vh;
+  margin-left: 2vw;
+}

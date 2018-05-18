@@ -20,6 +20,7 @@ import authorized from './HOC/authorized';
 import AdminEstimation from './AdminEstimation';
 import AdminQuestions from './AdminQuestions';
 import AdminRecherches from './AdminRecherches';
+import Recherche from './Recherche';
 
 class AppRouter extends React.Component{
   render(){
@@ -39,6 +40,7 @@ class AppRouter extends React.Component{
         <Route exact path="/AdminRecherches" component={authorized(AdminRecherches)} />
         <Route exact path="/admin" component={AdminLogin} />
         <Route path="/estimation" component={Estimation} />
+        <Route path="/recherche" component={Recherche} />
         <Route exact path="/" component={Home} />
         <Route path="/catalogue/:id" component={CatalogueFiche} />
         <Route exact path="/agence" component={Agence} />

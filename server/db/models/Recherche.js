@@ -3,26 +3,26 @@ var { mongoose } = require('../mongoose');
 var Recherche = mongoose.model('Recherche',{
   genre:{
     type: String,
-    required: true,
+    // required: true,
     default: 'appartement',
     minlength: 3,
   },
   superficie: {
     type: Number,
-    required: true,
+    // required: true,
     default: 0
   },
   ville: {
     type: String,
-    required: true
+    // required: true
   },
-  proximite:
+  proximite: {
     type: String,
-    required: true
+    // required: true
   },
   quartier:{
     type: String,
-    required: true
+    // required: true
   },
   etat: {
     type: String
@@ -32,17 +32,20 @@ var Recherche = mongoose.model('Recherche',{
   },
   nom:{
     type: String,
-    required: true
+    // required: true
   },
   mail:{
     type: String,
-    required: true
+    // required: true
   },
   tel:{
     type: String,
-    required: true
+    // required: true
   },
   precision:{
+    type: String
+  },
+  date: {
     type: String
   }
 });

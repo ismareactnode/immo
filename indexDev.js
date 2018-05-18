@@ -21,6 +21,7 @@ var { Estimation } = require('./server/db/models/Estimation');
 var { Vendeur } = require('./server/db/models/Vendeur');
 var { Acheteur } = require('./server/db/models/Acheteur');
 var { Question } = require('./server/db/models/Question');
+var { Recherche } = require('./server/db/models/Recherche');
 var {authenticate} = require('./server/middleware/authenticate');
 
 const app = express();
@@ -64,9 +65,9 @@ app.post('/apparts', authenticate, (req, res) => {
 });
 
 app.post('/question', (req, res)=>{
-  const {nom, mail, interrogation} = req.body;
+  const {nom, mail, interrogation, date} = req.body;
 console.log(`nom:${nom}, mail:${mail}, interrogation:${interrogation}`);
-  var nouvelleQuestion = new Question({nom, mail, interrogation});
+  var nouvelleQuestion = new Question({nom, mail, interrogation, date});
   console.log(nouvelleQuestion);
   nouvelleQuestion.save().then((nouvelleQuestion)=>{
     res.send(nouvelleQuestion);
@@ -111,7 +112,7 @@ app.post('/estimation', (req, res)=>{
 
 
 app.get('/recherches', (req, res)=>{
-   Recherches.find()
+   Recherche.find()
   .then((recherches) => {
     res.status(200).send(recherches);
   })
@@ -121,8 +122,12 @@ app.get('/recherches', (req, res)=>{
 })
 
 app.post('/recherches', (req, res)=>{
-  var produit = req.body.produit;
-   var nouvelleRecherche = new Recherche(produit);
+  var recherche = req.body.recherche;
+  if (recherche.genre === ''){
+    recherche.genre = 'appartement';
+  }
+  console.log('recherche : ', recherche);
+   var nouvelleRecherche = new Recherche(recherche);
   nouvelleRecherche.save().then((nouvelleRecherche)=>{
     res.send(nouvelleRecherche);
   }).catch((err)=>{console.log('error : ', err);});

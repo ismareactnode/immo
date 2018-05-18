@@ -7,7 +7,7 @@ import './QuestionsList.css';
 class QuestionsList extends Component{
   render(){
     return(
-      <div id="questionList">
+      <div id="questionsList">
         <h3>Questions :</h3>
            <table className="table table-striped table-bordered table-hover ">
             <thead className="thead-light">

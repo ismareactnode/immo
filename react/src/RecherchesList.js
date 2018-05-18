@@ -23,6 +23,8 @@ class RecherchesList extends Component{
                <th scope="col">Email</th>
                <th scope="col">Tel</th>
                <th scope="col">Précisions</th>
+               <th scope="col">Date</th>
+
              </tr>
             </thead>
             <tbody>
@@ -39,6 +41,7 @@ class RecherchesList extends Component{
                             <td>{produit.mail}</td>
                             <td>{produit.tel}</td>
                             <td>{produit.precision}</td>
+                            <td>{produit.date}</td>
 
                           </tr>
               )}
@@ -51,7 +54,7 @@ class RecherchesList extends Component{
 
 const mapStateToProps = (state) => {
   return{
-    recherches: state.recherces
+    recherches: state.recherches
   };
 }
 export default connect(mapStateToProps, null)(RecherchesList);

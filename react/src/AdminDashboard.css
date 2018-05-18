@@ -44,7 +44,7 @@ color: white;
 color: rgb(1,63,138);
 }
 #gauche>a>#catalogueProduits>h4, #gauche>a>#questions>h4, #droite>a>h4,
- #droite>a>#demandesEstimation>h4, #droite>a>#alertes>h4{
+ #droite>a>#demandesEstimation>h4, #droite>a>#recherches>h4{
 font-weight: bold;
 }
 #AdminDashboard>button{
@@ -59,7 +59,7 @@ float: right;
   height: 50vh;
   display: flex;
 }
-#catalogueProduits, #questions, #demandesEstimation, #alertes{
+#catalogueProduits, #questions, #demandesEstimation, #recherches{
   text-align:  center;
   padding: 35px;
 }

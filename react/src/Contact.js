@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment-js';
 
 import { connected } from './actions/connectedAction';
 
@@ -35,6 +36,7 @@ envoyerQuestion(e){
     const nom = this.state.nom;
     const mail = this.state.mail;
     const interrogation = this.state.interrogation;
+    const date = moment().format(' DD/MM/YYYY, h:mm ');
   fetch('/question',
   {
     method: 'POST',
@@ -42,7 +44,7 @@ envoyerQuestion(e){
       'Accept' : 'application/json, text/plain, */*',
     'Content-Type': 'application/json'
     },
-    body: JSON.stringify({nom, mail, interrogation})
+    body: JSON.stringify({nom, mail, interrogation, date})
   })
   .then((question)=>{
     this.setState(()=>({

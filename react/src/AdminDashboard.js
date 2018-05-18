@@ -87,8 +87,8 @@ componentWillMount(){
                 </NavLink>
 
 
-              <NavLink to="AdminAlertes">
-                <div id="alertes">
+              <NavLink to="AdminRecherches">
+                <div id="recherches">
                   <h4>Acheteurs</h4>
                     Leurs critères de recherche
                  </div>
