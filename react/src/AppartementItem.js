@@ -25,7 +25,7 @@ const AppartementItem = ({ _id, genre, nbPieces, quartier, superficie, prix, pho
               <li>{nbPieces}</li>
               : null
               }
-              <li>{superficie} m2</li>      
+              <li>{superficie} m2</li>
               <li>{prix} €</li>
             </ul>
             <Link to={`/confirmationSuppression/${_id}`}>

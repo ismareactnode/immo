@@ -51,13 +51,14 @@ getCookie(cname){
 }
 
   envoyer(e){
+    console.log('fonction envoyer');
     e.preventDefault();
     const nom = this.state.nom;
     const mail = this.state.mail;
     const tel = this.state.tel;
     // if((nom.length)<2 || !nom.match(/^[a-zA-Z]$/)){
     //   return console.log('nom non valide.')
-    // }
+    // }michemouche
     // if(mail===''){
     //   return console.log('veuillez indiquer votre mail pour qu on vous contacte.');
     // }

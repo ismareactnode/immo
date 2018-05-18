@@ -74,8 +74,9 @@ console.log(`nom:${nom}, mail:${mail}, interrogation:${interrogation}`);
 });
 
 app.get('/questions', (req, res)=>{
+  console.log('on est sur la route questions');
   Question.find()
-  .then(() => {
+  .then((questions) => {console.log(questions);
     res.status(200).send(questions);
   })
 .catch((err)=>{
@@ -94,7 +95,14 @@ app.get('/estimations', (req, res)=>{
 })
 
 app.post('/estimation', (req, res)=>{
+  if(req.body.produit.genre === ''){
+    res.body.produit.genre = 'appartement';
+  };
+  if(req.body.produit.etat === ''){
+    req.body.produit.etat = 'moyen';
+  };
   var produit = req.body.produit;
+
    var nouvelleEstimation = new Estimation(produit);
   nouvelleEstimation.save().then((nouvelleEstimation)=>{
     res.send(nouvelleEstimation);

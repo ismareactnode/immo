@@ -1,0 +1,16 @@
+/*#estimationsList>table{
+  width: 90vw;
+  margin: auto;
+}*/
+
+#questionsList{
+  margin-top: 7vh;
+  padding: 7px;
+  width: 90vw;
+  margin: auto;
+}
+
+#questionsList>h3{
+  margin-bottom: 4vh;
+  margin-left: 2vw;
+}
