@@ -9,7 +9,6 @@ class Header extends React.Component{
 	render(){
 
 		if(this.props.connected === true){
-			console.log('le header trouve le user connecté');
 			return(
 				<div>
 						<div id="headerAdmin" className="col-sm-12">
@@ -25,7 +24,6 @@ class Header extends React.Component{
 					</div>
 			);
 		}else{
-			console.log('le header trouve le user non connecté');
 			return(
 				<div>
 						<div id="header" className="col-sm-12">
@@ -44,7 +42,7 @@ class Header extends React.Component{
 										  <NavLink to="/estimation" activeClassName="is-active"><li>ESTIMATION</li></NavLink>
 
 
-										   <div className="dropdown">
+										   <div className="dropdown" id="drop">
 			                    <button className="btn btn-primary dropdown-toggle" id="menu1" type="button"
 			                    data-toggle="dropdown">L' AGENCE
 			                    <span className="caret"></span></button>

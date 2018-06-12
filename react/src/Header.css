@@ -16,6 +16,9 @@ font-weight: bold;
 /*opacity: 0.8;*/
 }
 
+#drop{
+	margin-top: 15px;
+}
 
 #headerAdmin{
 height: 68px;

@@ -4,6 +4,16 @@ const bodyParser = require('body-parser');
 const { ObjectID } = require('mongodb');
 const _ = require('lodash');
 
+const { getApparts, postApparts, putApparts, deleteApparts } =
+require('./server/controlers/appartementsControler');
+const { getQuestions, postQuestions } =
+require('./server/controlers/questionsControler');
+const { getEstimation, postEstimation } =
+ require('./server/controlers/estimationsControler');
+const { getRecherches, postRecherches } =
+require('./server/controlers/recherchesControler');
+const { userLogin, userCreate } = require('./server/controlers/usersControler')
+
 /*  on a installé dotenv et dans le fichier env à la racine, qui n'est plus
 visible car on l'a mis dans gitignore, on rajoute la variable
 DATABASE_URL à process.env, aux variables d'environnement
@@ -12,234 +22,124 @@ sur heroku, dans le dashboard, on a ajouté aux variables d'environnemnet dans
 la config cette clé DATABASE_URL avec en valeur l'url de la database sur
 mlab */
 
-require('dotenv').config();
 
 var { mongoose, db } = require('./server/db/mongoose');
+var { User } = require('./server/db/models/User');
 var { Appart } = require('./server/db/models/Appart');
 var { User } = require('./server/db/models/User');
 var { Estimation } = require('./server/db/models/Estimation');
-var { Vendeur } = require('./server/db/models/Vendeur');
-var { Acheteur } = require('./server/db/models/Acheteur');
+// var { Vendeur } = require('./server/db/models/Vendeur');
+// var { Acheteur } = require('./server/db/models/Acheteur');
 var { Question } = require('./server/db/models/Question');
 var { Recherche } = require('./server/db/models/Recherche');
 var {authenticate} = require('./server/middleware/authenticate');
 
 const app = express();
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => { console.log('server connected on port', PORT);});
+const PORT = process.env.PORTserver || 4000;
+app.listen(PORT, () => {console.log('port :', PORT);});
 
 app.use(bodyParser.json());
 
 /*  voici l'url de l'app déployée sur heroku*/
-// const url = 'https://vast-chamber-79371.herokuapp.com';
-
+// const url = 'https://vast-chamber-79371.heconsole.log('server connected on port', PORT);});rokuapp.com';
 
 app.get('/apparts', (req, res)=> {
-  Appart.find()
-  .then((apparts)=>{res.send(apparts)})
-  .catch((e)=>{res.status(400).send('error : ', e);})
+  getApparts(req, res);
 });
-
-
-app.get('/estimations', (req, res)=>{
-   Estimation.find()
-  .then((estimations) => {
-    res.status(200).send(estimations);
-  })
-  .catch((err)=>{
-    res.status(400).send('error :',err);
-  });
-})
 
 app.post('/apparts', authenticate, (req, res) => {
-  var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces', 'photo']);
-
-  if (body.photo === ''){
-    body.photo = 'default.jpeg';
-  }
-  body.creator = req.user._id;
-  var appart = new Appart(body);
-  appart.save()
-  .then((appart)=>{res.status(200).send(appart)})
-  .catch((err)=>{res.status(404).send(err)});
-});
-
-app.post('/question', (req, res)=>{
-  const {nom, mail, interrogation, date} = req.body;
-console.log(`nom:${nom}, mail:${mail}, interrogation:${interrogation}`);
-  var nouvelleQuestion = new Question({nom, mail, interrogation, date});
-  console.log(nouvelleQuestion);
-  nouvelleQuestion.save().then((nouvelleQuestion)=>{
-    res.send(nouvelleQuestion);
-  }).catch((err)=>{console.log('error : ', err);});
-});
-
-app.get('/questions', (req, res)=>{
-  console.log('on est sur la route questions');
-  Question.find()
-  .then((questions) => {console.log(questions);
-    res.status(200).send(questions);
-  })
-.catch((err)=>{
-  res.status(400).send();
-});
-})
-
-app.get('/estimations', (req, res)=>{
-   Estimation.find()
-  .then((estimations) => {
-    res.status(200).send(estimations);
-  })
-  .catch((err)=>{
-    res.status(400).send('error :',err);
-  });
-})
-
-app.post('/estimation', (req, res)=>{
-  if(req.body.produit.genre === ''){
-    res.body.produit.genre = 'appartement';
-  };
-  if(req.body.produit.etat === ''){
-    req.body.produit.etat = 'moyen';
-  };
-  var produit = req.body.produit;
-
-   var nouvelleEstimation = new Estimation(produit);
-  nouvelleEstimation.save().then((nouvelleEstimation)=>{
-    res.send(nouvelleEstimation);
-  }).catch((err)=>{console.log('error : ', err);});
-});
-
-
-app.get('/recherches', (req, res)=>{
-   Recherche.find()
-  .then((recherches) => {
-    res.status(200).send(recherches);
-  })
-  .catch((err)=>{
-    res.status(400).send('error :',err);
-  });
-})
-
-app.post('/recherches', (req, res)=>{
-  var recherche = req.body.recherche;
-  if (recherche.genre === ''){
-    recherche.genre = 'appartement';
-  }
-  console.log('recherche : ', recherche);
-   var nouvelleRecherche = new Recherche(recherche);
-  nouvelleRecherche.save().then((nouvelleRecherche)=>{
-    res.send(nouvelleRecherche);
-  }).catch((err)=>{console.log('error : ', err);});
-});
-
-
-app.patch('/apparts/:id', authenticate, (req, res)=>{
-  var id = req.params.id;
-  var body = _.pick(req.body, ['quartier', 'superficie', 'prix', 'genre', 'nbPieces']);
-  if(!ObjectID.isValid(id)){
-    return res.sendStatus(404).send('unexisting id!');
-  }
-  Appart.findByIdAndUpdate((id), {
-    $set:{ body }
-  })
-  .then(appart=>{if(!appart){
-    res.status(400).send('no appart!')
-    }
-    res.status(200).send('updated')
-  })
-  .catch(e=>console.log('error :', e));
-})
-
-app.delete('/apparts/:id', authenticate, (req, res) => {
-  var id = req.params.id;
-  if(!ObjectID.isValid(id)){
-    return res.sendStatus(404).send('unexisting id!');
-  }
-  Appart.findByIdAndRemove(id)
-  .then(res.status(200).send(`appart ${id} removed`))
-  .catch((e)=>console.error(e));
+  postApparts(req, res);
 });
 
 app.put('/apparts/:id', authenticate, (req, res)=>{
-  var id = req.params.id;
-    if(!ObjectID.isValid(id)){
-      return res.sendStatus(404).send('unexisting id!');
-    }
-    var updates = req.body;
-  Appart.findByIdAndUpdate(id,
-   {$set:updates},
-   {new: true}
- )
-  .then(appart => {
-    if(!appart){
-      return res.status(404).send('pas d\'appart');
-    }
-    res.status(200).send('updated!');
-  })
-  .catch((e)=>res.status(400).send('error :', e));
+  putApparts(req, res);
 });
+
+app.delete('/apparts/:id', authenticate, (req, res) => {
+  deleteApparts(req, res);
+});
+
+app.get('/estimations', (req, res)=>{
+  getEstimation(req, res);
+});
+
+app.post('/estimation', (req, res)=>{
+postEstimation(req, res);
+});
+
+app.post('/question', (req, res)=>{
+  postQuestions(req, res);
+});
+
+app.get('/questions', (req, res)=>{
+  getQuestions(req, res);
+});
+
+app.get('/recherches', (req, res)=>{
+  getRecherches(req, res);
+});
+
+app.post('/recherches', (req, res)=>{
+  postRecherches(req, res);
+});
+
+//Création de user   (uniquement par le superAdmin) avec un autre authenticate propre à moi
+app.post('/userCreation/PrivateUrlPassword', (req, res) => {
+  userCreate(req, res);
+});// ({_id:"5aaa4c81734d1d6b71217f6b"})
+
+app.post('/users/login', (req, res) => {
+  userLogin(req, res);
+});
+
+// app.patch('/apparts/:id', authenticate, (req, res)=>{
+//   var id = req.params.id;
+//   var body = _.pick(req.body, ['quartier', 'superficie', 'prix', 'genre', 'nbPieces']);
+//   if(!Obconsole.log('server connected on port', PORT);});
+//     return res.sendStatus(404).send('unexisting id!');
+//   }kl935780@gmail.com
+//   Appakl935780@gmail.comrt.findByIdAndUpdate((id), {
+//     $set:{ body }
+//   })
+//   .thekl935780@gmail.comn(appart=>{if(!appart){
+//     res.status(400).send('no apkl935780@gmail.compart!')
+//     }kl935780@gmail.com
+//     res.status(200).send('updated')
+//   })kl935780@gmail.com
+//   .catch(e=>console.log('error :', e));
+// })
+
+
+
+
 
 
 
 
 // app.get('/users', (req, res) => {
-//   User.findById({_id:"5aaa4c81734d1d6b71217f6b"})
+//   User.findById  console.log('body :', body);
+// ({_id:"5aaa4c81734d1d6b71217f6b"})
 //   .then((users)=>{console.log('users :', users);
-// res.send(users)})
+// res.send(users)})kl935780@gmail.comkl935780@gmail.com
 //   .catch((e)=>{console.log('error : ', e);})
 // })
 
 
 
-app.get('/users/me', authenticate, (req, res)=>{
-  res.send(req.user);
-});
+// app.get('/users/me', authenticate, (req, res)=>{
+//   res.send(req.kl935780@gmail.com
 
-
-//logOut
-app.delete('/users/me/token', authenticate, (req, res) => {
-  req.user.removeToken(req.token).then(()=>{
-    res.status(200).send();
-  }, () => {
-    res.status(400).send();
-  });
-});
-
-//Création de user   (uniquement par le superAdmin) avec un autre authenticate propre à moi
-app.post('/users', (req, res) => {
-  var body = _.pick(req.body, ['email', 'password', 'name']);
-  var user = new User(body);
-  user.save().then((user)=>{
-  //   return user.generateAuthToken();
-  // }).then((token)=>{
-    // res.header('x-auth', token).send(user);
-    res.send(user);
-  })
-  .catch((e)=>{
-    console.log('error : ', e);
-    res.status(400);
-});
-});
-
-app.post('/users/login', (req, res) => {
-  var body = _.pick(req.body, ['email', 'password']);
-  console.log('body :', body);
-User.findByCredentials(body.email, body.password)
-.then((user)=>{
-  return user.generateAuthToken().then(token =>{
-    console.log('authentifié');
-    console.log('user : ', user.name);
-    res.header('x-auth', token).send(user);
-  })
-})
-.catch((e)=>{
-  console.log('wrong user!!!!');
-  res.status(400).send();
-});
-});
-
-
+// });
+//
+//
+// //logdbOut
+// app.delete('/users/me/token', authenticate, (req, res) => {
+//   req.user.removeToken(req.token).then(()=>{
+//     res.status(200).send();
+//   }, () => {
+//     res.status(400).send();
+//   });
+// });
 
 
 /* on relie la racine, la page d'accueil de l'appli, à la version buildée de
@@ -253,7 +153,8 @@ avoir besoin de build à chaque fois */
   dans le package.json de react ("proxy": "localhost://4000")
 ) */
 
-/* en dev, on lance les 2 serveurs en mm temps, grace à concurrently ds
+/* en dev,  console.log('req.body.produit :', req.body.produit);
+ on lance les 2 serveurs en mm temps, grace à concurrently ds
 package.json. le 3000
 se lance sur le navigateur automatiquement, mais il faut lancer
 localhost:4000 car le serveur est dessus */

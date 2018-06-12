@@ -1,16 +1,15 @@
 
-
 #adminCatalogue>a{
 float: right;
 margin-right: 20px;
 margin-top: 30px;
 }
 
-
-
 #adminMain{
   margin-top: 70px;
     color: rgb(1,63,138);
+    width: 100%;
+    height: 100%;
 }
 
 #adminMain>header{
@@ -54,8 +53,12 @@ float: right;
   text-decoration: none;
 }
 
-
+#container{
+flex: 1;
+  border: 2px solid green;
+}
 #contenu{
+  flex-grow: 1;
   height: 50vh;
   display: flex;
 }
@@ -66,8 +69,4 @@ float: right;
 #gauche>a, #droite>a{
   flex-grow: 1;
   border: 1px solid rgb(1,63,138);
-}
-
-#AdminDashboard>#contenu{
-
 }

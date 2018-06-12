@@ -6,7 +6,14 @@
 #appartItem>a>ul>li{
   list-style-type: none;
 }
+#DetailsAppartement{
+  margin-top: 90px;
+}
 
+#carteBigPhoto > img{
+  width: 100%;
+  height: 100%;
+}
 
 #appartItem>a:hover{
   text-decoration: none;

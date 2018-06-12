@@ -21,6 +21,8 @@ import AdminEstimation from './AdminEstimation';
 import AdminQuestions from './AdminQuestions';
 import AdminRecherches from './AdminRecherches';
 import Recherche from './Recherche';
+import Catalogue from './Catalogue';
+import DetailsAppartement from './DetailsAppartement';
 
 class AppRouter extends React.Component{
   render(){
@@ -45,6 +47,8 @@ class AppRouter extends React.Component{
         <Route path="/catalogue/:id" component={CatalogueFiche} />
         <Route exact path="/agence" component={Agence} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/catalogue" component={Catalogue} />
+        <Route exact path="/detailsAppartement/:id" component={DetailsAppartement} />
         <Route component={NotFoundPage} />
 </Switch>
 <Footer />

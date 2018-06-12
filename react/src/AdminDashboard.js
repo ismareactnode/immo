@@ -58,7 +58,6 @@ componentWillMount(){
        </header>
 
        <div id="AdminDashboard">
-
           <div id="contenu">
             <div id="gauche">
             <NavLink to="/Admincatalogue">
@@ -96,6 +95,7 @@ componentWillMount(){
            </div>
 
           </div>
+
        </div>
 
 

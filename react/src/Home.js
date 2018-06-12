@@ -1,33 +1,51 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import Slices from './Slices';
 import { connected } from './actions/connectedAction';
-import Banniere from './Banniere';
-import Bande from './Bande';
-import Devaux from './Devaux';
-import Bande2 from './Bande2';
-import Pantin from './Pantin';
-import Bande3 from './Bande3';
-import Dernieres from './Dernieres';
+import Slices2 from './Slices2';
+import annonceBleue from './annonceBleue';
+
+
 /*  voici l'url de l'app déployée sur heroku*/
 // const url = 'https://vast-chamber-79371.herokuapp.com';
 
 class Home extends Component{
 
-componentWillMount(){
-  console.log("mounted");
-this.props.connected();
+constructor(props){
+  super(props);
+  this.state = {
+    one: true,
+    two: false
+  };
+  this.diaporama = this.diaporama.bind(this);
 }
+
+diaporama(){
+  if(this.state.one){
+    setTimeout(()=>{
+      this.setState(()=>({one: false, two: true}));
+    }, 2000)
+  };
+  if(this.state.two){
+    this.setState(()=>({one: true, two: false}))
+  }
+}
+componentWillMount(){
+this.props.connected();
+this.diaporama();
+}
+
+componentWillUpdate(){
+  this.diaporama();
+}
+
+
   render(){
     return(
     <div>
-    <Bande />
-    <Devaux />
-    <Bande2 />
-    <Pantin />
-    <Bande3 />
-    <Dernieres />
+  {this.state.one && <Slices />}
+  {this.state.two && <Slices2 />}
     </div>
 
     );
