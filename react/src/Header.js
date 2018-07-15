@@ -5,9 +5,7 @@ import './Header.css';
 import { NavLink } from 'react-router-dom';
 
 class Header extends React.Component{
-
 	render(){
-
 		if(this.props.connected === true){
 			return(
 				<div>
@@ -38,6 +36,9 @@ class Header extends React.Component{
 
 										   <NavLink to="/catalogue" activeClassName="is-active"><li>ACHETER</li>
 		 									</NavLink>
+
+											<NavLink to="/recherche" activeClassName="is-active"><li>RECHERCHER</li>
+										 </NavLink>
 
 										  <NavLink to="/estimation" activeClassName="is-active"><li>ESTIMATION</li></NavLink>
 
@@ -86,5 +87,4 @@ function mapStateToProps(state){
 		connected: state.userConnected
 	};
 }
-
 export default connect(mapStateToProps, null)(Header);

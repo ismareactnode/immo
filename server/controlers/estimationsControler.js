@@ -22,9 +22,15 @@ const postEstimation = (req, res) => {
   if(req.body.produit.etat === ''){
     req.body.produit.etat = 'moyen';
   };
+  const { genre, etat, superficie, quartier } = req.body.produit;
+  console.log(genre, etat, superficie, quartier );
+
+
+
   var produit = req.body.produit;
 
    var nouvelleEstimation = new Estimation(produit);
+
   nouvelleEstimation.save().then((nouvelleEstimation)=>{
     res.send(nouvelleEstimation);
   }).catch((err)=>{console.log('error : ', err);});

@@ -16,7 +16,7 @@ var Estimation = mongoose.model('Estimation',{
     required: true,
     default: 0
   },
-  ville: {
+  quartier: {
     type: String,
     required: true
   },
@@ -44,7 +44,7 @@ var exemple = new Estimation({
   genre: 'genre',
   etat: 'etat',
   superficie: 'superficie',
-  ville: 'ville',
+  quartier: 'quartier',
   rue: 'rue',
   nom: 'nom',
   tel: 'tel',

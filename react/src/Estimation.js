@@ -11,7 +11,7 @@ constructor(props){
   this.state = {
     genre: 'Maison',
     superficie: '',
-    ville: '',
+    quartier: '',
     rue: '',
     // quartier: '',
     etat: 'Moyen',
@@ -53,7 +53,7 @@ constructor(props){
   document.cookie=`genre=${this.state.genre}`;
   document.cookie=`etat=${this.state.etat}`;
   document.cookie=`superficie=${this.state.superficie}`;
-  document.cookie=`ville=${this.state.ville}`;
+  document.cookie=`quartier=${this.state.quartier}`;
   document.cookie=`rue=${this.state.rue}`;
   // document.cookie=`quartier=${this.state.quartier}`;
   this.setState(()=>({sended: true}));
@@ -68,9 +68,9 @@ onChangeGenre(e){
   const genre = e.target.value;
   this.setState({genre});
 }
-onChangeVille(e){
-  const ville = e.target.value;
-  this.setState({ville});
+onChangequartier(e){
+  const quartier = e.target.value;
+  this.setState({quartier});
 }
 onChangeRue(e){
   const rue = e.target.value;
@@ -86,19 +86,20 @@ onChangeQuartier(e){
 }
 desend(e){
   this.setState(() => ({sended: undefined}));
+
 }
 
 componentWillMount(){
   const genreCookie = this.getCookie('genre');
   const etatCookie = this.getCookie('etat');
   const superficieCookie = this.getCookie('superficie');
-  const villeCookie = this.getCookie('ville');
+  const quartierCookie = this.getCookie('quartier');
   const rueCookie = this.getCookie('rue');
   this.setState(()=>({
     genre: genreCookie,
     etat: etatCookie,
     superficie: superficieCookie,
-    ville: villeCookie,
+    quartier: quartierCookie,
     rue: rueCookie
   }));
 }
@@ -177,15 +178,15 @@ componentWillMount(){
                     </div>
 
                     <div className="form-group col-sm-12 col-lg-6">
-                      <label>Ville</label>
+                      <label>quartier</label>
                       <input
                       className="form-control"
-                      name="ville"
+                      name="quartier"
                       required
-                      placeholder="ville"
-                      value={this.state.ville}
-                      onChange = {e => this.onChangeVille(e)}
-                      type="text"  placeholder="ville" />
+                      placeholder="quartier"
+                      value={this.state.quartier}
+                      onChange = {e => this.onChangequartier(e)}
+                      type="text"  placeholder="quartier" />
                       </div>
 
                     <div className="form-group col-sm-12 col-lg-6">

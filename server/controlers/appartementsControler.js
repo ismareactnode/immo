@@ -41,7 +41,7 @@ const putApparts = (req, res) => {
     }
     res.status(200).send('updated!');
   })
-  .catch((e)=>res.status(400).senoardd('error :', e));
+  .catch((e)=>res.status(400).send('error :', e));
 }
 
 const deleteApparts = (req, res) => {

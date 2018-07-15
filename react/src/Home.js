@@ -33,7 +33,7 @@ diaporama(){
 }
 componentWillMount(){
 this.props.connected();
-this.diaporama();
+// this.diaporama();
 }
 
 componentWillUpdate(){

@@ -67,7 +67,7 @@ getCookie(cname){
     const genre = this.getCookie('genre');
     const etat = this.getCookie('etat');
     const superficie = this.getCookie('superficie');
-    const ville = this.getCookie('ville');
+    const quartier = this.getCookie('quartier');
     const rue = this.getCookie('rue');
     const date = moment().format(' DD/MM/YYYY, h:mm ');
 
@@ -78,7 +78,7 @@ getCookie(cname){
       genre,
       etat,
       superficie,
-      ville,
+      quartier,
       rue,
       date
     };

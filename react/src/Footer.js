@@ -4,7 +4,7 @@ import './Footer.css';
 
 const Footer = () => (
        <footer>
-       <div id="ligne">
+       <div className="ligne">
          <div>
          Copyright © 2018 IsmaWeb
          </div>
@@ -12,7 +12,7 @@ const Footer = () => (
               DEVAUX PANTIN
          </div>
 
-          <ul>
+          <ul className="footerMenu">
             <li><Link to="">Accueil</Link></li>
             <li><Link to="">Conditions générales</Link></li>
             <li><Link to="">Contact</Link></li>

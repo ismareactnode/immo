@@ -12,16 +12,16 @@ class Recherche extends Component{
     this.state={
       genre: '',
       superficie: '',
-      ville: '',
-      proximite: '',
       quartier: '',
+      proximite: '',
       etat: '',
       budget: '',
       nom: '',
       mail: '',
       tel: '',
       precision: '',
-
+      notification: false,
+      error: false
     };
     this.onChangeGenre = this.onChangeGenre.bind(this);
     this.onChangeSuperficie = this.onChangeSuperficie.bind(this);
@@ -37,10 +37,6 @@ class Recherche extends Component{
   onChangeSuperficie(e){
     const superficie = e.target.value;
     this.setState(()=>({superficie}));
-  }
-  onChangeVille(e){
-    const ville = e.target.value;
-    this.setState(()=>({ville}));
   }
   onChangeQuartier(e){
     const quartier = e.target.value;
@@ -76,6 +72,7 @@ onChangeNom(e){
 }
 
 
+
   envoyer(e){
       e.preventDefault();
     console.log('fonction envoyer');
@@ -85,9 +82,8 @@ onChangeNom(e){
     const recherche = {
       genre: this.state.genre,
       superficie: this.state.superficie,
-      ville : this.state.ville,
+      quartier : this.state.quartier,
       proximite: this.state.proximite,
-      quartier: this.state.quartier,
       etat: this.state.etat,
       budget: this.state.budget,
       nom: this.state.nom,
@@ -108,7 +104,19 @@ onChangeNom(e){
       body: JSON.stringify({recherche})
     })
     .then(async(res)=>{
-    console.log('bien envoyé');
+    this.setState(()=>({genre: ''}));
+    this.setState(()=>({superficie: ''}));
+    this.setState(()=>({proximite: ''}));
+    this.setState(()=>({budget: ''}));
+    this.setState(()=>({quartier: ''}));
+    this.setState(()=>({etat: ''}));
+    this.setState(()=>({nom: ''}));
+    this.setState(()=>({mail: ''}));
+    this.setState(()=>({tel: ''}));
+    this.setState(()=>({precision: ''}));
+    this.setState(()=>({notification: true}));
+    setTimeout(()=>{this.setState(()=>({notification: false}))}, 1000);
+    setTimeout(()=>{this.props.history.push('/')}, 1500);
    })
   .catch((err)=>{console.log('error :', err);})
   }
@@ -117,7 +125,7 @@ onChangeNom(e){
     const {sended, desend } = this.props;
       return(
 
-        <div id="recherche">
+        <div className="recherche">
 
           <h3>Pour trouver le bien qui vous fera du bien</h3>
 
@@ -141,8 +149,6 @@ onChangeNom(e){
               </select>
             </div>
 
-
-
              <div className="form-group col-sm-12 col-lg-6">
               <label>Superficie</label>
               <input
@@ -157,18 +163,6 @@ onChangeNom(e){
               type="text"
               name="superficie"  placeholder="superficie" />
             </div>
-
-            <div className="form-group col-sm-12 col-lg-6">
-              <label>Ville</label>
-              <input
-              className="form-control"
-              name="ville"
-              required
-              placeholder="ville"
-              value={this.state.ville}
-              onChange = {e => this.onChangeVille(e)}
-              type="text"  placeholder="ville" />
-              </div>
 
               <div className="form-group col-sm-12 col-lg-6">
                 <label>A proximité de : </label>
@@ -254,13 +248,18 @@ onChangeNom(e){
               <textarea
                 className="form-control"
               placeholder="facultatif"
-              value={this.state.precisions}
+              value={this.state.precision}
               onChange={e=>this.onChangePrecision(e)}>
               </textarea>
               </div>
-
+              <div className="notifError">
+                {this.state.error && <p>Merci de remplir tous les champs obligatoires</p>}
+              </div>
               <button className="btn btn-primary col-sm-12"
               onClick={this.envoyer}>Lancer la recherche</button>
+              <div className="notifError">
+              {this.state.notification ? <p className="envoye">Bien envoyé</p> : ''}
+              </div>
           </form>
 
           <div id="expert" className="col-md-6 col-lg-12"><h3> Notre expert immobilier se fera un

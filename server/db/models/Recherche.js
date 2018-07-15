@@ -12,7 +12,7 @@ var Recherche = mongoose.model('Recherche',{
     // required: true,
     default: 0
   },
-  ville: {
+  quartier: {
     type: String,
     // required: true
   },
@@ -47,6 +47,12 @@ var Recherche = mongoose.model('Recherche',{
   },
   date: {
     type: String
+  },
+  matchingProducts: {
+    type: Array
+  },
+  matchingEstimations : {
+    type: Array
   }
 });
 

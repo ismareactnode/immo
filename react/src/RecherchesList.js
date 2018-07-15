@@ -14,7 +14,6 @@ class RecherchesList extends Component{
              <tr>
                <th scope="col">Genre</th>
                <th scope="col">Superficie</th>
-               <th scope="col">Ville</th>
                <th scope="col">A proximité de</th>
                <th scope="col">Quartier</th>
                <th scope="col">Etat</th>
@@ -32,7 +31,6 @@ class RecherchesList extends Component{
                 (produit)=><tr key={produit._id}>
                             <td>{produit.genre}</td>
                             <td>{produit.superficie} m2</td>
-                            <td>{produit.ville}</td>
                             <td>{produit.proximite}</td>
                             <td>{produit.quartier}</td>
                             <td>{produit.etat}</td>

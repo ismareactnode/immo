@@ -29,7 +29,7 @@ class AppRouter extends React.Component{
     return(
 
 <BrowserRouter>
-<div id="main">
+<div className="main">
 <Header />
 <Switch>
         <Route exact path="/AdminDashboard" component={authorized(AdminDashboard)} />
@@ -54,7 +54,6 @@ class AppRouter extends React.Component{
 <Footer />
 </div>
 </BrowserRouter>
-
     );
   };
 }
