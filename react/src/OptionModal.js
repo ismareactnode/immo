@@ -10,13 +10,13 @@ class OptionModal extends Component{
     super(props);
     this.state={
       nom: '',
-      mail: '',
+      email: '',
       tel: '',
       erreur: {}
     };
     this.onChangeNom = this.onChangeNom.bind(this);
     this.onChangeTel = this.onChangeTel.bind(this);
-    this.onChangeMail = this.onChangeMail.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
     this.envoyer = this.envoyer.bind(this);
     this.getCookie = this.getCookie.bind(this);
   }
@@ -25,9 +25,9 @@ onChangeNom(e){
   const nom = e.target.value;
   this.setState(()=>({nom}));
 }
-onChangeMail(e){
-  const mail = e.target.value;
-  this.setState(()=>({mail}));
+onChangeEmail(e){
+  const email = e.target.value;
+  this.setState(()=>({email}));
 }
 onChangeTel(e){
   const tel = e.target.value;
@@ -54,7 +54,7 @@ getCookie(cname){
     console.log('fonction envoyer');
     e.preventDefault();
     const nom = this.state.nom;
-    const mail = this.state.mail;
+    const email = this.state.email;
     const tel = this.state.tel;
     // if((nom.length)<2 || !nom.match(/^[a-zA-Z]$/)){
     //   return console.log('nom non valide.')
@@ -73,7 +73,7 @@ getCookie(cname){
 
     const produit = {
       nom,
-      mail,
+      email,
       tel,
       genre,
       etat,
@@ -145,8 +145,8 @@ getCookie(cname){
                 className="form-control"
                required
                type="email"
-               value={this.state.mail}
-               onChange={e=>this.onChangeMail(e)}/>
+               value={this.state.email}
+               onChange={e=>this.onChangeEmail(e)}/>
               </div>
               <div className="form-group col-sm-12 col-md-10 col-lg-6">
               <label>Votre numéro</label>

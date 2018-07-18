@@ -145,7 +145,7 @@ onChangeNom(e){
                 <option>Appartement</option>
                 <option>Maison</option>
                 <option>Terrain</option>
-                <option>Fond de commerce</option>
+                <option>Commerce</option>
               </select>
             </div>
 

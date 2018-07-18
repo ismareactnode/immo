@@ -1,4 +1,5 @@
 var { mongoose } = require('../mongoose');
+var { Estimation } = require('./Estimation');
 
 var Recherche = mongoose.model('Recherche',{
   genre:{
@@ -14,6 +15,7 @@ var Recherche = mongoose.model('Recherche',{
   },
   quartier: {
     type: String,
+
     // required: true
   },
   proximite: {
@@ -48,12 +50,13 @@ var Recherche = mongoose.model('Recherche',{
   date: {
     type: String
   },
-  matchingProducts: {
+  appart: {
     type: Array
   },
-  matchingEstimations : {
-    type: Array
-  }
+  estimation :
+   [{
+     type: mongoose.Schema.Types.ObjectId , ref: 'Estimation'
+   }],
 });
 
 module.exports = { Recherche };

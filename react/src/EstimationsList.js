@@ -33,7 +33,7 @@ class EstimationsList extends Component{
                             <td>{produit.rue}</td>
                             <td>{produit.etat}</td>
                             <td>{produit.nom}</td>
-                            <td>{produit.mail}</td>
+                            <td>{produit.email}</td>
                             <td>{produit.tel}</td>
                           </tr>
               )}

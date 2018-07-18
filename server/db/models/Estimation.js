@@ -32,7 +32,7 @@ var Estimation = mongoose.model('Estimation',{
   tel: {
     type: String,
   },
-  mail: {
+  email: {
     type: String,
   },
   date:{
@@ -48,7 +48,7 @@ var exemple = new Estimation({
   rue: 'rue',
   nom: 'nom',
   tel: 'tel',
-  mail: 'mail',
+  email: 'email',
   date: ''
 });
 exemple.save();
