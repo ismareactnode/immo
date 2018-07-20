@@ -37,6 +37,9 @@ var Estimation = mongoose.model('Estimation',{
   },
   date:{
     type: String,
+  },
+  recherche:{
+    type: Array,
   }
 });
 

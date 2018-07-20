@@ -24,6 +24,7 @@ const EditAppartementPage = (props)=> {
     }
   />
   <Link to={`/confirmationSuppression/${props.appartement._id}`}><li>Supprimer</li></Link>
+  <a href="/AdminRecherches">Liste des Recherches</a>
   </div>
 );
 }

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import './EstimationsList.css';
 
 class EstimationsList extends Component{
+
   render(){
     return(
       <div id="estimationsList">
@@ -21,6 +22,7 @@ class EstimationsList extends Component{
                <th scope="col">Nom</th>
                <th scope="col">Email</th>
                <th scope="col">Tel</th>
+               <th scope="col">Recherches correspondantes</th>
              </tr>
             </thead>
             <tbody>
@@ -35,6 +37,9 @@ class EstimationsList extends Component{
                             <td>{produit.nom}</td>
                             <td>{produit.email}</td>
                             <td>{produit.tel}</td>
+                            <td>{Object.values(produit.recherche)
+                              .map((recherche)=><a href={`mailto:${recherche}`}
+                               className="matchingEstimations">{recherche}</a>)}</td>
                           </tr>
               )}
               </tbody>

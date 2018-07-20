@@ -20,6 +20,8 @@ const postRecherches = (req, res) =>   {
   let appart = [];
   let estimation = [];
   var recherche = req.body.recherche;
+  var mail = recherche.mail;
+
   if (recherche.genre === ''){
     recherche.genre = 'appartement';
   }
@@ -47,9 +49,27 @@ results.forEach((product)=>{
 .then(()=>{
   Estimation.find({genre, quartier, superficie: {$gt: superficieMin}})
   .then((results)=>{
-  results.forEach((estimated)=>{
-    estimation.push(estimated._id);
-    });
+    results.forEach((estimated)=>{
+      estimation.push(estimated._id);
+      Estimation.findById(estimated._id)
+      .then((estimationSearched)=>{
+        console.log('estimation recherchée : ', estimationSearched);
+        console.log('recherches de l estimationSearched :', estimationSearched.recherche);
+        console.log('mail de la recherche : ', mail);
+        ;
+        estimationSearched.recherche.push(mail);
+        console.log('mtnt que j ai poussé le mail de la recherche, estimationSearched.recherche :  ',
+      estimationSearched.recherche);
+      console.log('estimation_id : ', estimated._id);
+      var id = estimated._id.toString();
+        Estimation.findByIdAndUpdate(id,
+            {$set: estimationSearched},
+            {new:true}
+            )
+            .then((updated)=>console.log('updated estimation : ', updated))
+            .catch((e)=>console.log('error : ', e));
+        });
+      });
     recherche.appart = appart;
     recherche.estimation = estimation;
     var nouvelleRecherche = new Recherche(recherche);
