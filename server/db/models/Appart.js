@@ -27,6 +27,9 @@ var Appart = mongoose.model('Appart',{
   photo: {
       type: String,
   },
+  recherche: {
+    type: Array,
+  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     // required: true,

@@ -22,10 +22,6 @@ var Recherche = mongoose.model('Recherche',{
     type: String,
     // required: true
   },
-  quartier:{
-    type: String,
-    // required: true
-  },
   etat: {
     type: String
   },

@@ -42,10 +42,18 @@ let superficieMin = superficie *= 0.9;
 
 Appart.find({genre, quartier, prix:{$gt: prixMin, $lt: prixMax}, superficie: {$gt: superficieMin}})
 .then((results)=>{
-results.forEach((product)=>{
-  appart.push(product._id);
-  });
-})
+  results.forEach((product)=>{
+      appart.push(product._id);
+      product.recherche.push(mail);
+      let id = product._id.toString();
+      Appart.findByIdAndUpdate(id,
+      {$set: product },
+      {new: true}
+      )
+      .then((appartUpdated)=>console.log('appart updated : ', appartUpdated))
+      .catch((e)=>console.log('error : ', e));
+      });
+  })
 .then(()=>{
   Estimation.find({genre, quartier, superficie: {$gt: superficieMin}})
   .then((results)=>{
@@ -53,14 +61,8 @@ results.forEach((product)=>{
       estimation.push(estimated._id);
       Estimation.findById(estimated._id)
       .then((estimationSearched)=>{
-        console.log('estimation recherchée : ', estimationSearched);
-        console.log('recherches de l estimationSearched :', estimationSearched.recherche);
-        console.log('mail de la recherche : ', mail);
-        ;
         estimationSearched.recherche.push(mail);
-        console.log('mtnt que j ai poussé le mail de la recherche, estimationSearched.recherche :  ',
-      estimationSearched.recherche);
-      console.log('estimation_id : ', estimated._id);
+      estimationSearched.recherche;
       var id = estimated._id.toString();
         Estimation.findByIdAndUpdate(id,
             {$set: estimationSearched},
