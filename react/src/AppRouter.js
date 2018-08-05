@@ -20,8 +20,11 @@ import authorized from './HOC/authorized';
 import AdminEstimation from './AdminEstimation';
 import AdminQuestions from './AdminQuestions';
 import AdminRecherches from './AdminRecherches';
+import RechercheItem from './RechercheItem';
+import EstimationItem from './EstimationItem';
 import Recherche from './Recherche';
 import Catalogue from './Catalogue';
+import Conseils from './Conseils';
 import DetailsAppartement from './DetailsAppartement';
 
 class AppRouter extends React.Component{
@@ -43,12 +46,15 @@ class AppRouter extends React.Component{
         <Route exact path="/admin" component={AdminLogin} />
         <Route path="/estimation" component={Estimation} />
         <Route path="/recherche" component={Recherche} />
-        <Route exact path="/" component={Home} />
+        <Route exact path="/rechercheItem/:recherche_mail" component={RechercheItem} />
+        <Route exact path="/estimationItem/:estimation_mail" component={EstimationItem} />
         <Route path="/catalogue/:id" component={CatalogueFiche} />
         <Route exact path="/agence" component={Agence} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/catalogue" component={Catalogue} />
+        <Route exact path="/conseils" component={Conseils} />
         <Route exact path="/detailsAppartement/:id" component={DetailsAppartement} />
+        <Route exact path="/" component={Home} />
         <Route component={NotFoundPage} />
 </Switch>
 <Footer />

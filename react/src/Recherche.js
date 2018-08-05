@@ -7,6 +7,10 @@ import './Recherche.css';
 
 class Recherche extends Component{
 
+
+/*  Virer état des champs du formulaire, car ca ne rentre pas en ligne ds la recherche */
+
+
   constructor(props){
     super(props);
     this.state={
@@ -234,7 +238,7 @@ onChangeNom(e){
               </div>
 
               <div className="form-group col-sm-12 col-md-10 col-lg-6">
-              <label>Votre numéro</label>
+              <label>Votre téléphone</label>
               <input
                 className="form-control"
               type="text"

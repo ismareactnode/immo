@@ -15,10 +15,13 @@ class AppartementForm extends React.Component{
       quartier: props.appartement ? props.appartement.quartier : '',
       photo: props.appartement ? props.appartement.photo : '',
       id: props.appartement ? props.appartement.id : '',
+      recherche : props.appartement ? props.appartement.recherche : '',
       error: '',
   }
 }
 
+
+/*   rajouter dans le formulaire Descriptif (nombre max de characteres : 300 )*/
 onQuartierChange = e => {
   const quartier = e.target.value;
 this.setState(()=>({
@@ -168,6 +171,20 @@ render(){
        {this.props.appartement?'Confirmer':'Ajouter'}</button></p>
        {this.state.error && <p>{this.state.error}</p>}
     </form>
+{
+  this.state.recherche ?
+    <div>
+      <h3>Recherches correspondantes</h3>
+      <ul>
+      {this.state.recherche.map(recherche =>{
+         return (<li><Link to={`/rechercheItem/${recherche}`}>{recherche}</Link></li>);
+      } )}
+      </ul>
+    </div>
+  : ''
+}
+    <div>
+    </div>
 
 
     <Link to={'/AdminCatalogue'}>

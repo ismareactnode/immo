@@ -10,6 +10,9 @@ import annonceBleue from './annonceBleue';
 /*  voici l'url de l'app déployée sur heroku*/
 // const url = 'https://vast-chamber-79371.herokuapp.com';
 
+
+
+/* regarder le pap.fr comme modele d ux et fonctionnalités et footer */
 class Home extends Component{
 
 constructor(props){
@@ -44,8 +47,15 @@ componentWillUpdate(){
   render(){
     return(
     <div>
+
   {this.state.one && <Slices />}
   {this.state.two && <Slices2 />}
+  <div>derniers biens vendus (juste pour le titre, pas pour zizou
+  , pour lui, on les mettra à la suite des produits à vendre),
+   qui défilent ou bien avec une fleche pour les faire défiler</div>
+  <div>banniere qui défile avec messages</div>
+  <div>Textes de loi</div>
+
     </div>
 
     );

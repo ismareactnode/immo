@@ -10,6 +10,13 @@ background-color: rgb(100, 147, 206);
 position: relative;
 }
 
+.logoSnpi{
+  width: 200px;
+  height: 200px;
+  margin-left: 7px;
+}
+
+
 
 .ligne{
   width: 90%;
@@ -27,6 +34,11 @@ position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.footerMain{
+  display: flex;
+  flex-direction: row;
 }
 
 #dev{

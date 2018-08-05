@@ -29,6 +29,7 @@ constructor(props){
     this.setState(()=>({notification: true}));
     var name = this.getCookie('name');
     this.setState(()=>({name}));
+    setTimeout(()=>{ this.props.history.push('/')}, 1000);
   }
 
  getCookie(cname){
@@ -88,6 +89,11 @@ desend(e){
   this.setState(() => ({sended: undefined}));
 
 }
+
+/*
+  A virer :; quartier , car chaque rue sera affectée à un quartier dans l'algo
+  remplacer état par "dernières rénovation du logement" : select : moins de 5 ans, 5 à 15 ans, 15 à 30 ans
+ */
 
 componentWillMount(){
   const genreCookie = this.getCookie('genre');

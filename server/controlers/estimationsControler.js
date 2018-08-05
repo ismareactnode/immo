@@ -12,7 +12,16 @@ const getEstimation = (req, res) => {
  });
 }
 
-
+const getEstimationItem = (req, res) => {
+  const estimation_mail = req.params.estimation_mail.toString();
+  console.log(`estimation_mail : ${req.params.estimation_mail}`);
+    Recherche.findOne({mail: estimation_mail})
+    .then((estimation)=>{
+      console.log(`estimationItem : ${estimation}`);
+      res.status(200).send(estimation);
+    })
+    .catch((e)=>{console.log('error :', e)});
+}
 
 const postEstimation = (req, res) => {
 
@@ -45,4 +54,4 @@ Recherche.find({quartier: estimation.quartier, superficie: {$gt:superficieMin}})
 .catch((err)=>{console.log('error : ', err);});
 }
 
-module.exports = { getEstimation, postEstimation }
+module.exports = { getEstimation, postEstimation, getEstimationItem }

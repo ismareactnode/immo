@@ -82,7 +82,6 @@ getCookie(cname){
       rue,
       date
     };
-    console.log('produit', produit);
     fetch('/estimation',
     {
       method: 'POST',
@@ -153,7 +152,6 @@ getCookie(cname){
               <input
                 className="form-control"
               type="text"
-              placeholder="facultatif"
               value={this.state.tel}
               onChange={e=>this.onChangeTel(e)}/>
               </div>

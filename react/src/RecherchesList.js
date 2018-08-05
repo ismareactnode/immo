@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import './RecherchesList.css';
 
@@ -50,8 +51,7 @@ class RecherchesList extends Component{
                               (appart)=><a href={`/editAppartement/${appart}`}>{appart} </a>
                             )}</td>
                             <td>{Object.values(produit.estimation).map(
-                              estimation => <a className="matchingEstimations"
-                               href="mailto:{estimation.email}">{estimation.email}</a>
+                              estimation => <Link to={`/estimationItem/${estimation.email}`}></Link>
                             )}</td>
                             <td>{}</td>
                           </tr>);}

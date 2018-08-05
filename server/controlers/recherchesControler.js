@@ -8,12 +8,22 @@ const getRecherches = (req, res) => {
   Recherche.find()
   .populate({path:'estimation', select: 'email'})
  .then((recherches) => {
-   console.log(`recherches:${recherches}`);
    res.status(200).send(recherches);
  })
  .catch((err)=>{
    res.status(400).send('error :',err);
  });
+}
+
+const getRechercheItem = (req, res) => {
+const recherche_mail = req.params.recherche_mail.toString();
+console.log(`recherche_mail : ${req.params.recherche_mail}`);
+  Recherche.findOne({mail: recherche_mail})
+  .then((recherche)=>{
+    console.log(`rechercheItem : ${recherche}`);
+    res.status(200).send(recherche);
+  })
+  .catch((e)=>{console.log('error :', e)});
 }
 
 const postRecherches = (req, res) =>   {
@@ -87,4 +97,5 @@ Appart.find({genre, quartier, prix:{$gt: prixMin, $lt: prixMax}, superficie: {$g
 module.exports = {
   getRecherches,
   postRecherches,
+  getRechercheItem
 }

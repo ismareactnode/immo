@@ -42,6 +42,8 @@ class Header extends React.Component{
 
 										  <NavLink to="/estimation" activeClassName="is-active"><li>ESTIMATION</li></NavLink>
 
+											<NavLink to="/conseils" activeClassName="is-active"><li>CONSEILS</li></NavLink>
+
 
 										   <div className="dropdown" id="drop">
 			                    <button className="btn btn-primary dropdown-toggle" id="menu1" type="button"
@@ -50,13 +52,13 @@ class Header extends React.Component{
 			                      <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
 			                    		<li role="presentation">
 			                      			<NavLink role="menuitem" tabindex="-1" to="/votreAgence">
-			                       		 		L' AGENCE DEVAUX
+			                       		 		IMMOBILIER DEVAUX
 			                      			</NavLink>
 			                      		</li>
 			                       		<li role="presentation" className="divider"></li>
 			                        		<li role="presentation">
 			                      			<NavLink role="menuitem" tabindex="-1" to="/quartier">
-			                       		 		LE QUARTIER
+			                       		 		LES QUARTIERS
 			                       			</NavLink>
 			                      		</li>
 			                      		<li role="presentation" className="divider"></li>

@@ -6,6 +6,7 @@ var { User } = require('../db/models/User');
 
 const userLogin = (req, res) => {
   var body = _.pick(req.body, ['email', 'password']);
+  console.log('body', body);
   User.findByCredentials(body.email, body.password)
   .then((user)=>{
   return user.generateAuthToken().then(token =>{

@@ -96,11 +96,11 @@ render(){
         </div>
 
          <div id="mail" className="col-sm-12 col-md-6"><img src="iconeMail7.png" />
-           <a href="mailto:kl935780@gmail.com">kl935780@gmail.com</a>
+           <a href="mailto:immo-devaux@wanadoo.fr">immo-devaux@wanadoo.fr</a>
          </div>
 
         <div id="tel" className="col-sm-12 col-md-6"><img src="iconeTel22.png" alt="tel"/>
-          06 75 40 25 00
+          01 48 40 44 11
         </div>
 
     </div>

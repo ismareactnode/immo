@@ -50,7 +50,6 @@ componentWillMount(){
 
        <header>
           <div id="titre">
-            <h2>MENU</h2>
           </div>
           <div id="button">
             <button onClick={e => {this.logOut(e)}}>Déconnexion</button>

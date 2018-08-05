@@ -8,9 +8,9 @@ const { getApparts, postApparts, putApparts, deleteApparts } =
 require('./server/controlers/appartementsControler');
 const { getQuestions, postQuestions } =
 require('./server/controlers/questionsControler');
-const { getEstimation, postEstimation } =
+const { getEstimation, postEstimation, getEstimationItem } =
  require('./server/controlers/estimationsControler');
-const { getRecherches, postRecherches } =
+const { getRecherches, postRecherches, getRechercheItem } =
 require('./server/controlers/recherchesControler');
 const { userLogin, userCreate } = require('./server/controlers/usersControler')
 
@@ -63,6 +63,9 @@ app.get('/estimations', (req, res)=>{
   getEstimation(req, res);
 });
 
+app.get('/estimationItem/:estimation_mail', (req, res) => {
+  getEstimationItem(req, res);
+})
 app.post('/estimation', (req, res)=>{
 postEstimation(req, res);
 });
@@ -79,6 +82,9 @@ app.get('/recherches', (req, res)=>{
   getRecherches(req, res);
 });
 
+app.get('/rechercheItem/:recherche_mail', (req, res) =>{
+  getRechercheItem(req, res);
+})
 app.post('/recherches', (req, res)=>{
   postRecherches(req, res);
 });
