@@ -1,10 +1,84 @@
-#estimation{
+.estimation{
   /*background-color: pink;*/
-  height: 100%;
+  width: 100%;
   margin-top: 80px;
 }
 
-#partieFormulaire{
+.missing{
+  width: 100%;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.partieFormulaire{
 width: 90%;
 margin: auto;
+}
+.partieFormulaire>h3{
+  text-align: center;
+}
+
+.glyphicon-list-alt{
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+.banniereForm{
+  background: linear-gradient(to left top, rgba(59, 84, 141, 0.6),
+   rgba(95,134, 234, 0.1)), url('./couple.jpg') no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+
+.banniereCertif{
+  margin-top: 0;
+  width: 100%;
+  height: 300px;
+  color: #3C3F56;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.banniereCertif>h3{
+  margin-bottom: 40px;
+}
+
+.bienEstimerForm{
+  padding-top: 1.4%;
+  margin-bottom: 0;
+  margin-top: 140px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 70%;
+  height: 38%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 1px rgba(255, 255, 255, 0.7);
+}
+
+.formUp{
+  flex: 1;
+}
+.formDown{
+  flex: 1;
+}
+
+
+.banniereBienEstimer{
+  margin-top: 0;
+  width: 100%;
+  height: 200px;
+  color: white;
+  background: linear-gradient(to right bottom, rgba(59, 84, 141, 1), rgba(95,134, 234, 1));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

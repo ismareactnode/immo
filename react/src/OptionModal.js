@@ -12,7 +12,8 @@ class OptionModal extends Component{
       nom: '',
       email: '',
       tel: '',
-      erreur: {}
+      erreur: {},
+      missing: false,
     };
     this.onChangeNom = this.onChangeNom.bind(this);
     this.onChangeTel = this.onChangeTel.bind(this);
@@ -51,11 +52,16 @@ getCookie(cname){
 }
 
   envoyer(e){
-    console.log('fonction envoyer');
     e.preventDefault();
     const nom = this.state.nom;
     const email = this.state.email;
     const tel = this.state.tel;
+    if(!nom || !email ){
+      setTimeout(()=>{this.setState({missing:false})}, 1000);
+      return this.setState(()=>({
+        missing: true
+      }));
+    }
     // if((nom.length)<2 || !nom.match(/^[a-zA-Z]$/)){
     //   return console.log('nom non valide.')
     // }michemouche
@@ -65,9 +71,8 @@ getCookie(cname){
     document.cookie=`name=${nom}`;
 
     const genre = this.getCookie('genre');
-    const etat = this.getCookie('etat');
     const superficie = this.getCookie('superficie');
-    const quartier = this.getCookie('quartier');
+    const renovations = this.getCookie('renovations');
     const rue = this.getCookie('rue');
     const date = moment().format(' DD/MM/YYYY, h:mm ');
 
@@ -76,9 +81,8 @@ getCookie(cname){
       email,
       tel,
       genre,
-      etat,
       superficie,
-      quartier,
+      renovations,
       rue,
       date
     };
@@ -118,57 +122,69 @@ getCookie(cname){
   */
   }
 
+
   render(){
+
+  const modalStyle = {
+    content: {
+      paddingTop: "2%",
+      marginTop: "100px",
+      height: "35%",
+      width: "70%",
+      margin: "auto",
+      borderRadius: "5px",
+      boxShadow: "2px 2px 1px white",
+      backgroundColor : '#F7F8FA'
+    }
+  }
+
     const {sended, desend } = this.props;
       return(
         <Modal id="modal"
+        style={modalStyle}
         isOpen={!!sended}
         onRequestClose={desend}
         contentLabel="Bien envoyé">
-        <div id="optionModal">
-          <h3>Pour recevoir votre estimation gratuitement</h3>
-          <h4>dans les 24 heures</h4>
+
+
           <form id="modalForm">
             <div className="form-group col-sm-12 col-md-10 col-lg-6">
-            <label>Votre nom</label>
             <input
             className="form-control"
              type="text"
             required
+            placeholder="Votre nom"
              value={this.state.nom}
              onChange={e=>this.onChangeNom(e)}/>
              </div>
             <div className="form-group col-sm-12 col-md-10 col-lg-6">
-              <label>Votre adresse mail</label>
               <input
                 className="form-control"
                required
+               placeholder="Votre email"
                type="email"
                value={this.state.email}
                onChange={e=>this.onChangeEmail(e)}/>
               </div>
               <div className="form-group col-sm-12 col-md-10 col-lg-6">
-              <label>Votre numéro</label>
               <input
                 className="form-control"
               type="text"
+              placeholder="Votre numéro de téléphone"
               value={this.state.tel}
               onChange={e=>this.onChangeTel(e)}/>
               </div>
 
-              <button className="btn btn-primary col-sm-12"
+              <button className="btn btn-primary col-sm-12 sendButton"
               onClick={this.envoyer}>Recevoir votre estimation gratuitement</button>
-
+              <p className="missing">{this.state.missing ? "Nom et email doivent être renseignés" : ""}</p>
 
           </form>
 
-          <div id="expert" className="col-md-6 col-lg-12"><h3> Notre expert immobilier se fera un
-          plaisir de vous répondre</h3></div>
-          <div id="retour">
-          <button type="button" className="btn btn-light"
-          onClick={desend}>Retour</button>
-          </div>
-          </div>
+          <button type="button" className="btn btn-light backLinkButton"
+          onClick={desend}>X</button>
+
+
         </Modal>
       );
   };

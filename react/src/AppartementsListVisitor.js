@@ -12,7 +12,7 @@ class AppartementsListVisitor extends React.Component{
       return(
        <div id="AppartementsList">
            <h4>{Object.keys(this.props.appartements).length} résultat{Object.keys(this.props.appartements).length>1 ? 's' : ''}</h4>
-           <p>Celui ci contiend tous les biens à la vente actuellement et est
+           <p>Celui ci contient tous les biens à la vente actuellement et est
            susceptible de changer dans les jours qui suivent.</p>
 
           { Object.values(this.props.appartements).map(appartement =>

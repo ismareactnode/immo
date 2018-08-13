@@ -24,8 +24,11 @@ import RechercheItem from './RechercheItem';
 import EstimationItem from './EstimationItem';
 import Recherche from './Recherche';
 import Catalogue from './Catalogue';
+import FaireGerer from './FaireGerer';
+import FaireLouer from './FaireLouer';
 import Conseils from './Conseils';
 import DetailsAppartement from './DetailsAppartement';
+import Quartier from './Quartier';
 
 class AppRouter extends React.Component{
   render(){
@@ -50,9 +53,12 @@ class AppRouter extends React.Component{
         <Route exact path="/estimationItem/:estimation_mail" component={EstimationItem} />
         <Route path="/catalogue/:id" component={CatalogueFiche} />
         <Route exact path="/agence" component={Agence} />
+          <Route exact path="/quartier" component={Quartier} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/catalogue" component={Catalogue} />
         <Route exact path="/conseils" component={Conseils} />
+        <Route exact path="/faireLouer" component={FaireLouer} />
+        <Route exact path="/faireGerer" component={FaireGerer} />
         <Route exact path="/detailsAppartement/:id" component={DetailsAppartement} />
         <Route exact path="/" component={Home} />
         <Route component={NotFoundPage} />

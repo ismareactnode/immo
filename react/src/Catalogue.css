@@ -16,9 +16,25 @@
   height: 1000px;
 }
 
-#catalogueVisitor{
+.catalogueVisitor{
   width: 90%;
   margin: auto;
-  margin-top: 90px;
-  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8%;
+}
+
+.flexTop{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flexTop>a{
+  margin-right: 10%;
+  font-size: 1.5em;
+}
+
+.flexTop>a:hover{
+  text-decoration: none;
 }

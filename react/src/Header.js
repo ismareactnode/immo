@@ -23,7 +23,7 @@ class Header extends React.Component{
 			);
 		}else{
 			return(
-				<div>
+
 						<div id="header" className="col-sm-12">
 							<div id="agence">
 							  <img id="logoAgence" src="logoD.png"/>
@@ -37,10 +37,10 @@ class Header extends React.Component{
 										   <NavLink to="/catalogue" activeClassName="is-active"><li>ACHETER</li>
 		 									</NavLink>
 
-											<NavLink to="/recherche" activeClassName="is-active"><li>RECHERCHER</li>
+											<NavLink to="/faireGerer" activeClassName="is-active"><li>FAIRE GERER</li>
 										 </NavLink>
 
-										  <NavLink to="/estimation" activeClassName="is-active"><li>ESTIMATION</li></NavLink>
+										  <NavLink to="/estimation" activeClassName="is-active"><li>VENDRE</li></NavLink>
 
 											<NavLink to="/conseils" activeClassName="is-active"><li>CONSEILS</li></NavLink>
 
@@ -51,7 +51,7 @@ class Header extends React.Component{
 			                    <span className="caret"></span></button>
 			                      <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
 			                    		<li role="presentation">
-			                      			<NavLink role="menuitem" tabindex="-1" to="/votreAgence">
+			                      			<NavLink role="menuitem" tabindex="-1" to="/agence">
 			                       		 		IMMOBILIER DEVAUX
 			                      			</NavLink>
 			                      		</li>
@@ -77,7 +77,6 @@ class Header extends React.Component{
 										</li></NavLink>
 									</ul>
 						</div>
-					</div>
 				);
 		}
 

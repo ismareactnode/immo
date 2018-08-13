@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './Catalogue.css';
 
 import { connected } from './actions/connectedAction';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { startSetAppartements } from './actions/appartementsActions';
 import { initializeFilters } from './actions/filtersActions';
@@ -12,7 +12,6 @@ import { initializeFilters } from './actions/filtersActions';
 import AppartementsListVisitor from './AppartementsListVisitor';
 import AppartementsListFilters from './AppartementsListFilters';
 import AdminAppartementAddPage from './AdminAppartementAddPage';
-import { Link } from 'react-router-dom';
 import './AppartementDashboard.css';
 
 class Catalogue extends Component{
@@ -24,9 +23,16 @@ componentWillMount(){
 }
    render(){
      return(
-      <div id="catalogueVisitor">
+      <div className="catalogueVisitor">
+        <div className="flexTop">
           <AppartementsListFilters />
+            <Link to="/recherche">Enregistrez votre alerte</Link>
+        </div>
+        <div className="flexBottom">
           <AppartementsListVisitor />
+        </div>
+
+
      </div>
      );
 }};

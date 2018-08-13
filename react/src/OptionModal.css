@@ -1,23 +1,31 @@
  #modalForm{
-   margin-top: 60px;
   padding: 15px 45px;
   /*background-color: gold;*/
 }
 
 #optionModal{
-  margin-top: 80px;
+border: 2px solid red;
 }
+
 #optionModal>h3, #optionModal>h4 {
     color: rgb(1,63,138);
 }
 
-#retour{
-  margin: 40px;
-}
+
 
 #expert{
   margin-top: 30px;
   height: 15vh;
   color: rgb(1,63,138);
   text-align: center;
+}
+
+.backLinkButton{
+background-color: #000066;
+color: white;
+float: top right;
+}
+
+.sendButton{
+  margin-top: 2.5%;
 }

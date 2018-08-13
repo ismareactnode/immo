@@ -1,0 +1,8 @@
+.cartePantin{
+  height: 400px;
+  width: 80%;
+  margin: auto;
+  background: url('./mapPantin.png') no-repeat center;
+  background-size: cover;
+
+}

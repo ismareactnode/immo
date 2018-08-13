@@ -1,11 +1,14 @@
 import React from 'react';
 
+import './Agence.css';
 
 const Agence = (props) => {
-  console.log(props);
   return(
-<div>
-<h1>AGENCE ZIZOU</h1>
+<div className="agence">
+<h1>L agence de Pantin</h1>
+  <div className="agenceTof">
+  </div>
+  
 </div>
 
 );

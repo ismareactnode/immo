@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment-js';
+import { Link } from 'react-router-dom';
 
 
 import './Recherche.css';
@@ -130,8 +131,11 @@ onChangeNom(e){
       return(
 
         <div className="recherche">
+          <div className="flexTop">
+            <h3>Pour trouver le bien qui vous fera du bien</h3>
+            <Link to="/catalogue">Retour</Link>
+          </div>
 
-          <h3>Pour trouver le bien qui vous fera du bien</h3>
 
           <form
           onSubmit={e=>this.envoyer(e)}

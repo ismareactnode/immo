@@ -17,7 +17,6 @@ const getEstimationItem = (req, res) => {
   console.log(`estimation_mail : ${req.params.estimation_mail}`);
     Recherche.findOne({mail: estimation_mail})
     .then((estimation)=>{
-      console.log(`estimationItem : ${estimation}`);
       res.status(200).send(estimation);
     })
     .catch((e)=>{console.log('error :', e)});
@@ -29,14 +28,11 @@ const postEstimation = (req, res) => {
     req.body.produit.genre = 'appartement';
   };
 
-  if(req.body.produit.etat === ''){
-    req.body.produit.etat = 'moyen';
-  };
   const estimation = req.body.produit;
-
-
+  console.log(`estimation: ${estimation}`);
  let matchingRecherches = [];
- const quartier = estimation.quartier;
+
+ const renovations = estimation.renovations;
  const superficieMin = parseInt(estimation.superficie);
 Recherche.find({quartier: estimation.quartier, superficie: {$gt:superficieMin}})
 .then((results)=>{

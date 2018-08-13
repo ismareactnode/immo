@@ -1,0 +1,106 @@
+.slider{
+  height: 500px;
+  width: 100%;
+  background: url('./tof6.jpg') no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+
+.actions{
+  width: 400px;
+  height: 270px;
+  background-color: rgba(200, 200, 200, 0.6);
+  color: #3C3F56;
+  position: absolute;
+  top: 160px;
+  left: 170px;
+  display: flex;
+  flex-direction: column;
+}
+
+.haut{
+  flex: 1.5;
+  width: 100%;
+  border-bottom: 2px solid silver;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bas{
+  flex: 6;
+  display: flex;
+  flex-direction: row;
+
+}
+.case:hover{
+background-color: rgb(1,63,138);
+cursor: pointer;
+}
+.case{
+transition: background-color 0.5s;
+}
+
+
+.case:hover a{
+  color: white;
+}
+
+
+.case>a{
+    color: #3C3F56;
+}
+.case>a:hover{
+text-decoration: none;
+color: white;
+}
+
+.basLeft{
+  flex: 1;
+  border-right: 2px solid silver;
+  display: flex;
+  flex-direction: column;
+}
+.basRight{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.basRightUp{
+  border-bottom: 2px solid silver;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.basLeftUp{
+  border-bottom: 2px solid silver;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.basRightDown{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.basLeftDown{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}

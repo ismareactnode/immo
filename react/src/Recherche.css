@@ -1,5 +1,6 @@
 .recherche{
   flex: 4;
+  margin-top: 8%;
 }
 
 .notifError{
@@ -10,4 +11,15 @@
   display: inline-block;
   color: green;
   font-weight: bold;
+}
+
+.recherche>h3{
+  color: rgb(1,63,138);
+  margin-left: 3%;
+}
+
+.recherche>a{
+  float: right;
+  margin-right: 3%;
+  font-size: 1.3em;
 }

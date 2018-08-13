@@ -11,13 +11,12 @@ constructor(props){
   this.state = {
     genre: 'Maison',
     superficie: '',
-    quartier: '',
     rue: '',
-    // quartier: '',
-    etat: 'Moyen',
+    renovations: '',
     sended: undefined,
     notification: false,
     name: '',
+    missing: false,
   };
   this.estimer = this.estimer.bind(this);
   this.getCookie = this.getCookie.bind(this);
@@ -52,39 +51,43 @@ constructor(props){
   e.preventDefault();
   console.log('this.state : ', this.state);
   document.cookie=`genre=${this.state.genre}`;
-  document.cookie=`etat=${this.state.etat}`;
   document.cookie=`superficie=${this.state.superficie}`;
-  document.cookie=`quartier=${this.state.quartier}`;
+  document.cookie=`renovations=${this.state.renovations}`;
   document.cookie=`rue=${this.state.rue}`;
-  // document.cookie=`quartier=${this.state.quartier}`;
+  if(!this.state.genre || !this.state.superficie ||
+     !this.state.renovations || !this.state.rue){
+       return this.setState(()=>({missing: true}));
+     }
   this.setState(()=>({sended: true}));
 }
 
 onChangeSuperficie(e){
+  this.setState(()=>({missing: false}));
   const superficie = e.target.value;
   this.setState({superficie});
 }
 
 onChangeGenre(e){
+  this.setState(()=>({missing: false}));
   const genre = e.target.value;
   this.setState({genre});
 }
-onChangequartier(e){
-  const quartier = e.target.value;
-  this.setState({quartier});
+onChangeRenovations(e){
+  this.setState(()=>({missing: false}));
+  const renovations = e.target.value;
+  this.setState({renovations});
 }
 onChangeRue(e){
+  this.setState(()=>({missing: false}));
   const rue = e.target.value;
   this.setState({rue});
 }
 onChangeEtat(e){
+  this.setState(()=>({missing: false}));
   const etat = e.target.value;
   this.setState({etat});
 }
-onChangeQuartier(e){
-  const quartier = e.target.value;
-  this.setState({quartier});
-}
+
 desend(e){
   this.setState(() => ({sended: undefined}));
 
@@ -99,13 +102,13 @@ componentWillMount(){
   const genreCookie = this.getCookie('genre');
   const etatCookie = this.getCookie('etat');
   const superficieCookie = this.getCookie('superficie');
-  const quartierCookie = this.getCookie('quartier');
+  const renovationsCookie = this.getCookie('renovations');
   const rueCookie = this.getCookie('rue');
   this.setState(()=>({
     genre: genreCookie,
     etat: etatCookie,
     superficie: superficieCookie,
-    quartier: quartierCookie,
+    renovations: renovationsCookie,
     rue: rueCookie
   }));
 }
@@ -119,97 +122,104 @@ componentWillMount(){
         console.log('notification : ', this.state.notification);
 
           return(
-            <div className="col-sm-12" id="estimation">
-                  <div className="jumbotron">
+            <div className="col-sm-12" className="estimation">
+
+                  <div className="banniereForm">
+
+                      <div className="bienEstimerForm">
+                        <form
+                          onSubmit={this.estimer}>
+                             <div className="formUp">
+                                 <div
+                                className="form-group col-sm-12 col-lg-6"  >
+                                   <select
+                                   className="form-control"
+                                   name="genre"
+                                   value={this.state.genre}
+                                   onChange={(e)=>this.onChangeGenre(e)}
+                                   name="genre">
+                                     <option>Appartement</option>
+                                     <option>Maison</option>
+                                     <option>Terrain</option>
+                                     <option>Fond de commerce</option>
+                                   </select>
+                                 </div>
+
+
+                                 <div className="form-group col-sm-12 col-lg-6">
+                                  <input
+                                   className="form-control"
+                                  required
+                                  name="superficie"
+                                  placeholder="superficie"
+                                  value= {this.state.superficie}
+                                  onChange = {e=>this.onChangeSuperficie(e)
+                                    // this.setState(()=>({superficie: e.target.value}))
+                                  }
+                                  type="text"
+                                  name="superficie"  placeholder="superficie" />
+                                </div>
+
+
+                             </div>
+
+                             <div className="formDown">
+                               <div className="form-group col-sm-12 col-lg-6">
+                                 <select
+                                 className="form-control"
+                                 name="rénovations"
+                                 required
+                                 value={this.state.renovations}
+                                 onChange = {e => this.onChangeRenovations(e)}
+                                 >
+                                   <option>Rénové entre 2013 et 2018</option>
+                                   <option>Rénové entre 2003 et 2013</option>
+                                   <option>Rénové avant 2003</option>
+                                 </select>
+                                 </div>
+
+                               <div className="form-group col-sm-12 col-lg-6">
+                                 <input
+                                 className="form-control"
+                                 onChange = { e => this.onChangeRue(e)}
+                                 name="rue"
+                                 value={this.state.rue}
+                                 type="text"  placeholder="rue"
+                                 />
+                                </div>
+
+                             </div>
+
+                             <div className="col-sm-12">
+
+                             <button type="submit" className="btn btn-primary col-sm-12" >Estimer</button>
+                             <p className="missing">{this.state.missing ?
+                               "Tous les champs sont obligatoires" : ""}</p>
+                             </div>
+                        </form>
+                      </div>
+                  </div>
+
+
+                  <div className="banniereBienEstimer">
                          <h3>Bien estimez, pour mieux vendre</h3>
                           <p>Vous souhaitez connaitre la valeur de votre bien
                         selon sa localisation et différents critères ?
-                    Utilisez notre outil d estimation, et votre expert vous répond
-                     dans les plus brefs délais.
+                    <p>Utilisez notre outil d estimation, et votre expert vous répond
+                     dans les plus brefs délais.</p>
                     </p>
-
                   </div>
-                  <div id="partieFormulaire">
-                  <h3>Estimez gratuitement la valeur de votre bien : </h3>
 
-                  <form
+                  <div className="banniereCertif">
+                  <h3>Recevez un certificat de valeur </h3>
+                   <span className="glyphicon glyphicon-list-alt"></span>
+                    <p>En envoyant simplement quelques photos de votre bien</p>
+                    <p>En plus de quelques informations,</p>
+                    <p>Nos experts vouent certifient la valeur de votre bien</p>
+                  </div>
 
-                  onSubmit={this.estimer}
-                  >
-                    <div
-                    className="form-group col-sm-12 col-md-10 col-lg-6"  >
-                      <label>Type</label>
-                      <select
-                      className="form-control"
-                      name="genre"
-                      value={this.state.genre}
-                      onChange={(e)=>this.onChangeGenre(e)}
-                      name="genre">
-                        <option>Appartement</option>
-                        <option>Maison</option>
-                        <option>Terrain</option>
-                        <option>Fond de commerce</option>
-                      </select>
-                    </div>
 
-                    <div className="form-group col-sm-12 col-lg-6">
-                      <label>Etat</label>
-                      <select
-                      className="form-control"
-                       required
-                      onChange = { e => this.onChangeEtat(e)}
-                      name="etat"
-                      value={this.state.etat}
-                      >
-                        <option>Moyen</option>
-                        <option>Neuf</option>
-                        <option>Ancien</option>
-                        <option>A rénover</option>
-                      </select>
-                    </div>
 
-                     <div className="form-group col-sm-12 col-lg-6">
-                      <label>Superficie</label>
-                      <input
-                      className="form-control"
-                      required
-                      name="superficie"
-                      placeholder="superficie"
-                      value= {this.state.superficie}
-                      onChange = {e=>this.onChangeSuperficie(e)
-                        // this.setState(()=>({superficie: e.target.value}))
-                      }
-                      type="text"
-                      name="superficie"  placeholder="superficie" />
-                    </div>
-
-                    <div className="form-group col-sm-12 col-lg-6">
-                      <label>quartier</label>
-                      <input
-                      className="form-control"
-                      name="quartier"
-                      required
-                      placeholder="quartier"
-                      value={this.state.quartier}
-                      onChange = {e => this.onChangequartier(e)}
-                      type="text"  placeholder="quartier" />
-                      </div>
-
-                    <div className="form-group col-sm-12 col-lg-6">
-                      <label>Rue</label>
-                      <input
-                      className="form-control"
-                      onChange = { e => this.onChangeRue(e)}
-                      name="rue"
-                      value={this.state.rue}
-                      type="text"  placeholder="rue"
-                      />
-                      </div>
-                      <div className="col-sm-12">
-                      <button type="submit" className="btn btn-primary col-sm-12" >Estimer</button>
-                      </div>
-                </form>
-                </div>
                 <OptionModal sended={this.state.sended} desend={this.desend}
                 notify={this.notify} />
                 <p>{this.state.appartements}</p>
