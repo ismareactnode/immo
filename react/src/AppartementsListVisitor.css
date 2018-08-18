@@ -1,0 +1,31 @@
+.biensEtAlerte{
+  margin-top: 2%;
+  display: flex;
+
+}
+
+.alerteForm{
+  padding-top:1%;
+  border-radius: 3px;
+  flex: 1.5;
+  height: 900px;
+  background-color: #606EB3;
+  color: white;
+  margin-left: 3%;
+}
+.alerteFormItem{
+  width: 80%;
+  margin: auto;
+  border-bottom: 0.1px solid white;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.alerteForm>h3{
+  text-align: center;
+}
+
+.biens{
+  flex: 5;
+  margin-right: 3%;
+}

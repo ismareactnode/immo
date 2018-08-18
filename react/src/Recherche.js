@@ -131,147 +131,139 @@ onChangeNom(e){
       return(
 
         <div className="recherche">
-          <div className="flexTop">
-            <h3>Pour trouver le bien qui vous fera du bien</h3>
-            <Link to="/catalogue">Retour</Link>
-          </div>
-
-
-          <form
-          onSubmit={e=>this.envoyer(e)}
-           id="modalForm">
+          <Link to="/catalogue">Retour</Link>
+          <div className="rechercheFormulaire">
             <h3>Vous cherchez :</h3>
-            <div
-            className="form-group col-sm-12 col-md-10 col-lg-6"  >
-              <label>Type</label>
-              <select
-              className="form-control"
-              required
-              value={this.state.genre}
-              onChange={(e)=>this.onChangeGenre(e)}
-              name="genre">
-                <option>Appartement</option>
-                <option>Maison</option>
-                <option>Terrain</option>
-                <option>Commerce</option>
-              </select>
-            </div>
-
-             <div className="form-group col-sm-12 col-lg-6">
-              <label>Superficie</label>
-              <input
-              className="form-control"
-              required
-              name="superficie"
-              placeholder="superficie"
-              value= {this.state.superficie}
-              onChange = {e=>this.onChangeSuperficie(e)
-                // this.setState(()=>({superficie: e.target.value}))
-              }
-              type="text"
-              name="superficie"  placeholder="superficie" />
-            </div>
-
-              <div className="form-group col-sm-12 col-lg-6">
-                <label>A proximité de : </label>
-                <textarea
-                className="form-control"
-                 required
-                onChange = { e => this.onChangeProximite(e)}
-                value={this.state.proximite}
-                >
-                ex: école, métro, à 5 mn à pied de ...
-                </textarea>
-              </div>
-
-              <div className="form-group col-sm-12 col-lg-6">
-                <label>Quartier</label>
-                <input
-                className="form-control"
-                required
-                placeholder="quartier"
-                value={this.state.quartier}
-                onChange = {e => this.onChangeQuartier(e)}
-                type="text"  placeholder="quartier" />
+              <form
+              onSubmit={e=>this.envoyer(e)}
+               id="modalForm">
+                <div
+                className="form-group col-sm-12 col-md-10 col-lg-6"  >
+                  <label>Type</label>
+                  <select
+                  className="form-control"
+                  required
+                  value={this.state.genre}
+                  onChange={(e)=>this.onChangeGenre(e)}
+                  name="genre">
+                    <option>Appartement</option>
+                    <option>Maison</option>
+                    <option>Terrain</option>
+                    <option>Commerce</option>
+                  </select>
                 </div>
-
-              <div className="form-group col-sm-12 col-lg-6">
-                <label>Etat</label>
-                <select
-                className="form-control"
+                <div className="form-group col-sm-12 col-lg-6">
+                 <label>Superficie</label>
+                 <input
+                 className="form-control"
                  required
-                onChange = { e => this.onChangeEtat(e)}
-                name="etat"
-                value={this.state.etat}
-                >
-                  <option>Moyen</option>
-                  <option>Neuf</option>
-                  <option>Ancien</option>
-                  <option>A rénover</option>
-                </select>
-              </div>
+                 name="superficie"
+                 placeholder="superficie"
+                 value= {this.state.superficie}
+                 onChange = {e=>this.onChangeSuperficie(e)
+                   // this.setState(()=>({superficie: e.target.value}))
+                 }
+                 type="text"
+                 name="superficie"  placeholder="superficie" />
+               </div>
 
-            <div className="form-group col-sm-12 col-lg-6">
-              <label>Budget</label>
-              <input
-              className="form-control"
-              onChange = { e => this.onChangeBudget(e)}
-              value={this.state.budget}
-              type="text"  placeholder="budget"
-              />
-              </div>
+                 <div className="form-group col-sm-12 col-lg-6">
+                   <label>A proximité de : </label>
+                   <textarea
+                   className="form-control"
+                    required
+                   onChange = { e => this.onChangeProximite(e)}
+                   value={this.state.proximite}
+                   >
+                   ex: école, métro, à 5 mn à pied de ...
+                   </textarea>
+                 </div>
+                 <div className="form-group col-sm-12 col-lg-6">
+                   <label>Quartier</label>
+                   <input
+                   className="form-control"
+                   required
+                   placeholder="quartier"
+                   value={this.state.quartier}
+                   onChange = {e => this.onChangeQuartier(e)}
+                   type="text"  placeholder="quartier" />
+                   </div>
 
-            <div className="form-group col-sm-12 col-md-10 col-lg-6">
-            <label>Votre nom</label>
-            <input
-            className="form-control"
-             type="text"
-            required
-             value={this.state.nom}
-             onChange={e=>this.onChangeNom(e)}/>
-             </div>
+                 <div className="form-group col-sm-12 col-lg-6">
+                   <label>Etat</label>
+                   <select
+                   className="form-control"
+                    required
+                   onChange = { e => this.onChangeEtat(e)}
+                   name="etat"
+                   value={this.state.etat}
+                   >
+                     <option>Moyen</option>
+                     <option>Neuf</option>
+                     <option>Ancien</option>
+                     <option>A rénover</option>
+                   </select>
+                 </div>
+                 <div className="form-group col-sm-12 col-lg-6">
+                   <label>Budget</label>
+                   <input
+                   className="form-control"
+                   onChange = { e => this.onChangeBudget(e)}
+                   value={this.state.budget}
+                   type="text"  placeholder="budget"
+                   />
+                   </div>
 
-            <div className="form-group col-sm-12 col-md-10 col-lg-6">
-              <label>Votre adresse mail</label>
-              <input
-                className="form-control"
-               required
-               type="email"
-               value={this.state.mail}
-               onChange={e=>this.onChangeMail(e)}/>
-              </div>
+                 <div className="form-group col-sm-12 col-md-10 col-lg-6">
+                 <label>Votre nom</label>
+                 <input
+                 className="form-control"
+                  type="text"
+                 required
+                  value={this.state.nom}
+                  onChange={e=>this.onChangeNom(e)}/>
+                  </div>
 
-              <div className="form-group col-sm-12 col-md-10 col-lg-6">
-              <label>Votre téléphone</label>
-              <input
-                className="form-control"
-              type="text"
-              placeholder="facultatif"
-              value={this.state.tel}
-              onChange={e=>this.onChangeTel(e)}/>
-              </div>
+                 <div className="form-group col-sm-12 col-md-10 col-lg-6">
+                   <label>Votre adresse mail</label>
+                   <input
+                     className="form-control"
+                    required
+                    type="email"
+                    value={this.state.mail}
+                    onChange={e=>this.onChangeMail(e)}/>
+                   </div>
+                   <div className="form-group col-sm-12 col-md-10 col-lg-6">
+                   <label>Votre téléphone</label>
+                   <input
+                     className="form-control"
+                   type="text"
+                   placeholder="facultatif"
+                   value={this.state.tel}
+                   onChange={e=>this.onChangeTel(e)}/>
+                   </div>
 
-              <div className="form-group col-sm-12 col-md-10 col-lg-6">
-              <label>Si vous avez des précisions :</label>
-              <textarea
-                className="form-control"
-              placeholder="facultatif"
-              value={this.state.precision}
-              onChange={e=>this.onChangePrecision(e)}>
-              </textarea>
-              </div>
-              <div className="notifError">
-                {this.state.error && <p>Merci de remplir tous les champs obligatoires</p>}
-              </div>
-              <button className="btn btn-primary col-sm-12"
-              onClick={this.envoyer}>Lancer la recherche</button>
-              <div className="notifError">
-              {this.state.notification ? <p className="envoye">Bien envoyé</p> : ''}
-              </div>
-          </form>
-
-          <div id="expert" className="col-md-6 col-lg-12"><h3> Notre expert immobilier se fera un
-          plaisir de trouver votre bonheur</h3></div>
+                   <div className="form-group col-sm-12 col-md-10 col-lg-6">
+                   <label>Si vous avez des précisions :</label>
+                   <textarea
+                     className="form-control"
+                   placeholder="facultatif"
+                   value={this.state.precision}
+                   onChange={e=>this.onChangePrecision(e)}>
+                   </textarea>
+                   </div>
+                   <div className="notifError">
+                     {this.state.error && <p>Merci de remplir tous les champs obligatoires</p>}
+                   </div>
+                   <button className="btn btn-primary col-sm-12"
+                   onClick={this.envoyer}>Lancer la recherche</button>
+                   <div className="notifError">
+                   {this.state.notification ? <p className="envoye">Bien envoyé</p> : ''}
+                   </div>
+               </form>
+               <div id="expert" className="col-md-6 col-lg-12"><h3> Notre expert immobilier se fera un
+               plaisir de trouver votre bonheur</h3></div>
+          </div>
       </div>
       );
   };

@@ -26,7 +26,7 @@ componentWillMount(){
       <div className="catalogueVisitor">
         <div className="flexTop">
           <AppartementsListFilters />
-            <Link to="/recherche">Enregistrez votre alerte</Link>
+            
         </div>
         <div className="flexBottom">
           <AppartementsListVisitor />

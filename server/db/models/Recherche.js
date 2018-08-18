@@ -18,13 +18,6 @@ var Recherche = mongoose.model('Recherche',{
 
     // required: true
   },
-  proximite: {
-    type: String,
-    // required: true
-  },
-  etat: {
-    type: String
-  },
   budget:{
     type: Number
   },

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { setTextFilter, setGenreFilter, sortByPrix, sortBySuperficie,
   setNbPieces } from './actions/filtersActions';
 
+import './AppartementsListFilters.css';
+
 class AppartementsListFilters extends Component{
 
 
@@ -27,23 +29,30 @@ onChangePieces(e){
   render(){
 
     return(
-        <div>
-          <select
-            name = 'genre'
-            onChange={e=>this.onChangeGenre(e)}
-           >
-            <option
-              value={this.state.genre}
-            >Tous les types</option>
-            <option>Appartement</option>
-            <option>Maison</option>
-            <option>Terrain</option>
-            <option>Commerce</option>
-          </select>
+        <div className="listFiltersContainer">
+        <div className="listFilters">
+          <div className="listFiltersItem">
+            <select
+            className="form-control form-control-sm"
+              name = 'genre'
+              onChange={e=>this.onChangeGenre(e)}
+             >
+              <option
+                value={this.state.genre}
+              >Tous les types</option>
+              <option>Appartement</option>
+              <option>Maison</option>
+              <option>Terrain</option>
+              <option>Commerce</option>
+            </select>
+          </div>
+
 
       {
         this.props.filters.genre === 'Appartement' || this.props.filters.genre === 'Maison'?
+        <div className="listFiltersItem">
           <select
+          className="form-control"
           name= 'nbPieces'
           value={this.state.nbPieces}
           onChange={e => this.onChangePieces(e)}
@@ -56,16 +65,27 @@ onChangePieces(e){
             <option>4 pièces</option>
             <option>5 pièces et +</option>
           </select>
+        </div>
         : null
       }
+      <div className="listFiltersItem">
         <input type="text" placeholder="ville, quartier"
+          className="form-control"
         onChange={e=>this.props.dispatch(setTextFilter(e.target.value))} />
+      </div>
+      <div className="listFiltersItem">
         <button
+        className="btn btn-primary"
         onClick={() => {this.props.dispatch(sortByPrix())}}
         >Prix</button>
-          <button
-        onClick={()=>{this.props.dispatch(sortBySuperficie())}}  >Superficie</button>
         </div>
+        <div className="listFiltersItem">
+          <button
+            className="btn btn-primary"
+        onClick={()=>{this.props.dispatch(sortBySuperficie())}}  >Superficie</button>
+      </div>
+  </div>
+  </div>
       );
   }
 }

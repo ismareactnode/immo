@@ -1,6 +1,16 @@
 .recherche{
   flex: 4;
   margin-top: 8%;
+  width: 100%;
+background: linear-gradient(to right bottom, rgba(100, 147, 206, 0.2),rgba(100, 147, 206, 0.5)) , url('./demenage.jpg') center no-repeat;
+background-position: cover;
+}
+
+.rechercheFormulaire{
+  width: 72%;
+  margin: auto;
+  height: 600px;
+  color: rgb(1,63,138);
 }
 
 .notifError{

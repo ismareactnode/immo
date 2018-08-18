@@ -1,0 +1,22 @@
+
+.listFilters{
+  display: flex;
+  flex-direction: row;
+}
+
+.listFiltersContainer{
+  width: 500px;
+  height: 50px;
+  margin-left: 40%;
+  border: 2px solid blue;
+  border-radius: 5px;
+    background-color: #F7F8FA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.listFiltersItem{
+  margin-left: 3px;
+}

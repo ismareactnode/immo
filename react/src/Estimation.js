@@ -9,10 +9,10 @@ class Estimation extends React.Component{
 constructor(props){
   super(props);
   this.state = {
-    genre: 'Maison',
+    genre: 'Appartement',
     superficie: '',
     rue: '',
-    renovations: '',
+    renovations: 'Rénové entre 2013 et 2018',
     sended: undefined,
     notification: false,
     name: '',
@@ -49,7 +49,12 @@ constructor(props){
 
  estimer(e){
   e.preventDefault();
-  console.log('this.state : ', this.state);
+  console.log('this.state.renovations : ', this.state.renovations);
+  if(!this.state.renovations){
+    console.log("pas de renovations ds le state");
+    this.setState(()=>({renovations: "Rénové entre 2013 et 2018"}));
+    console.log('this.state.renovations', this.state.renovations);
+  }
   document.cookie=`genre=${this.state.genre}`;
   document.cookie=`superficie=${this.state.superficie}`;
   document.cookie=`renovations=${this.state.renovations}`;
