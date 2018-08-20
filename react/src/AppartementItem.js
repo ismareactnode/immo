@@ -10,24 +10,20 @@ const AppartementItem = ({ _id, genre, nbPieces, quartier, superficie, prix, pho
 
       <Link to={`/editAppartement/${_id}`}>
 
-        <div id="carteSmallFlexBox">
+        <div className="carteSmallFlex">
 
-          <div id="carteSmallPhoto">
-            <img src={photo} alt="photo" />
-          </div>
+            <img src={photo} alt="photo"  className="flexTofImage"/>
 
-          <div id="carteSmallInfos">
+          <div id="flexText">
             <ul>
-              <li>{quartier}</li>
-              <li>{genre}</li>
-              {
-                genre === 'appartement' || genre === 'maison'?
-              <li>{nbPieces}</li>
-              : null
-              }
-              <li>{superficie} m2</li>
-              <li>{prix} €</li>
-            </ul>
+
+            <li>{genre === 'appartement' || genre === 'maison'?
+          `${genre} ${nbPieces}`
+            : `${genre}`}</li>
+
+          <li><span>{`${superficie} m2`}</span><span className="flexTextPrix">{`     ${prix} €  `}</span></li>
+              <li><span className="flexTextQuartier">{quartier}</span></li>
+          </ul>
             <Link to={`/confirmationSuppression/${_id}`}>
             <button id="delete" type="btn btn-danger btn-sm">Supprimer</button>
             </Link>

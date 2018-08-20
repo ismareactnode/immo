@@ -24,16 +24,16 @@ componentWillMount(){
 }
    render(){
      return(
-      <div id="adminCatalogue">
-      <NavLink to="/AdminDashboard"><button className="btn btn-light">
-      Retour au menu</button></NavLink>
-        <div id='AppartDashboard'>
-         <button
-         className="btn btn-primary"
-         id="ajouter"><Link to='/AdminAddAppartement'>Ajouter un bien</Link></button>
-          <AppartementsListFilters />
-          <AppartementsList />
-       </div>
+      <div className="adminCatalogue">
+          <NavLink to="/AdminDashboard"><button className="btn btn-primary retourMenu">
+          Retour au menu</button></NavLink>
+          <div id='AppartDashboard'>
+           <button
+           className="btn btn-primary"
+           id="ajouter"><Link to='/AdminAddAppartement'>Ajouter un bien</Link></button>
+            <AppartementsListFilters />
+            <AppartementsList />
+         </div>
      </div>
      );
 }};
