@@ -1,6 +1,7 @@
 #ajouter{
-  float: right;
-  margin-right: 200px;
+position: fixed;
+z-index: 1;
+left: 1.7%;
 
 }
 #ajouter>a{

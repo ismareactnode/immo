@@ -11,13 +11,12 @@ class Header extends React.Component{
 				<div>
 						<div id="headerAdmin" className="col-sm-12">
 							<div id="agence">
-							  <img id="logoAgence" src="logoD.png"/>
-							    Immo DEVAUX
+							    ADMINISTRATEUR
 							  </div>
-								<ul>
-								  <li><h3>Espace ADMINISTRATEUR</h3></li>
-								<li><h3><strong>{localStorage.getItem('name')}</strong></h3></li>
-								</ul>
+
+
+								<h3><strong>{localStorage.getItem('name')}</strong></h3>
+
 						</div>
 					</div>
 			);
