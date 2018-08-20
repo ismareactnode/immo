@@ -9,26 +9,22 @@ const AppartementItemVisitor = ({ _id, genre, nbPieces, quartier, superficie, pr
   return(
     <div id="carteSmall" className="col-sm-12 col-md-6 col-lg-4">
       <NavLink to={`detailsAppartement/${_id}`}>
-        <div id="carteSmallFlexBox">
+        <div className="carteSmallFlex">
+              <img src={photo} className="flexTofImage"/>
+              <div className="flexText">
+                  <ul>
 
-          <div id="carteSmallPhoto">
-            <img src={photo} alt="photo" className="responsiveTof"/>
-          </div>
+                  <li>{genre === 'appartement' || genre === 'maison'?
+                `${genre} ${nbPieces}`
+                  : `${genre}`}</li>
 
-          <div id="carteSmallInfos">
-            <ul>
-              <li>{quartier}</li>
-              <li>{genre}</li>
-              {
-                genre === 'appartement' || genre === 'maison'?
-              <li>{nbPieces}</li>
-              : null
-              }
-              <li>{superficie} m2</li>
-              <li>{prix} €</li>
-            </ul>
-         </div>
+                <li><span>{`${superficie} m2`}</span><span className="flexTextPrix">{`     ${prix} €  `}</span></li>
+                  <li></li>
+                    <li><span className="flexTextQuartier">{quartier}</span></li>
+                </ul>
+              </div>
         </div>
+
     </NavLink>
 
 

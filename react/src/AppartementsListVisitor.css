@@ -1,5 +1,4 @@
 .biensEtAlerte{
-  margin-top: 2%;
   display: flex;
 
 }
@@ -8,7 +7,7 @@
   padding-top:1%;
   border-radius: 3px;
   flex: 1.5;
-  height: 900px;
+  height: 700px;
   background-color: #606EB3;
   color: white;
   margin-left: 3%;
@@ -27,5 +26,21 @@
 
 .biens{
   flex: 5;
-  margin-right: 3%;
+  /*border: 2px solid black;*/
+  background-color: #F7F8FA;
+  padding-top: 5px;
+}
+
+.biens>h4{
+  right: 40px;
+  position: absolute;
+  color: #696FAB;
+  font-weight: bold;
+  background-color: white;
+  position: fixed;
+  padding: 6px 12px;
+  border-radius: 3px;
+  z-index: 5;
+  font-size: 1.1em;
+
 }

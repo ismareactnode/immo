@@ -58,7 +58,7 @@ onChangePieces(e){
           onChange={e => this.onChangePieces(e)}
           >
             <option
-            >Nombre de pièces</option>
+            >Pièces</option>
             <option>Studio</option>
             <option>2 pièces</option>
             <option>3 pièces</option>

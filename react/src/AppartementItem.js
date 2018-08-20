@@ -13,7 +13,7 @@ const AppartementItem = ({ _id, genre, nbPieces, quartier, superficie, prix, pho
         <div id="carteSmallFlexBox">
 
           <div id="carteSmallPhoto">
-            <img src={photo} alt="photo" className="responsiveTof"/>
+            <img src={photo} alt="photo" />
           </div>
 
           <div id="carteSmallInfos">

@@ -106,9 +106,7 @@ class AppartementsListVisitor extends React.Component{
     render(){
       return(
        <div>
-           <h4>{Object.keys(this.props.appartements).length} résultat{Object.keys(this.props.appartements).length>1 ? 's' : ''}</h4>
-           <p>Celui ci contient tous les biens à la vente actuellement et est
-           susceptible de changer dans les jours qui suivent.</p>
+
 
             <div className="biensEtAlerte">
 
@@ -207,8 +205,9 @@ class AppartementsListVisitor extends React.Component{
                    </form>
 
               </div>
-              
+
                <div className="biens">
+               <h4>{Object.keys(this.props.appartements).length} résultat{Object.keys(this.props.appartements).length>1 ? 's' : ''}</h4>
                 { Object.values(this.props.appartements).map(appartement =>
                   <AppartementItemVisitor key={appartement._id} {...appartement}  />)
                 }

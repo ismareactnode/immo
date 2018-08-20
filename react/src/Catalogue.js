@@ -24,15 +24,8 @@ componentWillMount(){
    render(){
      return(
       <div className="catalogueVisitor">
-        <div className="flexTop">
           <AppartementsListFilters />
-            
-        </div>
-        <div className="flexBottom">
           <AppartementsListVisitor />
-        </div>
-
-
      </div>
      );
 }};
