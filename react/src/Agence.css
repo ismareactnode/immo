@@ -1,10 +1,115 @@
 .agence{
-  margin-top: 10%;
+  width: 100%;
+  margin-top: 70px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: url('./papierPeint.jpg') no-repeat center;
+  background-size: cover;
+display: flex;
+flex-direction: column;
 }
 
+
+.agenceNom{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.horairesUl{
+  list-style-type: none;
+}
+
+.agenceHoraires{
+  padding-left: 10px;
+  padding-top: 20px;
+  border-bottom: 1px solid silver;
+}
+.agenceTel{
+  padding-left: 25px;
+  padding-top: 20px;
+  border-bottom: 1px solid silver;
+  color: rgb(1,63,138);
+  font-weight: bold;
+  padding-bottom: 14px;
+}
+
+.agenceMail{
+  padding-left: 25px;
+  padding-top: 20px;
+  border-bottom: 1px solid silver;
+  color: rgb(1,63,138);
+  font-weight: bold;
+  padding-bottom: 14px;
+}
+.agenceHoraires>h5{
+  color: rgb(1,63,138);
+  font-weight: bold;
+  margin-left: 15px;
+}
+.glyphicon-time, .glyphicon-earphone, .{
+  margin-right: 10px;
+}
+.horairesJour{
+  width: 100px;
+}
+.agenceNom>h2{
+  border-bottom: 1px solid silver;
+  margin-bottom:25px;
+  width: 40%;
+  height: 50px;
+  text-align: center;
+  color: rgb(1,63,138);
+}
+.agenceContenu{
+  flex: 10;
+  width: 95%;
+  margin: auto;
+  height: 700px;
+  border-radius: 5px;
+display: flex;
+
+}
+
+.agenceContenuText{
+  padding-top: 30px;
+  padding-left: 22px;
+  flex: 2;
+  background-color: white;
+}
+
+.agenceAdresseHoraires{
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.agenceContenuText>h3{
+text-align: center;
+color: rgb(1,63,138);
+margin-bottom: 30px;
+
+}
+.agenceTofAdresse{
+  padding-left: 10px;
+  margin-top: 20px;
+  line-height: 0.8em;
+  border-bottom: 1px solid silver;
+}
+.agenceContenuTof{
+
+  flex: 1.4;
+  margin-left: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 2px 2px white;
+  display: flex;
+  flex-direction: column;
+}
 .agenceTof{
-  border: 2px solid red;
-  height: 500px;
-  width: 100%;
-  background:  url('./agenceTof.JPG') no-repeat;
+  flex: 2;
+
+  background:  url('./agenceTof.JPG') no-repeat center;
+  background-size: cover;
 }
