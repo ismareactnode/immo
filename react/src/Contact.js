@@ -58,51 +58,57 @@ envoyerQuestion(e){
 render(){
 
   return(
+    <div className="contactContainer">
     <div id="Contact">
-
-
         <div id="formQuestion" className="col-sm-12 col-md-6">
-          <h3>Posez votre question</h3>
-          <form onSubmit={e=>this.envoyerQuestion(e)}>
-          <div className="form-group">
-          <label>Votre nom : </label>
-          <input
-          className="form-control"
-          onChange={e=>this.onChangeNom(e)}
-          value={this.state.nom}
-          type="text" required />
-          </div>
+            <form onSubmit={e=>this.envoyerQuestion(e)}>
+              <h3>Posez votre question</h3>
             <div className="form-group">
-            <label>Votre email : </label>
-          <input
+            <label>Votre nom : </label>
+            <input
             className="form-control"
-          onChange={e=>this.onChangeMail(e)}
-          value={this.state.mail}
-          type="text" required />
-          </div>
-            <div className="form-group">
-          <label>Votre question : </label>
-          <textarea
-            className="form-control"
-          onChange={e=>this.onChangeInterrogation(e)}
-          value={this.state.interrogation}
-          ></textarea></div>
-            <p><button className="btn btn-primary btn-" type="submit">Envoyer</button></p>
-          </form>
+            onChange={e=>this.onChangeNom(e)}
+            value={this.state.nom}
+            type="text" required />
+            </div>
+              <div className="form-group">
+              <label>Votre email : </label>
+            <input
+              className="form-control"
+            onChange={e=>this.onChangeMail(e)}
+            value={this.state.mail}
+            type="text" required />
+            </div>
+              <div className="form-group">
+            <label>Votre question : </label>
+            <textarea rows="6" cols="20"
+              className="form-control"
+            onChange={e=>this.onChangeInterrogation(e)}
+            value={this.state.interrogation}
+            ></textarea></div>
+            <button className="btn btn-primary form-control btn-lg questionButton" type="submit">Envoyer</button>
+            </form>
         </div>
 
         <div id="message" className="col-sm-12 col-md-6">
-          <h3>Votre expert vous répond de façon immédiate et gratuite</h3>
-        </div>
 
-         <div id="mail" className="col-sm-12 col-md-6"><img src="iconeMail7.png" />
-           <a href="mailto:immo-devaux@wanadoo.fr">immo-devaux@wanadoo.fr</a>
-         </div>
-
-        <div id="tel" className="col-sm-12 col-md-6"><img src="iconeTel22.png" alt="tel"/>
-          01 48 40 44 11
-        </div>
-
+          <h3>Contact</h3>
+           <div className="messagePart">
+             <div className="contactMail">
+               <span className="glyphicon glyphicon-envelope mailIcone"></span>
+             </div>
+             <div className="contactMail">
+               <a href="mailto:immo-devaux@wanadoo.fr">immo-devaux@wanadoo.fr</a>
+            </div>
+           </div>
+           <div className="messagePart">
+             <div className="contactNumero"><span className="glyphicon glyphicon-earphone mailIcone"></span></div>
+              <div className="contactNumero"><p>01 48 40 44 11</p></div>
+          </div>
+          <div className="messagePart">
+            Votre expert vous répond de façon immédiate et gratuite</div>
+          </div>
+    </div>
     </div>
   );
   }
