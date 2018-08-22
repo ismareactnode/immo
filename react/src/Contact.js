@@ -81,7 +81,7 @@ render(){
             </div>
               <div className="form-group">
             <label>Votre question : </label>
-            <textarea rows="6" cols="20"
+            <textarea rows="4" cols="20"
               className="form-control"
             onChange={e=>this.onChangeInterrogation(e)}
             value={this.state.interrogation}

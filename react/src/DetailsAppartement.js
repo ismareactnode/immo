@@ -22,7 +22,7 @@ class DetailsAppartement extends Component{
             <li>{superficie}</li>
             <li>{prix}</li>
             <li>{photo}</li>
-<img src='tof7.jpeg' alt="photo"  />
+
           </ul>
         </div>
 
