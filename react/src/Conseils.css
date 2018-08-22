@@ -1,4 +1,41 @@
 .conseils{
-  margin-top: 80px;
-  flex:4;
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+}
+
+.conseilsPapierPeint{
+  padding-top: 2%;
+  flex: 2;
+  width: 100%;
+  background: url('papierPeint.jpg') center
+  no-repeat fixed;
+  background-size: cover;
+}
+
+.conseilsContenu{
+  width: 80%;
+  margin: auto;
+  padding-top: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
+  background-color: white;
+  box-shadow: 1px 2px 2px silver;
+  border-radius: 5px;
+}
+.conseilsContenu>h3{
+  text-align: center;
+  font-weight: bold;
+  color: rgb(1,63,138);
+  margin-bottom: 3%;
+}
+.conseilsBanniere{
+  flex: 1.5;
+  width: 100%;
+  background: url('./conseils.jpg') center
+   no-repeat fixed;
+   background-size: cover;
 }

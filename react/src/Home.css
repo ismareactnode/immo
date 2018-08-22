@@ -32,7 +32,8 @@ background-color: rgb(1,63,138);
 
 
 .estimerDiv:hover{
-  background-color: rgb(0,191,255);
+  color: rgb(1,63,138);
+  background-color: white;
   cursor: pointer;
 }
 
@@ -54,6 +55,7 @@ background-color: rgb(1,63,138);
   justify-content: center;
   align-items: center;
 }
+
 .banniereEstimer>p:first-child{
   fontWeight: normal;
   font-size: 2em;

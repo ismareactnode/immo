@@ -30,11 +30,12 @@ class Slider extends Component{
               </div>
             </div>
             <div className="basRight">
-              <div className="basRightUp case">
-                <Link to="/faireLouer"><h3>FAIRE LOUER</h3></Link>
-              </div>
+
               <div className="basRightDown case">
                 <Link to="/faireGerer"><h3>FAIRE GERER</h3></Link>
+              </div>
+              <div className="basRightUp case">
+                <Link to="/contact"><h3>CONTACTER</h3></Link>
               </div>
             </div>
           </div>

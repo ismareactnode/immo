@@ -24,6 +24,7 @@ flex-direction: column;
 .agenceHoraires{
   padding-left: 10px;
   padding-top: 20px;
+  padding-bottom: 30px;
   border-bottom: 1px solid silver;
 }
 .agenceTel{
@@ -101,7 +102,8 @@ margin-bottom: 30px;
 }
 .agenceTofAdresse{
   padding-left: 45px;
-  margin-top: 20px;
+  margin-top: 28px;
+  padding-bottom: 20px;
   line-height: 0.8em;
   border-bottom: 1px solid silver;
 }
