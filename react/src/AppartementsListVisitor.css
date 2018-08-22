@@ -23,7 +23,18 @@
 .alerteForm>h3{
   text-align: center;
 }
-
+.alerteButtonContainer{
+  margin-top: 10px;
+  height:40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.alerteButton{
+  width: 80%;
+  margin: auto;
+}
 .biens{
   flex: 5;
   /*border: 2px solid black;*/

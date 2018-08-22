@@ -101,15 +101,10 @@ class AppartementsListVisitor extends React.Component{
    })
   .catch((err)=>{console.log('error :', err);})
   }
-
-
     render(){
       return(
        <div>
-
-
             <div className="biensEtAlerte">
-
               <div className="alerteForm">
                 <h3>Votre alerte</h3>
                   <form
@@ -197,8 +192,8 @@ class AppartementsListVisitor extends React.Component{
                        <div className="notifError">
                          {this.state.error && <p>Merci de remplir tous les champs obligatoires</p>}
                        </div>
-                       <button className="btn btn-primary col-sm-12"
-                       onClick={this.envoyer}>Enregistrer</button>
+                       <div className="alerteButtonContainer"><div className="alerteButton"><button className="btn btn-primary col-sm-12"
+                       onClick={this.envoyer}>Enregistrer</button></div></div>
                        <div className="notifError">
                        {this.state.notification ? <p className="envoye">Bien envoyé</p> : ''}
                        </div>

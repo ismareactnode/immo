@@ -1,8 +1,68 @@
-.cartePantin{
+/*.cartePantin{
   height: 400px;
   width: 80%;
   margin: auto;
   background: url('./mapPantin.png') no-repeat center;
   background-size: cover;
 
+}*/
+
+.quartiers{
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+  height: 950px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.quartiersPapierPeint{
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+  flex: 2;
+  width: 100%;
+  background: url('papierPeint.jpg') center
+  no-repeat fixed;
+  background-size: cover;
+  display: flex;
+
+}
+
+.quartiersContenu{
+
+  padding-top: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
+  margin-left: 7%;
+  background-color: white;
+  box-shadow: 1px 2px 2px silver;
+  border-radius: 5px;
+  flex: 3;
+}
+
+.quartiersPlan{
+  flex:1;
+  background-color: white;
+  box-shadow: 1px 2px 2px silver;
+  border-radius: 5px;
+  background: url('./mapPantin.png') no-repeat center;
+  background-size: cover;
+  margin-right: 30px;
+  margin-left: 10px;
+  box-shadow: 1px 2px 2px white;
+}
+.quartiersBanniere{
+  flex: 2;
+  width: 100%;
+  background: url('./pantinCanal.jpg') center
+   no-repeat fixed;
+   background-size: cover;
+}
+.quartiersContenu>h3{
+  text-align: center;
+  font-weight: bold;
+  color: rgb(1,63,138);
+  margin-bottom: 3%;
 }
