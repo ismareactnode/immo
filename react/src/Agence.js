@@ -46,7 +46,7 @@ const Agence = (props) => {
 
       <h5>PANTIN</h5>
 
-agenceAdresseHoraires
+
       <p>PANTIN est un quartier que vous allez aimer !</p>
 
       <p>La rue des Pyrénées et ses nombreux commerces, l'authentique cimetière du Père
@@ -71,7 +71,7 @@ agenceAdresseHoraires
                   <ul className="horairesUl">
                     <li><span className="horairesJour">Lundi:</span> 9h00-19h00</li>
                     <li><span className="horairesJour">Mardi:</span> 9h00-19h00</li>
-                    <li><span className="horairesJour">Mercredi:</span>9h00-19h00</li>
+                      <li><span className="horairesJour">Mercredi:</span> 9h00-19h00</li>
                     <li><span className="horairesJour">Jeudi:</span> 9h00-19h00</li>
                     <li><span className="horairesJour">Vendredi:</span> 9h00-19h00</li>
                     <li><span className="horairesJour">Samedi:</span> 9h00-19h00</li>
