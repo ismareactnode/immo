@@ -1,11 +1,184 @@
 #DetailsAppartement{
   margin-top: 90px;
+
+  padding-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  height: 900px;
 }
 
-#carteBigPhoto{
+.detailsPhotoContainer{
+  flex: 1.1;
+  margin-bottom: 20px;
+  margin-left: 12%;
+  margin-right: 12%;
+  position: relative;
+}
+.detailsPhoto{
+  width: 80%;
+  margin: auto;
+}
+.detailsTextContainer{
+  flex: 1;
+  display: flex;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.detailsText{
+  flex: 2.5;
+  background-color: #F6F6F6;
+  padding-left: 6%;
+  padding-top: 2%;
+}
+.detailsText>h4{
+  font-weight: bold;
+}
+.caractRight{
+  flex: 1.5;
+  margin-left: 2.5%;
+  display: flex;
+  flex-direction: column;
+}
+.caractRight1{
+  flex: 2;
+  background-color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  border: 1px solid rgba(192,192,192, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+.caractRight>a:hover{
+  text-decoration: none;
+}
+.caractRight2{
+  margin-top: 3%;
+  flex: 1;
+  height: 80px;
+  background-color: #304282;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.caractRight2:hover{
+  background-color: #111538;
+  cursor: pointer;
+}
+.caractRight3{
+  margin-top: 3%;
+  flex: 1;
+  border: 1px solid rgba(192,192,192, 0.8);
+  color: #304282;
+  display: flex;
+  flex-direction: column;
+}
+
+.caractMailDiv{
+  padding-left: 10%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.caractTelDiv{
+  padding-left: 10%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.caracteristiquesGenrePrix{
+  flex: 1;
+  border-bottom: 1px solid rgba(192,192,192, 0.8);
+  display: flex;
+}
+
+.caracteristiquesPrix{
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  color: red;
+}
+.linkToList{
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  position: fixed;
+  top: 13%;
+  right: 0%;
+  z-index: 2;
+}
+.linkToList>button>a{
+  color: white;
+}
+.linkToList>button>a:hover{
+  text-decoration: none;
+}
+.caracteristiquesGenre{
+  flex: 1.7;
+  border-right: 1px solid rgba(192,192,192, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.caracteristiquesPiecesSuperficie{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.detailsPhotoDescriptif{
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 25%;
+  height: 25%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-left: 2%;
+}
+.detailsQuartier{
+  font-size: 0.9em;
+}
+.detailsPhotoPrix{
+  color: red;
+}
+.exclusivite{
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100px;
+  height: 40px;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom-right-radius: 7px;
 
 }
-.detailsTof{
+.bigPhoto{
   width: 100%;
-  height: 100%;
+  height: 460px;
 }

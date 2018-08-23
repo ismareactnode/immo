@@ -14,7 +14,7 @@ const getApparts = ( req, res ) => {
 
 
 const postApparts = (req, res) => {
-  var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces', 'photo', 'recherche']);
+  var body = _.pick(req.body, ['genre', 'quartier', 'superficie', 'prix', 'nbPieces', 'descriptif', 'photo', 'recherche']);
   let recherches = [];
   if (body.photo === ''){
     body.photo = 'default.jpeg';

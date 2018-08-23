@@ -33,6 +33,7 @@ return function(){
       superficie = 0,
       quartier = '',
       prix = 0,
+      descriptif = "",
       photo="default.jpeg"
     } = appartementData;
     try{

@@ -18,6 +18,9 @@ var Appart = mongoose.model('Appart',{
     type: Number,
     required: true
   },
+  descriptif: {
+    type: String
+  },
   prix: {
     type: Number
   },

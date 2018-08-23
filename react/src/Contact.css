@@ -1,6 +1,8 @@
 
 .contactContainer{
   margin-top: 76px;
+  padding-bottom: 2%;
+
   background-color: #F7F8FA;
   /*border: 2px solid black;*/
 }
@@ -58,6 +60,7 @@ margin-bottom: 7%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10%;
 }
 #message{
   padding-top: 10px;

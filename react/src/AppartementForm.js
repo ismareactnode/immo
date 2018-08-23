@@ -13,6 +13,7 @@ class AppartementForm extends React.Component{
       superficie: props.appartement ? props.appartement.superficie : '',
       prix: props.appartement ? props.appartement.prix.toString()  : '',
       quartier: props.appartement ? props.appartement.quartier : '',
+      descriptif: props.appartement ? props.appartement.descriptif : '',
       photo: props.appartement ? props.appartement.photo : '',
       id: props.appartement ? props.appartement.id : '',
       recherche : props.appartement ? props.appartement.recherche : '',
@@ -52,6 +53,11 @@ onNbPiecesChange = e => {
 onPhotoChange = e => {
   const photo = e.target.value;
   this.setState(()=>({photo}));
+}
+
+onDescriptifChange = e => {
+  const descriptif = e.target.descriptif;
+  this.setState(()=>({descriptif}));
 }
 
 onPrixChange = e => {
@@ -147,6 +153,16 @@ render(){
         onChange={e=>{this.onSuperficieChange(e)}}
         type="number" />
     </div>
+
+    <div className="form-group">
+      <label>Descriptif : </label>
+      <textarea
+       className="form-control"
+       name="descriptif" value={this.state.descriptif}
+       onChange={e=>{this.onDescriptifChange(e)}}
+       type="number" />
+   </div>
+
     <div className="form-group">
       <label>Prix :   </label>
       <input

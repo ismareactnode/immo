@@ -3,7 +3,8 @@
   margin-top: 7%;
   display: flex;
   flex-direction: column;
-  height: 750px;
+  height: 850px;
+  margin-bottom: 0;
 }
 .faireGererContenu>h3{
   text-align: center;
@@ -20,6 +21,8 @@
 }
 .faireGererPapierPeint{
   padding-top: 2%;
+  padding-bottom: 2%;
+
   flex: 2;
   width: 100%;
   background: url('papierPeint.jpg') center
