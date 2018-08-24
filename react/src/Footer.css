@@ -76,8 +76,12 @@ box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.7);
   margin-bottom: 10px;
 
 }
+.marginTop{
+  height: 26px;
+}
 
 .text{
+  text-align: center;
   margin-top:5%;
   color: silver;
   margin-right: 10%;

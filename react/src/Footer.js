@@ -34,11 +34,11 @@ class Footer extends React.Component{
       return (
              <footer>
                <div className="footer">
-                   <div className="logo footerLeft">
+                   <div className="logo footerLeft hidden-xs">
                         <img className="logoSnpi" src="Snpi.JPG" alt="logo_snpi" />
                    </div>
                    <div className="footerRight">
-                     <div className="footerMenu">
+                     <div className="footerMenu hidden-xs">
                        <div className="menu">
                        <Link to="/">ACCUEIL</Link><span>  |  </span>
                         <Link to="/contact">NOUS CONTACTER</Link><span>  |  </span>
@@ -48,6 +48,8 @@ class Footer extends React.Component{
                        <Link to="">MENTIONS LEGALES</Link>
                        </div>
 
+                     </div>
+                     <div className="marginTop hidden-sm hidden-md hidden-lg hidden-xl">
                      </div>
                      <div className="text">
                        <div>
