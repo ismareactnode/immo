@@ -9,7 +9,7 @@ class Header extends React.Component{
 		if(this.props.connected === true){
 			return(
 				<div>
-						<div id="headerAdmin" className="col-sm-12">
+						<div id="headerAdmin" classNameName="col-sm-12">
 							<div id="agence">
 							    ADMINISTRATEUR
 							  </div>
@@ -22,60 +22,48 @@ class Header extends React.Component{
 			);
 		}else{
 			return(
+				<nav className="navbar navbar-default">
+				  <div className="container-fluid">
+				    <div className="navbar-header">
+				      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span className="sr-only">Toggle navigation</span>
+				        <span className="icon-bar"></span>
+				        <span className="icon-bar"></span>
+				        <span className="icon-bar"></span>
+				      </button>
+				      <a className="navbar-brand" href="#">IMMO DEVAUX</a>
+				    </div>
 
-						<div id="header" className="col-sm-12">
-							<div id="agence">
-							  <img id="logoAgence" src="logoD.png"/>
-							    Immo DEVAUX
-							  </div>
-									<ul>
+				    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul className="nav navbar-nav">
+						 	 <li><a href="/">ACCUEIL </a></li>
+				        <li><a href="/catalogue">ACHETER </a></li>
+				        <li><a href="/estimation">VENDRE</a></li>
+								<li><a href="/faireGerer">FAIRE GERER<span className="sr-only">(current)</span></a></li>
+								 <li><a href="/conseils">CONSEILS</a></li>
+						  </ul>
 
-										   <NavLink exact to="/" activeClassName="is-active"><li>ACCUEIL</li></NavLink>
+				      <ul className="nav navbar-nav navbar-right">
+				        <li className="dropdown">
+				          <a href="#" className="dropdown-toggle" data-toggle="dropdown"
+									role="button" aria-haspopup="true" aria-expanded="false">
+									L'AGENCE <span className="caret"></span></a>
+				          <ul className="dropdown-menu">
+				            <li><a href="/agence">IMMO DEVAUX</a></li>
+				            <li><a href="/quartier">LES QUARTIERS</a></li>
+										<li role="separator" className="divider"></li>
+				            <li><a href="/contact">CONTACT</a></li>
+				          </ul>
+				        </li>
+								<li>
+								  <a href="/admin">CONNEXION</a>
+								</li>
+				      </ul>
+				    </div>
+				  </div>
+				</nav>
 
 
-										   <NavLink to="/catalogue" activeClassName="is-active"><li>ACHETER</li>
-		 									</NavLink>
-
-											<NavLink to="/faireGerer" activeClassName="is-active"><li>FAIRE GERER</li>
-										 </NavLink>
-
-										  <NavLink to="/estimation" activeClassName="is-active"><li>VENDRE</li></NavLink>
-
-											<NavLink to="/conseils" activeClassName="is-active"><li>CONSEILS</li></NavLink>
-
-
-										   <div className="dropdown" id="drop">
-			                    <button className="btn btn-primary dropdown-toggle" id="menu1" type="button"
-			                    data-toggle="dropdown">L' AGENCE
-			                    <span className="caret"></span></button>
-			                      <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
-			                    		<li role="presentation">
-			                      			<NavLink role="menuitem" tabindex="-1" to="/agence">
-			                       		 		IMMOBILIER DEVAUX
-			                      			</NavLink>
-			                      		</li>
-			                       		<li role="presentation" className="divider"></li>
-			                        		<li role="presentation">
-			                      			<NavLink role="menuitem" tabindex="-1" to="/quartier">
-			                       		 		LES QUARTIERS
-			                       			</NavLink>
-			                      		</li>
-			                      		<li role="presentation" className="divider"></li>
-			                       		<li role="presentation">
-			                  				<NavLink role="menuitem" tabindex="-1" to="/contact">
-			                       		CONTACT
-			                      		</NavLink>
-			                     		</li>
-
-			                      </ul>
-
-	                    </div>
-
-										<NavLink to="/admin" activeClassName="is-active"><li>
-										Connexion
-										</li></NavLink>
-									</ul>
-						</div>
 				);
 		}
 
