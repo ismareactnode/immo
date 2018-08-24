@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import './Caroussel.css';
+import Responsive from 'react-responsive';
 
+import './Caroussel.css';
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 // dernier bar avant la fin du monde
 const Arrow = ({ direction, clickFunction, glyph }) => (
   <div
-    className={ `slide-arrow ${direction}` }
+    className={ `slide-arrow ${direction} ${direction === 'left' ? 'leftArrow' : 'rightArrow'}`  }
     onClick={ clickFunction }>
-    { glyph }
+    <span className={`glyphicon ${glyph} arrow`}></span>
   </div>
 );
 
@@ -21,10 +24,17 @@ const descriptifs = [{type: 'Appartement', nbPieces: '2 pièces', superficie: '6
 const Descriptif= ({text})=>{
   return (
     <div className="descriptifText">
+      <Desktop>
       <h4>{text.type} <span className="descriptifFontWeight">{text.nbPieces}</span></h4>
       <p className="descriptifPrix">{text.prix}</p>
       <h4><span className="descriptifFontWeight">{text.superficie}</span>     {text.quartier}</h4>
+      </Desktop>
 
+      <Mobile>
+      <h4>{text.type} <span className="descriptifFontWeight">{text.nbPieces}</span></h4>
+      <p className="descriptifPrixMobile">{text.prix}</p>
+      <h4><span className="descriptifFontWeight">{text.superficie}</span>     {text.quartier}</h4>
+      </Mobile>
     </div>
   );
 }
@@ -84,7 +94,8 @@ class Carousel extends Component {
         <Arrow
           direction="left"
           clickFunction={ this.previousSlide }
-          glyph="&#9664;" />
+          glyph="glyphicon-chevron-left"
+            />
 
           <ImageSlide
           url={ imgUrls[this.state.currentImageIndex] }
@@ -95,7 +106,7 @@ class Carousel extends Component {
           <Arrow
             direction="right"
             clickFunction={ this.nextSlide }
-            glyph="&#9654;" />
+            glyph="glyphicon-chevron-right"  />
         </div>
       );
     }

@@ -1,5 +1,5 @@
 .slider{
-  height: 500px;
+  height: 100%;
   width: 100%;
   background: url('./tof6.jpg') no-repeat center;
   background-size: cover;
@@ -18,6 +18,25 @@
   flex-direction: column;
 }
 
+.actionsMobileContainer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.actionsMobile{
+  text-align: center;
+  font-size: 1.3em;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(200, 200, 200, 0.6);
+  color: #3C3F56;
+  display: flex;
+  flex-direction: column;
+}
+
 .haut{
   flex: 1.5;
   width: 100%;
@@ -32,6 +51,13 @@
   flex: 6;
   display: flex;
   flex-direction: row;
+
+}
+
+.basMobile{
+  flex: 6;
+  display: flex;
+  flex-direction: column;
 
 }
 .case:hover{

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './Header.css';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component{
 	render(){
@@ -36,11 +36,11 @@ class Header extends React.Component{
 
 				    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul className="nav navbar-nav">
-						 	 <li><a href="/">ACCUEIL </a></li>
-				        <li><a href="/catalogue">ACHETER </a></li>
-				        <li><a href="/estimation">VENDRE</a></li>
-								<li><a href="/faireGerer">FAIRE GERER<span className="sr-only">(current)</span></a></li>
-								 <li><a href="/conseils">CONSEILS</a></li>
+						 	 <li><Link to="/">ACCUEIL</Link></li>
+				        <li><Link to="/catalogue">ACHETER </Link></li>
+				        <li><Link to="/estimation">VENDRE</Link></li>
+								<li><Link to="/faireGerer">FAIRE GERER</Link></li>
+								<li><Link to="/conseils">CONSEILS</Link></li>
 						  </ul>
 
 				      <ul className="nav navbar-nav navbar-right">
@@ -49,14 +49,14 @@ class Header extends React.Component{
 									role="button" aria-haspopup="true" aria-expanded="false">
 									L'AGENCE <span className="caret"></span></a>
 				          <ul className="dropdown-menu">
-				            <li><a href="/agence">IMMO DEVAUX</a></li>
-				            <li><a href="/quartier">LES QUARTIERS</a></li>
+				            <li><Link to="/agence">IMMO DEVAUX</Link></li>
+				            <li><Link to="/quartier">LES QUARTIERS</Link></li>
 										<li role="separator" className="divider"></li>
-				            <li><a href="/contact">CONTACT</a></li>
+				            <li><Link to="/contact">CONTACT</Link></li>
 				          </ul>
 				        </li>
 								<li>
-								  <a href="/admin">CONNEXION</a>
+								  <Link to="/admin">CONNEXION</Link>
 								</li>
 				      </ul>
 				    </div>

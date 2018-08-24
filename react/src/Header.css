@@ -22,7 +22,12 @@ font-weight: bold;
 	color: white;
 	border-radius: 5px;
 }
-
+.dropdown-menu>li>a{
+	text-align: center;
+}
+.navbar-collapse>.navbar-nav>li>a{
+	text-align: center;
+}
 #drop{
 	margin-top: 15px;
 }

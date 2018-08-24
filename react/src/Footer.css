@@ -17,7 +17,19 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 }
-
+.textMobile{
+  text-align: center;
+  margin-top:5%;
+  color: silver;
+  margin-right: 10%;
+  margin-left: 10%;
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9em;
+}
 .logoSnpi{
   width: 150px;
   height: 150px;

@@ -38,15 +38,14 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
   cursor: pointer;
 }
 
-.estimer
 
-.caroussel{
-  height: 80%;
-  width: 70%;
-  margin: auto;
-  margin-bottom: 80px;
+.banniereSlider{
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 .banniereEstimer{
   height: 350px;
   width: 100%;
@@ -62,19 +61,60 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
   font-size: 2em;
   margin-bottom: 30px;
 }
+.banniereEstimerMobile>p:first-child{
+  fontWeight: normal;
+  text-align: center;
+  font-size: 1.4em;
+  margin-bottom: 30px;
+}
+.banniereEstimerMobile>p:nth-child(2){
+  fontWeight: normal;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 30px;
+}
+.banniereEstimerMobile{
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 1.2em;
+  height: 350px;
+  width: 100%;
+  background-color: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .banniereEstimer>p:nth-child(3)>a{
   font-size: 1.6em;
+}
+.banniereEstimerMobile>p:nth-child(3)>a{
+  font-size: 1.2em;
 }
 .banniereCompetences{
  height: 500px;
  background-color: white;
  padding-top: 0;
 }
+.banniereCompetencesMobile{
+ padding-top: 20px;
+ padding-left: 7px;
+ padding-right: 7px;
+ background-color: white;
+}
 
 .banniereCompetences>h2{
   text-align: center;
   margin-top: 5%;
+margin-bottom: 0;
+}
+
+.banniereCompetencesMobile>h2{
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 16%;
 margin-bottom: 0;
 }
 
@@ -85,6 +125,15 @@ justify-content: center;
 align-items: center;
 height: 97%;
 width: 100%;
+}
+
+.containerCompetencesMobile{
+  margin-top: 60px;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+
 }
 .compLeft{
   width: 46%;
@@ -98,7 +147,18 @@ width: 100%;
   display: flex;
   flex-direction: column;
 }
+.compLeftMobile{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /*margin-right: 80px;*/
+}
 
+.compRightMobile{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .competences{
   margin: auto;
   display: flex;
@@ -107,14 +167,33 @@ width: 100%;
   justify-content: center;
   padding-left: 5%;
 }
+.competencesMobile{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 63%;
+  width: 100%;
+  justify-content: center;
+  padding-left: 5%;
+
+}
+
 
 .fa{
   font-size: 50px;
 }
 .iconePartie{
   display: flex;
+  justify-content: space-around;
   flex: 1;
   width: 80%;
+}
+.iconePartieMobile{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .iconeCompetences{
@@ -124,6 +203,13 @@ width: 100%;
   justify-content: center;
   align-items: right;
 }
+.iconeCompetencesMobile{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .textCompetences{
   flex: 4;
@@ -131,6 +217,16 @@ width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.textCompetencesMobile{
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 8px;
 }
 .textCompetences>p{
   text-align: center;
@@ -144,16 +240,21 @@ width: 100%;
   flex: 3;
 }
 .BanniereDerniersBiens{
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: #F6F6F6;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
 }
-
+.BanniereDerniersBiensMobile{
+  height: 100%;
+  width: 100%;
+  background-color: #F6F6F6;
+  padding-top: 30px;
+}
+.BanniereDerniersBiensMobile>h2{
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: bold;
+}
 .BanniereDerniersBiens>h2{
   margin-top: 70px;
   text-align: center;
