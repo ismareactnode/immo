@@ -3,11 +3,27 @@
   display: flex;
   flex-direction: row;
 }
-
+.listFiltersMobile{
+  display: flex;
+  flex-direction: column;
+}
 .listFiltersContainer{
   width: 600px;
   height: 50px;
   margin-left: 40%;
+  position: fixed;
+  z-index: 1;
+  border-radius: 5px;
+    background-color: #F7F8FA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.listFiltersContainerMobile{
+  width: 120px;
+  height: 170px;
+  margin-left: 0;
   position: fixed;
   z-index: 1;
   border-radius: 5px;

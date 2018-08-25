@@ -58,21 +58,21 @@ class Slider extends Component{
                   <div className="basMobile">
                     <div className="basLeft">
 
-                      <div className="basLeftUp case"
+                      <div className="basLeftUp caseMobile"
                       // onClick={e=>{this.catalogue(e)}}
                       >
                         <Link to="/catalogue"><h3>ACHETER</h3></Link>
                       </div>
-                      <div className="basLeftDown case">
+                      <div className="basLeftDown caseMobile">
                         <Link to="/estimation"><h3>VENDRE</h3></Link>
                       </div>
                     </div>
                     <div className="basRight">
 
-                      <div className="basRightDown case">
+                      <div className="basRightDown caseMobile">
                         <Link to="/faireGerer"><h3>FAIRE GERER</h3></Link>
                       </div>
-                      <div className="basRightUp case">
+                      <div className="basRightUp caseMobile">
                         <Link to="/contact"><h3>CONTACTER</h3></Link>
                       </div>
                     </div>

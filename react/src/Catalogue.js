@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Responsive from 'react-responsive';
 
 import './Catalogue.css';
 
@@ -13,6 +14,9 @@ import AppartementsListVisitor from './AppartementsListVisitor';
 import AppartementsListFilters from './AppartementsListFilters';
 import AdminAppartementAddPage from './AdminAppartementAddPage';
 import './AppartementDashboard.css';
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class Catalogue extends Component{
 

@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Responsive from 'react-responsive';
 import { NavLink } from 'react-router-dom';
 
 import './AppartementItem.css';
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 const AppartementItemVisitor = ({ _id, genre, nbPieces, quartier, superficie, prix, photo }) => {
    genre = genre.toLowerCase();

@@ -64,13 +64,19 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
 .banniereEstimerMobile>p:first-child{
   fontWeight: normal;
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin-bottom: 30px;
 }
 .banniereEstimerMobile>p:nth-child(2){
   fontWeight: normal;
   text-align: center;
-  font-size: 1em;
+  font-size: 0.9em;
+  margin-bottom: 30px;
+}
+.banniereEstimerMobile>p:nth-child(3){
+
+  text-align: center;
+  font-size: 0.9em;
   margin-bottom: 30px;
 }
 .banniereEstimerMobile{
@@ -211,6 +217,9 @@ width: 100%;
   align-items: center;
 }
 
+.iconeCompetencesMobile>i{
+  font-size: 2em;
+}
 .textCompetences{
   flex: 4;
   display: flex;
@@ -227,6 +236,10 @@ width: 100%;
   text-align: center;
   padding-left: 5px;
   padding-right: 8px;
+}
+.textCompetencesMobile>h4{
+  font-weight: bold;
+
 }
 .textCompetences>p{
   text-align: center;
