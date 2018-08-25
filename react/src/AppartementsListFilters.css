@@ -1,3 +1,10 @@
+.dropright{
+  position: absolute;
+  border-radius: 5px;
+  color: rgb(1,63,138);
+  left: 2px;
+  top: 7px;
+}
 
 .listFilters{
   display: flex;

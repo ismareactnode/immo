@@ -11,7 +11,12 @@ border: 2px solid red;
     color: rgb(1,63,138);
 }
 
-
+.modalFormMobile{
+  padding-top: 14%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 #expert{
   margin-top: 30px;
@@ -21,11 +26,13 @@ border: 2px solid red;
 }
 
 .backLinkButton{
-background-color: #000066;
 color: white;
 float: top right;
 }
 
 .sendButton{
   margin-top: 2.5%;
+}
+.sendButtonMobile{
+  margin-top: 5%;
 }

@@ -97,7 +97,8 @@ onChangePieces(e){
     <Mobile>
 
       <div className="btn-group dropright">
-        <button type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" className="btn btn-primary dropdown-toggle"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Filtres
         </button>
         <div className="dropdown-menu">
@@ -115,7 +116,8 @@ onChangePieces(e){
               <option>Commerce</option>
             </select>
             {
-              this.props.filters.genre === 'Appartement' || this.props.filters.genre === 'Maison'?
+              this.props.filters.genre === 'Appartement' ||
+              this.props.filters.genre === 'Maison'?
               <div className="listFiltersItem">
                 <select
                 className="form-control"

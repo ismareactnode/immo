@@ -16,7 +16,18 @@ font-size: 0.8em;
 font-weight: bold;
 /*opacity: 0.8;*/
 }
-
+.navbar{
+	margin-bottom: 0;
+}
+.navbar-brand{
+	margin-right: 100px;
+}
+.collapsed{
+	background-color:rgb(1,63,138);
+}
+.navbar-header{
+	background-color: white;
+}
 .navbar-collapse>.navbar-nav>li>a:hover{
 	background-color: rgb(48, 66, 130);
 	color: white;

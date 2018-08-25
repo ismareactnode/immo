@@ -1,5 +1,4 @@
 .conseils{
-  margin-top: 7%;
   display: flex;
   flex-direction: column;
   height: 850px;
@@ -10,6 +9,15 @@
 .conseilsPapierPeint{
   padding-top: 2%;
   padding-bottom: 2%;
+  flex: 2;
+  width: 100%;
+  background: url('papierPeint.jpg') center
+  no-repeat fixed;
+  background-size: cover;
+}
+.conseilsPapierPeintMobile{
+  padding-top: 20px;
+    padding-bottom: 2%;
 
   flex: 2;
   width: 100%;
@@ -25,7 +33,17 @@
   padding-left: 4%;
   padding-right: 4%;
   padding-bottom: 2%;
-
+  background-color: white;
+  box-shadow: 1px 2px 2px silver;
+  border-radius: 5px;
+}
+.conseilsContenuMobile{
+  width: 95%;
+  margin: auto;
+  padding-top: 1%;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 1px;
   background-color: white;
   box-shadow: 1px 2px 2px silver;
   border-radius: 5px;
@@ -36,10 +54,24 @@
   color: rgb(1,63,138);
   margin-bottom: 3%;
 }
+.conseilsContenuMobile>h3{
+  text-align: center;
+  font-weight: bold;
+  color: rgb(1,63,138);
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
 .conseilsBanniere{
   flex: 1.5;
   width: 100%;
   background: url('./conseils.jpg') center
    no-repeat fixed;
+   background-size: cover;
+}
+.conseilsBanniereMobile{
+  height: 240px;
+  width: 100%;
+  background: url('./conseils.jpg') center
+   no-repeat;
    background-size: cover;
 }

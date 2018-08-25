@@ -1,6 +1,5 @@
 
 .contactContainer{
-  margin-top: 76px;
   padding-bottom: 2%;
 
   background-color: #F7F8FA;
@@ -44,9 +43,7 @@ margin-bottom: 7%;
 #Contact{
   width: 80%;
   margin: auto;
-  margin-top: 10px;
   border-radius: 5px;
-  margin-top: 20px;
   height: 70vh;
   display: flex;
   flex-direction: row;

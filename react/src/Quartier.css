@@ -1,41 +1,54 @@
-/*.cartePantin{
-  height: 400px;
-  width: 80%;
-  margin: auto;
-  background: url('./mapPantin.png') no-repeat center;
-  background-size: cover;
-
-}*/
-
 .quartiers{
-  margin-top: 7%;
   display: flex;
   flex-direction: column;
   height: 950px;
   display: flex;
   flex-direction: column;
 }
-
-
+.quartiersBanniereMobile{
+  width: 100%;
+  height: 240px;
+  background: url('./pantinCanal.jpg') center
+   no-repeat;
+   background-size: cover;
+}
 .quartiersPapierPeint{
   padding-top: 2%;
   padding-bottom: 2%;
-
   flex: 2;
   width: 100%;
   background: url('papierPeint.jpg') center
   no-repeat fixed;
   background-size: cover;
   display: flex;
-
 }
-
+.quartiersPapierPeintMobile{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  flex: 2;
+  width: 100%;
+  background: url('papierPeint.jpg') center
+  no-repeat fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
 .quartiersContenu{
-
   padding-top: 2%;
   padding-left: 4%;
   padding-right: 4%;
   margin-left: 7%;
+  background-color: white;
+  box-shadow: 1px 2px 2px silver;
+  border-radius: 5px;
+  flex: 3;
+}
+.quartiersContenuMobile{
+  padding-top: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
+  width: 95%;
+  margin: auto;
   background-color: white;
   box-shadow: 1px 2px 2px silver;
   border-radius: 5px;
@@ -49,8 +62,9 @@
   border-radius: 5px;
   background: url('./mapPantin.png') no-repeat center;
   background-size: cover;
-  margin-right: 30px;
-  margin-left: 10px;
+  width: 95%;
+  margin: auto;
+  margin-top: 5px;
   box-shadow: 1px 2px 2px white;
 }
 .quartiersBanniere{

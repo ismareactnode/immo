@@ -1,6 +1,5 @@
 .agence{
   width: 100%;
-  margin-top: 70px;
   padding-top: 40px;
   padding-bottom: 40px;
   background: url('./papierPeint.jpg') no-repeat center;
@@ -9,6 +8,12 @@ display: flex;
 flex-direction: column;
 }
 
+.agenceMobile{
+  width: 100%;
+  padding-bottom: 40px;
+  background: url('./papierPeint.jpg') no-repeat center;
+  background-size: cover;
+}
 
 .agenceNom{
   flex:1;
@@ -22,6 +27,12 @@ flex-direction: column;
 }
 
 .agenceHoraires{
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid silver;
+}
+.agenceHorairesMobile{
   padding-left: 10px;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -45,6 +56,12 @@ flex-direction: column;
   padding-bottom: 14px;
 }
 .agenceHoraires>h5{
+  color: rgb(1,63,138);
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.agenceHorairesMobile>h5{
   color: rgb(1,63,138);
   font-weight: bold;
   margin-left: 15px;
@@ -74,8 +91,24 @@ flex-direction: column;
 display: flex;
 
 }
+.agenceContenuMobile{
+  flex: 10;
+  width: 95%;
+  margin: auto;
+  height: 1320px;
+  border-radius: 5px;
+display: flex;
+flex-direction: column;
+
+}
 
 .agenceContenuText{
+  padding-top: 30px;
+  padding-left: 22px;
+  flex: 2;
+  background-color: white;
+}
+.agenceContenuTextMobile{
   padding-top: 30px;
   padding-left: 22px;
   flex: 2;
@@ -86,8 +119,16 @@ display: flex;
   text-align: center;
   font-weight: bold;
 }
+.agenceContenuTextMobile>h5{
+  text-align: center;
+  font-weight: bold;
+}
 
 .agenceAdresseHoraires{
+  display: flex;
+  flex-direction: column;
+}
+.agenceAdresseHorairesMobile{
   flex: 5;
   display: flex;
   flex-direction: column;
@@ -98,7 +139,12 @@ text-align: center;
 color: rgb(1,63,138);
 font-weight: bold;
 margin-bottom: 30px;
-
+}
+.agenceContenuTextMobile>h3{
+text-align: center;
+color: rgb(1,63,138);
+font-weight: bold;
+margin-bottom: 30px;
 }
 .agenceTofAdresse{
   padding-left: 45px;
@@ -106,6 +152,12 @@ margin-bottom: 30px;
   padding-bottom: 20px;
   line-height: 0.8em;
   border-bottom: 1px solid silver;
+}
+.agenceTofAdresseMobile{
+  text-align: center;
+  margin-top: 28px;
+  padding-bottom: 10px;
+  line-height: 0.8em;
 }
 .agenceContenuTof{
 
@@ -116,10 +168,31 @@ margin-bottom: 30px;
   display: flex;
   flex-direction: column;
 }
+.agenceContenuTofMobile{
+
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
 .agenceTof{
   flex: 2;
-
   background:  url('./agenceTof.JPG') no-repeat center;
   background-size: cover;
-  border-bottom: 2px solide silver;
+}
+.agenceTofMobile{
+  height: 140px;
+  width: 100%;
+  background:  url('./agenceTof.JPG') no-repeat center;
+  background-size: cover;
+  border-bottom: 2px solid silver;
+}
+.agenceMobile>h3{
+  text-align: center;
+  color: rgb(1,63,138);
+  font-weight: bold;
+}
+.agenceAdresseMobile{
+  line-height: 8px;
+  text-align: center;
 }

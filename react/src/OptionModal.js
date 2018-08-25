@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Responsive from 'react-responsive';
 import Modal from 'react-modal';
-import './OptionModal.css';
 import moment from 'moment-js';
+
+import './OptionModal.css';
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class OptionModal extends Component{
 
@@ -122,31 +127,17 @@ getCookie(cname){
   */
   }
 
-
   render(){
 
-  const modalStyle = {
-    content: {
-      paddingTop: "2%",
-      marginTop: "100px",
-      height: "35%",
-      width: "70%",
-      margin: "auto",
-      borderRadius: "5px",
-      boxShadow: "2px 2px 1px white",
-      backgroundColor : '#F7F8FA'
-    }
-  }
-
-    const {sended, desend } = this.props;
+    const {sended, desend, style } = this.props;
       return(
-        <Modal id="modal"
-        style={modalStyle}
+        <Modal
+        style={style}
         isOpen={!!sended}
         onRequestClose={desend}
         contentLabel="Bien envoyé">
 
-
+        <Desktop>
           <form id="modalForm">
             <div className="form-group col-sm-12 col-md-10 col-lg-6">
             <input
@@ -174,17 +165,48 @@ getCookie(cname){
               value={this.state.tel}
               onChange={e=>this.onChangeTel(e)}/>
               </div>
-
               <button className="btn btn-primary col-sm-12 sendButton"
               onClick={this.envoyer}>Recevoir votre estimation gratuitement</button>
               <p className="missing">{this.state.missing ? "Nom et email doivent être renseignés" : ""}</p>
+          </form>
+          <button type="button" className="btn btn-primary backLinkButton"
+          onClick={desend}>X</button>
+          </Desktop>
 
+          <Mobile>
+          <form className="modalFormMobile">
+            <div className="form-group col-sm-12 col-md-10 col-lg-6 ">
+            <input
+            className="form-control"
+             type="text"
+            required
+            placeholder="Votre nom"
+             value={this.state.nom}
+             onChange={e=>this.onChangeNom(e)}/>
+             </div>
+            <div className="form-group col-sm-12 col-md-10 col-lg-6">
+              <input
+                className="form-control"
+               required
+               placeholder="Votre email"
+               type="email"
+               value={this.state.email}
+               onChange={e=>this.onChangeEmail(e)}/>
+              </div>
+              <div className="form-group col-sm-12 col-md-10 col-lg-6">
+              <input
+                className="form-control"
+              type="text"
+              placeholder="Votre numéro de téléphone"
+              value={this.state.tel}
+              onChange={e=>this.onChangeTel(e)}/>
+              </div>
+              <button className="btn btn-primary col-sm-12 sendButtonMobile"
+              onClick={this.envoyer}>Recevoir votre estimation</button>
+              <p className="missingMobile">{this.state.missing ? "Nom et email doivent être renseignés" : ""}</p>
           </form>
 
-          <button type="button" className="btn btn-light backLinkButton"
-          onClick={desend}>X</button>
-
-
+          </Mobile>
         </Modal>
       );
   };

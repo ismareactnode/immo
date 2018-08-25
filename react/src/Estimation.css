@@ -1,7 +1,6 @@
 .estimation{
   /*background-color: pink;*/
   width: 100%;
-  margin-top: 80px;
 }
 
 .missing{
@@ -11,6 +10,17 @@
   font-weight: bold;
   font-size: 1.1em;
 }
+
+.missingMobile{
+  width: 100%;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  position: absolute;
+  top: 0px;
+}
+
 
 .partieFormulaire{
 width: 90%;
@@ -34,7 +44,6 @@ margin: auto;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 0;
 }
 
 
@@ -48,8 +57,29 @@ margin: auto;
   justify-content: center;
   align-items: center;
 }
+.banniereCertifMobile{
+  margin-top: 0;
+  width: 100%;
+  height: 310px;
+  color: #3C3F56;
+  display: flex;
+  flex-direction: column;
+
+}
+.banniereCertifMobile>h3{
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 .banniereCertif>h3{
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+.certifContenu{
+  margin-top: 30px;
+  text-align: center;
+  padding-left: 9%;
+  padding-right: 9%;
 }
 
 .bienEstimerForm{
@@ -61,6 +91,20 @@ margin: auto;
   height: 38%;
   border-radius: 5px;
   box-shadow: 2px 2px 1px rgba(255, 255, 255, 0.7);
+}
+
+.bienEstimerFormMobile{
+  margin-top: 70px;
+  padding-top: 3%;
+  margin-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 80%;
+  height: 58%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 1px rgba(255, 255, 255, 0.7);
+}
+.estimerMobile{
+  text-align: center;
 }
 
 .formUp{
@@ -81,4 +125,27 @@ margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.banniereBienEstimerMobile>h3:first-child{
+
+  margin-bottom: 0;
+  text-align: center;
+}
+.banniereBienEstimerMobile{
+  padding-top: 20px;
+  margin-top: 0;
+  width: 100%;
+  height: 300px;
+  color: white;
+  background: linear-gradient(to right bottom, rgba(59, 84, 141, 1), rgba(95,134, 234, 1));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.banniereBienEstimerMobile>p{
+  margin-top: 30px;
+  width: 80%;
+  margin: auto;
+  text-align: center;
 }

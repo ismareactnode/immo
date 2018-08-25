@@ -7,10 +7,21 @@
   border: 2px solid rgba(255, 255, 255, 0.6);
   margin-left: 4px;
   margin-top: 4px;
-  padding: 0;
+}
+
+#carteSmallMobile{
+  height:300px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
 }
 
 .carteSmallFlex:hover{
+  border: 1px solid transparent;
+}
+.carteSmallFlexMobile:hover{
   border: 1px solid transparent;
 }
 
@@ -25,6 +36,14 @@
   width: 100%;
   height: 75%;
 }
+.carteSmallFlexMobile{
+  height: 300px;
+  width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
 
 .flexText{
   background-color: white;
@@ -109,18 +128,15 @@ color: rgb(46 ,68, 130);
 }
 
 
-#carteSmall>a:hover{
+#carteSmall>a:hover, #carteSmallMobile>a:hover{
   text-decoration: none;
   color: rgb(100, 147, 206);
 }
 
-#carteSmall>a:hover ul>li{
+#carteSmall>a:hover ul>li, #carteSmallMobile>a:hover ul>li {
   text-decoration: none;
   font-weight: bold;
 }
-
-
-
 
 #delete{
   float: right;
