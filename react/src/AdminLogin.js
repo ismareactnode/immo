@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import Responsive from 'react-responsive';
+
 import './AdminLogin.css';
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class AdminLogin extends Component{
 
@@ -60,21 +65,46 @@ class AdminLogin extends Component{
 
   render(){
     return(
-      <div id="adminLogin">
-        <form onSubmit={e=>this.onFormSubmit(e)}>
-          <div className="form-group"><label>Email : </label>
-          <input
-          className="form-control"
-          type="email"
-          onChange={e=>this.onChangeEmail(e)}/></div>
-            <div className="form-group"><label>Password : </label>
-            <input
-            type="password"
-            className="form-control"
-            onChange={e=>this.onChangePassword(e)}/></div>
-          <button type="submit" className="btn btn-primary col-sm-12">Connexion
-          </button>
-        </form>
+      <div id="contain">
+        <Desktop>
+          <div id="adminLogin">
+            <form onSubmit={e=>this.onFormSubmit(e)}>
+              <div className="form-group"><label>Email : </label>
+              <input
+              className="form-control"
+              type="email"
+              onChange={e=>this.onChangeEmail(e)}/></div>
+                <div className="form-group"><label>Password : </label>
+                <input
+                type="password"
+                className="form-control"
+                onChange={e=>this.onChangePassword(e)}/></div>
+              <button type="submit" className="btn btn-primary col-sm-12">Connexion
+              </button>
+            </form>
+          </div>
+        </Desktop>
+
+        <Mobile>
+          <div id="adminLoginMobile">
+            <form onSubmit={e=>this.onFormSubmit(e)}>
+              <div className="form-group"><label>Email : </label>
+              <input
+              className="form-control"
+              type="email"
+              onChange={e=>this.onChangeEmail(e)}/></div>
+                <div className="form-group"><label>Password : </label>
+                <input
+                type="password"
+                className="form-control"
+                onChange={e=>this.onChangePassword(e)}/></div>
+                <div className="connexionSmall">
+              <button type="submit" className="btn btn-primary col-sm-12 connexionSmallButton">Connexion
+              </button>
+              </div>
+            </form>
+          </div>
+        </Mobile>
       </div>
     );
   };

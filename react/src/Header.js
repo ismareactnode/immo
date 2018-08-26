@@ -51,7 +51,7 @@ class Header extends React.Component{
 				          <ul className="dropdown-menu">
 				            <li><Link to="/agence">IMMO DEVAUX</Link></li>
 				            <li><Link to="/quartier">LES QUARTIERS</Link></li>
-										<li role="separator" className="divider"></li>
+										
 				            <li><Link to="/contact">CONTACT</Link></li>
 				          </ul>
 				        </li>

@@ -14,11 +14,20 @@
   background-color: rgb(1,63,138);
   box-shadow: 1px 2px 2px rgba(105, 111, 171, 0.4);
   padding-top: 10px;
-  margin-top: 20px;
   border-radius: 5px;
 
 }
-
+#formQuestionMobile{
+  background-color: rgb(1,63,138);
+  box-shadow: 1px 2px 2px rgba(105, 111, 171, 0.4);
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+#formQuestionMobile>form>h3{
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
 #formQuestion>form>h3{
 text-align: center;
 margin-top: 6%;
@@ -52,12 +61,23 @@ margin-bottom: 7%;
   color: white;
 
 }
+#ContactMobile{
+  width: 100%;
+  margin: auto;
+  color: white;
+
+}
 .questionButton{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 10%;
+}
+.questionButtonMobile{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #message{
   padding-top: 10px;
@@ -73,9 +93,27 @@ margin-bottom: 7%;
   border-radius: 5px;
   margin-top: 20px;
 }
+#messageMobile{
+  padding-top: 10px;
+  height: 300px;
+  /*border: 1px solid rgb(105, 111, 171);*/
+  box-shadow: 1px 2px 2px rgba(105, 111, 171, 0.7);
+width: 98%;
+margin: auto;
+  background-color: white;
+  color: rgb(1,63,138);
+  border-radius: 5px;
+  margin-top: 12px;
+}
 #message>h3{
   text-align: center;
   margin-top: 6%;
+
+}
+#messageMobile>h3{
+  text-align: center;
+  margin-top: 6%;
+  margin-bottom: 30px;
 
 }
 .messagePart{
@@ -85,6 +123,14 @@ margin-bottom: 7%;
   margin: auto;
   text-align: center;
   border-bottom: 2px solid silver;
+}
+.messagePartMobile{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  margin-bottom: 20px;
+
 }
 .messagePart:last-child{
   border-bottom: none;
@@ -100,7 +146,16 @@ margin-bottom: 7%;
   flex-direction: column;
   justify-content: center;
 }
+.contactNumeroMobile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .contactNumero:nth-child(1){
+  align-items: center;
+  flex:1;
+}
+.contactNumeroMobile:nth-child(1){
   align-items: center;
   flex:1;
 }
@@ -108,11 +163,26 @@ margin-bottom: 7%;
   align-items: flex-start;
   font-size: 1.4em;
   font-weight: bold;
-  flex: 2;
+  flex: 3;
+}
+.contactNumeroMobile:nth-child(2){
+  align-items: flex-start;
+  font-size: 1.4em;
+  font-weight: bold;
+  flex: 3;
 }
 .messagePart:nth-child(3){
   display: flex;
   justify-content: space-between;
+}
+.messagePartMobile:nth-child(3){
+  display: flex;
+  justify-content: space-between;
+}
+.messagePartMobile:nth-child(4){
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 .messagePart:nth-child(2){
   display: flex;
@@ -121,6 +191,17 @@ margin-bottom: 7%;
 .mailIcone {
   font-size: 40px;
 }
+.mailIconeMobile {
+  font-size: 30px;
+}
+
+.contactMailMobile:nth-child(1){
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .contactMail:nth-child(1){
   flex: 1;
   display: flex;
@@ -128,9 +209,22 @@ margin-bottom: 7%;
   justify-content: center;
   align-items: center;
 }
+.contactMailMobile:nth-child(2)>a{
+    font-size: 1.2em;
+      font-weight: bold;
+}
 .contactMail:nth-child(2)>a{
     font-size: 1.2em;
       font-weight: bold;
+}
+.contactMailMobile:nth-child(2){
+  flex: 3;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 .contactMail:nth-child(2){
   flex: 2;

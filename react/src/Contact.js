@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment-js';
+import Responsive from 'react-responsive';
 
 import { connected } from './actions/connectedAction';
 
 import './Contact.css';
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class Contact extends Component{
   constructor(props){
@@ -59,6 +63,8 @@ render(){
 
   return(
     <div className="contactContainer">
+
+    <Desktop>
     <div id="Contact">
         <div id="formQuestion" className="col-sm-12 col-md-6">
             <form onSubmit={e=>this.envoyerQuestion(e)}>
@@ -109,6 +115,62 @@ render(){
             Votre expert vous répond de façon immédiate et gratuite</div>
           </div>
     </div>
+    </Desktop>
+
+    <Mobile>
+    <div id="ContactMobile">
+        <div id="formQuestionMobile" className="col-sm-12 col-md-6">
+            <form onSubmit={e=>this.envoyerQuestion(e)}>
+              <h3>Posez votre question</h3>
+            <div className="form-group">
+            <label>Votre nom : </label>
+            <input
+            className="form-control"
+            onChange={e=>this.onChangeNom(e)}
+            value={this.state.nom}
+            type="text" required />
+            </div>
+              <div className="form-group">
+              <label>Votre email : </label>
+            <input
+              className="form-control"
+            onChange={e=>this.onChangeMail(e)}
+            value={this.state.mail}
+            type="text" required />
+            </div>
+              <div className="form-group">
+            <label>Votre question : </label>
+            <textarea rows="4" cols="20"
+              className="form-control"
+            onChange={e=>this.onChangeInterrogation(e)}
+            value={this.state.interrogation}
+            ></textarea></div>
+            <button className="btn btn-primary form-control
+             btn-lg questionButtonMobile" type="submit">Envoyer</button>
+            </form>
+        </div>
+
+        <div id="messageMobile" className="col-sm-12 col-md-6">
+
+          <h3>Contact</h3>
+           <div className="messagePartMobile">
+             <div className="contactMailMobile">
+               <span className="glyphicon glyphicon-envelope mailIconeMobile"></span>
+             </div>
+             <div className="contactMailMobile">
+               <a href="mailto:immo-devaux@wanadoo.fr">immo-devaux@wanadoo.fr</a>
+            </div>
+           </div>
+           <div className="messagePartMobile">
+             <div className="contactNumeroMobile"><span className="glyphicon glyphicon-earphone mailIconeMobile"></span></div>
+              <div className="contactNumeroMobile"><p>01 48 40 44 11</p></div>
+          </div>
+          <div className="messagePartMobile">
+            Votre expert vous répond de façon immédiate et gratuite</div>
+          </div>
+    </div>
+    </Mobile>
+
     </div>
   );
   }
