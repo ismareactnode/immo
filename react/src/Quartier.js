@@ -58,7 +58,7 @@ const Quartier = (props) => {
     </ul>
             </div>
 
-            <div className="quartiersPlan">
+            <div className="quartiersPlanMobile">
             </div>
 
         </div>

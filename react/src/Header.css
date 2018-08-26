@@ -22,9 +22,7 @@ font-weight: bold;
 .navbar-brand{
 	margin-right: 100px;
 }
-.collapsed{
-	background-color:rgb(1,63,138);
-}
+
 .navbar-header{
 	background-color: white;
 }

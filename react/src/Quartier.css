@@ -62,11 +62,23 @@
   border-radius: 5px;
   background: url('./mapPantin.png') no-repeat center;
   background-size: cover;
+
+  box-shadow: 1px 2px 2px white;
+}
+
+.quartiersPlanMobile{
+  flex:1;
+  background-color: white;
+  box-shadow: 1px 2px 2px silver;
+  border-radius: 5px;
+  background: url('./mapPantin.png') no-repeat center;
+  background-size: cover;
   width: 95%;
   margin: auto;
   margin-top: 5px;
   box-shadow: 1px 2px 2px white;
 }
+
 .quartiersBanniere{
   flex: 2;
   width: 100%;
