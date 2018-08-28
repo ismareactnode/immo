@@ -19,7 +19,7 @@ class AppartementsListVisitor extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      genre: '',
+      genre: 'Appartement',
       superficie: '',
       quartier: '',
       budget: '',
@@ -66,10 +66,23 @@ class AppartementsListVisitor extends React.Component{
     const nom = e.target.value;
     this.setState(()=>({nom}));
   }
+  formValidate(){
+      if (!this.state.genre | !this.state.superficie | !this.state.quartier
+      | !this.state.budget | !this.state.nom | !this.state.mail ){
+       setTimeout(()=>{
+          this.setState(()=>({error: false}))
+        }, 1000);
+        this.setState(()=>({error: true}));
+        return false;
+      }
+      return true;
+    }
   envoyer(e){
       e.preventDefault();
+      if(!this.formValidate()){
+        return;
+      };
     console.log('fonction envoyer');
-
     const date = moment().format(' DD/MM/YYYY, h:mm ');
 
     const recherche = {
@@ -102,9 +115,13 @@ class AppartementsListVisitor extends React.Component{
     this.setState(()=>({tel: ''}));
     this.setState(()=>({notification: true}));
     setTimeout(()=>{this.setState(()=>({notification: false}))}, 1000);
-    setTimeout(()=>{this.props.history.push('/')}, 1500);
+
    })
   .catch((err)=>{console.log('error :', err);})
+  }
+
+  componentWillMount(){
+    this.setState(()=>({genre: 'Appartement'}));
   }
     render(){
       return(
@@ -196,12 +213,13 @@ class AppartementsListVisitor extends React.Component{
                        onChange={e=>this.onChangeTel(e)}/>
                        </div>
 
-                       <div className="notifError">
-                         {this.state.error && <p>Merci de remplir tous les champs obligatoires</p>}
-                       </div>
+
                        <div className="alerteButtonContainer"><div className="alerteButton"><button className="btn btn-primary col-sm-12"
                        onClick={this.envoyer}>Enregistrer</button></div></div>
+
                        <div className="notifError">
+                         {this.state.error && <p>Merci de remplir les champs obligatoires</p>}
+                    
                        {this.state.notification ? <p className="envoye">Bien envoyé</p> : ''}
                        </div>
                    </form>
@@ -319,7 +337,6 @@ class AppartementsListVisitor extends React.Component{
                        {this.state.notification ? <p className="envoye">Bien envoyé</p> : ''}
                        </div>
                    </form>
-
               </div>
           </div>
         </Mobile>

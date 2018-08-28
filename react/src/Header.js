@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 
 import './Header.css';
 import { Link } from 'react-router-dom';
+import Responsive from 'react-responsive';
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class Header extends React.Component{
 	render(){
 		if(this.props.connected === true){
 			return(
 				<div>
+				  <Desktop>
 						<div id="headerAdmin" classNameName="col-sm-12">
 							<div id="agence">
 							    ADMINISTRATEUR
@@ -18,6 +23,15 @@ class Header extends React.Component{
 								<h3><strong>{localStorage.getItem('name')}</strong></h3>
 
 						</div>
+						</Desktop>
+
+						<Mobile>
+							<div id="headerAdmin" classNameName="col-sm-12">
+								<div id="agence">
+										ADMINISTRATEUR
+									</div>
+							</div>
+						</Mobile>
 					</div>
 			);
 		}else{
@@ -51,7 +65,7 @@ class Header extends React.Component{
 				          <ul className="dropdown-menu">
 				            <li><Link to="/agence">IMMO DEVAUX</Link></li>
 				            <li><Link to="/quartier">LES QUARTIERS</Link></li>
-										
+
 				            <li><Link to="/contact">CONTACT</Link></li>
 				          </ul>
 				        </li>

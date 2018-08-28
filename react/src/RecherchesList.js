@@ -19,11 +19,8 @@ class RecherchesList extends Component{
              <th scope="col">Tel</th>
                <th scope="col">Genre</th>
                <th scope="col">Superficie</th>
-               <th scope="col">A proximité de</th>
                <th scope="col">Quartier</th>
-               <th scope="col">Etat</th>
                <th scope="col">Budget max</th>
-               <th scope="col">Précisions</th>
                <th scope="col">Date</th>
                <th scope="col">Produits correspondants</th>
                <th scope="col">Estimations correspondants</th>
@@ -40,12 +37,9 @@ class RecherchesList extends Component{
                   <td>{produit.tel}</td>
                             <td>{produit.genre}</td>
                             <td>{produit.superficie} m2</td>
-                            <td>{produit.proximite}</td>
                             <td>{produit.quartier}</td>
-                            <td>{produit.etat}</td>
                             <td>{produit.budget}</td>
 
-                            <td>{produit.precision}</td>
                             <td>{produit.date}</td>
                             <td>{Object.values(produit.appart).map(
                               (appart)=><a href={`/editAppartement/${appart}`}>{appart} </a>

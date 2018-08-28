@@ -13,6 +13,14 @@
   color: white;
   margin-left: 3%;
 }
+
+.notifError{
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}
+
 .alerteFormMobile{
   padding-top:1%;
   border-radius: 3px;
@@ -29,6 +37,16 @@
   padding-bottom: 9px;
 }
 
+.alerteFormItem:nth-child(7){
+  width: 80%;
+  margin: auto;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border-bottom : 2px solid transparent;
+}
+.alerteButtonContainer{
+  margin-top: 20px;
+}
 .alerteForm>h3{
   text-align: center;
 }
