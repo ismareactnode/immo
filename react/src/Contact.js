@@ -16,7 +16,9 @@ class Contact extends Component{
     this.state={
       nom: '',
       mail: '',
-      interrogation: ''
+      interrogation: '',
+      error: false,
+      notification: false
     };
   }
   componentWillMount(){
@@ -35,8 +37,25 @@ onChangeInterrogation(e){
   const interrogation = e.target.value;
   this.setState(()=>({interrogation}));
 }
+
+formValidate(){
+  if (!this.state.nom | !this.state.mail | !this.state.interrogation){
+    return false;
+  }
+  return true;
+}
+
 envoyerQuestion(e){
   e.preventDefault();
+    if(!this.formValidate()){
+      console.log('error');
+      this.setState(()=>({error: true}));
+
+      setTimeout(()=>{
+        this.setState(()=>({error: false}));
+      }, 1000);
+      return;
+    }
     const nom = this.state.nom;
     const mail = this.state.mail;
     const interrogation = this.state.interrogation;
@@ -56,7 +75,12 @@ envoyerQuestion(e){
       mail: '',
       interrogation: ''
     }));
-    console.log('bien envoyé coté front retour')})
+    this.setState(()=>({notification: true}));
+    setTimeout(()=>{
+      this.setState(()=>({notification: false}));
+      this.props.history.push('/');
+    }, 1000)
+  })
   .catch((err)=>{console.log('error : ', err);})
 }
 render(){
@@ -75,7 +99,7 @@ render(){
             className="form-control"
             onChange={e=>this.onChangeNom(e)}
             value={this.state.nom}
-            type="text" required />
+            type="text"  />
             </div>
               <div className="form-group">
               <label>Votre email : </label>
@@ -83,7 +107,7 @@ render(){
               className="form-control"
             onChange={e=>this.onChangeMail(e)}
             value={this.state.mail}
-            type="text" required />
+            type="text"  />
             </div>
               <div className="form-group">
             <label>Votre question : </label>
@@ -92,7 +116,11 @@ render(){
             onChange={e=>this.onChangeInterrogation(e)}
             value={this.state.interrogation}
             ></textarea></div>
-            <button className="btn btn-primary form-control btn-lg questionButton" type="submit">Envoyer</button>
+            <p className="errorOrNotification">{this.state.error ?
+               <span className="questionError">Tous les champs sont obligatoires</span> : ''}</p>
+            <button className="btn btn-primary form-control btn-lg questionButton"
+             type="submit">Envoyer</button>
+
             </form>
         </div>
 
@@ -128,7 +156,7 @@ render(){
             className="form-control"
             onChange={e=>this.onChangeNom(e)}
             value={this.state.nom}
-            type="text" required />
+            type="text"  />
             </div>
               <div className="form-group">
               <label>Votre email : </label>
@@ -136,7 +164,7 @@ render(){
               className="form-control"
             onChange={e=>this.onChangeMail(e)}
             value={this.state.mail}
-            type="text" required />
+            type="text"  />
             </div>
               <div className="form-group">
             <label>Votre question : </label>
@@ -145,6 +173,8 @@ render(){
             onChange={e=>this.onChangeInterrogation(e)}
             value={this.state.interrogation}
             ></textarea></div>
+            <p className="errorQuestion">{this.state.error ?
+               'Tous les champs sont obligatoires' : ''}</p>
             <button className="btn btn-primary form-control
              btn-lg questionButtonMobile" type="submit">Envoyer</button>
             </form>

@@ -53,12 +53,9 @@ constructor(props){
 
  estimer(e){
   e.preventDefault();
-  console.log('this.state.renovations : ', this.state.renovations);
-  if(!this.state.renovations){
-    console.log("pas de renovations ds le state");
-    this.setState(()=>({renovations: "Rénové entre 2013 et 2018"}));
-    console.log('this.state.renovations', this.state.renovations);
-  }
+
+
+
   document.cookie=`genre=${this.state.genre}`;
   document.cookie=`superficie=${this.state.superficie}`;
   document.cookie=`renovations=${this.state.renovations}`;
@@ -91,37 +88,32 @@ onChangeRue(e){
   const rue = e.target.value;
   this.setState({rue});
 }
-onChangeEtat(e){
-  this.setState(()=>({missing: false}));
-  const etat = e.target.value;
-  this.setState({etat});
-}
 
 desend(e){
   this.setState(() => ({sended: undefined}));
-
 }
-
-
-
-/*
-  A virer :; quartier , car chaque rue sera affectée à un quartier dans l'algo
-  remplacer état par "dernières rénovation du logement" : select : moins de 5 ans, 5 à 15 ans, 15 à 30 ans
- */
 
 componentWillMount(){
   const genreCookie = this.getCookie('genre');
-  const etatCookie = this.getCookie('etat');
   const superficieCookie = this.getCookie('superficie');
   const renovationsCookie = this.getCookie('renovations');
   const rueCookie = this.getCookie('rue');
-  this.setState(()=>({
-    genre: genreCookie,
-    etat: etatCookie,
-    superficie: superficieCookie,
-    renovations: renovationsCookie,
-    rue: rueCookie
-  }));
+  if(superficieCookie){
+    this.setState(()=>({superficie: superficieCookie}));
+  };
+  if(rueCookie){
+    this.setState(()=>({rue: rueCookie}));
+  };
+  if(renovationsCookie){
+    this.setState(()=>({renovations: renovationsCookie}));
+  };
+
+  if(!this.state.renovation){
+      this.setState(()=>({renovations: "Rénové entre 2013 et 2018"}));
+  }
+  if(!this.state.genre){
+    this.setState(()=>({genre: 'Appartement'}));
+  }
 }
 
   render(){
@@ -192,8 +184,6 @@ componentWillMount(){
                                   type="text"
                                   name="superficie"  placeholder="superficie" />
                                 </div>
-
-
                              </div>
 
                              <div className="formDown">
