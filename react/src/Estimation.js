@@ -32,7 +32,7 @@ constructor(props){
     this.setState(()=>({notification: true}));
     var name = this.getCookie('name');
     this.setState(()=>({name}));
-    setTimeout(()=>{ this.props.history.push('/')}, 1000);
+    setTimeout(()=>{ this.props.history.push('/')}, 1500);
   }
 
  getCookie(cname){

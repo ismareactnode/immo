@@ -17,9 +17,9 @@ class OptionModal extends Component{
       nom: '',
       email: '',
       tel: '',
-      erreur: {},
-      missing: false,
-    };
+      error: false,
+      invalidEmail: false
+      };
     this.onChangeNom = this.onChangeNom.bind(this);
     this.onChangeTel = this.onChangeTel.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -56,17 +56,44 @@ getCookie(cname){
    return "";
 }
 
+
+formValidate(){
+  if (!this.state.nom | !this.state.email){
+    this.setState(()=>({error: true}));
+    setTimeout(()=>{
+      this.setState(()=>({error: false}))
+    }, 1000);
+    return false;
+  }
+
+  if(!this.state.email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)){
+    this.setState(()=>({invalidEmail: true}));
+    setTimeout(()=>{
+      this.setState(()=>({invalidEmail: false}))
+    },1000)
+  }
+  return true;
+}
+
+
   envoyer(e){
     e.preventDefault();
+    if(!this.formValidate()){
+      console.log('error');
+      this.setState(()=>({error: true}));
+
+      setTimeout(()=>{
+        this.setState(()=>({error: false}));
+      }, 1000);
+      return;
+    }
+    if(this.state.invalidEmail){
+      return;
+    }
     const nom = this.state.nom;
     const email = this.state.email;
     const tel = this.state.tel;
-    if(!nom || !email ){
-      setTimeout(()=>{this.setState({missing:false})}, 1000);
-      return this.setState(()=>({
-        missing: true
-      }));
-    }
+
     // if((nom.length)<2 || !nom.match(/^[a-zA-Z]$/)){
     //   return console.log('nom non valide.')
     // }michemouche
@@ -167,8 +194,12 @@ getCookie(cname){
               </div>
               <button className="btn btn-primary col-sm-12 sendButton"
               onClick={this.envoyer}>Recevoir votre estimation gratuitement</button>
-              <p className="missing">{this.state.missing ? "Nom et email doivent être renseignés" : ""}</p>
-          </form>
+              <p className="errorOrNotification">
+                {this.state.error ? <span className="questionError">Merci de remplir nom et email</span> : ''}
+
+                  {this.state.invalidEmail ? <span className="questionError">Email invalide</span> : ''}
+                  </p>
+                    </form>
           <button type="button" className="btn btn-primary backLinkButton"
           onClick={desend}>X</button>
           </Desktop>
@@ -203,8 +234,11 @@ getCookie(cname){
               </div>
               <button className="btn btn-primary col-sm-12 sendButtonMobile"
               onClick={this.envoyer}>Recevoir votre estimation</button>
-              <p className="missingMobile">{this.state.missing ? "Nom et email doivent être renseignés" : ""}</p>
-          </form>
+              <p className="errorOrNotification">
+                {this.state.error ? <span className="questionError">Merci de remplir nom et email</span> : ''}
+
+                  {this.state.invalidEmail ? <span className="questionError">Email invalide</span> : ''}
+                  </p>          </form>
 
           </Mobile>
         </Modal>
