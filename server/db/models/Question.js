@@ -10,7 +10,6 @@ var Question =  mongoose.model('Question', {
     minlength: 2,
     trim: true,
     required: true,
-    unique: true,
     validate: {
       validator: validator.isEmail,
       message: '{VALUE} : Adresse email invalide.'

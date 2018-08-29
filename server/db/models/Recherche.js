@@ -1,5 +1,6 @@
 var { mongoose } = require('../mongoose');
 var { Estimation } = require('./Estimation');
+const validator = require ('validator');
 
 var Recherche = mongoose.model('Recherche',{
   genre:{
@@ -25,9 +26,15 @@ var Recherche = mongoose.model('Recherche',{
     type: String,
     // required: true
   },
-  mail:{
+  mail: {
     type: String,
-    // required: true
+    minlength: 2,
+    trim: true,
+    required: true,
+    validate: {
+      validator: validator.isEmail,
+      message: '{VALUE} : Adresse email invalide.'
+    }
   },
   tel:{
     type: String,

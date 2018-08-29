@@ -27,11 +27,12 @@ class AppartementsListVisitor extends React.Component{
       mail: '',
       tel: '',
       notification: false,
-      error: false
+      error: false,
+      invalidEmail: false
     };
     this.onChangeGenre = this.onChangeGenre.bind(this);
     this.onChangeSuperficie = this.onChangeSuperficie.bind(this);
-
+    this.formValidate = this.formValidate.bind(this);
     this.onChangeTel = this.onChangeTel.bind(this);
     this.onChangeMail = this.onChangeMail.bind(this);
     this.envoyer = this.envoyer.bind(this);
@@ -69,22 +70,33 @@ class AppartementsListVisitor extends React.Component{
   formValidate(){
       if (!this.state.genre | !this.state.superficie | !this.state.quartier
       | !this.state.budget | !this.state.nom | !this.state.mail ){
-       setTimeout(()=>{
-          this.setState(()=>({error: false}))
-        }, 1000);
-        this.setState(()=>({error: true}));
-        return false;
+      return false;
+      }
+      if(!this.state.mail.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)){
+        this.setState(()=>({invalidEmail: true}));
+        setTimeout(()=>{
+          this.setState(()=>({invalidEmail: false}))
+        },1000)
       }
       return true;
     }
+
   envoyer(e){
       e.preventDefault();
       if(!this.formValidate()){
-        return;
-      };
-    console.log('fonction envoyer');
-    const date = moment().format(' DD/MM/YYYY, h:mm ');
+        console.log('error');
+        this.setState(()=>({error: true}));
 
+        setTimeout(()=>{
+          this.setState(()=>({error: false}));
+        }, 1000);
+        return;
+      }
+      if(this.state.invalidEmail){
+        return;
+      }
+
+    const date = moment().format(' DD/MM/YYYY, h:mm ');
     const recherche = {
       genre: this.state.genre,
       superficie: this.state.superficie,
@@ -105,7 +117,7 @@ class AppartementsListVisitor extends React.Component{
       },
       body: JSON.stringify({recherche})
     })
-    .then(async(res)=>{
+    .then((res)=>{
     this.setState(()=>({genre: ''}));
     this.setState(()=>({superficie: ''}));
     this.setState(()=>({budget: ''}));
@@ -114,8 +126,10 @@ class AppartementsListVisitor extends React.Component{
     this.setState(()=>({mail: ''}));
     this.setState(()=>({tel: ''}));
     this.setState(()=>({notification: true}));
-    setTimeout(()=>{this.setState(()=>({notification: false}))}, 1000);
-
+    setTimeout(()=>{
+      this.setState(()=>({notification: false}));
+      this.props.backToHome();
+    }, 1000)
    })
   .catch((err)=>{console.log('error :', err);})
   }
@@ -217,11 +231,12 @@ class AppartementsListVisitor extends React.Component{
                        <div className="alerteButtonContainer"><div className="alerteButton"><button className="btn btn-primary col-sm-12"
                        onClick={this.envoyer}>Enregistrer</button></div></div>
 
-                       <div className="notifError">
-                         {this.state.error && <p>Merci de remplir les champs obligatoires</p>}
-                    
-                       {this.state.notification ? <p className="envoye">Bien envoyé</p> : ''}
-                       </div>
+                       <p className="notifError">
+                         {this.state.error ? <span className="questionError">Merci de remplir tous les champs</span> : ''}
+                           {this.state.notification ? <span className="questionNotification">
+                           Bien envoyé</span> : ''}
+                           {this.state.invalidEmail ? <span className="questionError">Email invalide</span> : ''}
+                           </p>
                    </form>
 
               </div>
@@ -328,14 +343,15 @@ class AppartementsListVisitor extends React.Component{
                        onChange={e=>this.onChangeTel(e)}/>
                        </div>
 
-                       <div className="notifError">
-                         {this.state.error && <p>Merci de remplir tous les champs obligatoires</p>}
-                       </div>
+                       <p className="notifError">
+                         {this.state.error ? <span className="questionError">Merci de remplir tous les champs</span> : ''}
+                           {this.state.notification ? <span className="questionNotification">
+                           Bien envoyé</span> : ''}
+                           {this.state.invalidEmail ? <span className="questionError">Email invalide</span> : ''}
+                           </p>
                        <div className="alerteButtonContainerMobile"><button className="btn btn-primary col-sm-12"
                        onClick={this.envoyer}>Enregistrer</button></div>
-                       <div className="notifError">
-                       {this.state.notification ? <p className="envoye">Bien envoyé</p> : ''}
-                       </div>
+
                    </form>
               </div>
           </div>

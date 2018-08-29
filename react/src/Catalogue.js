@@ -19,17 +19,27 @@ const Desktop = props => <Responsive {...props} minWidth={768} />;
 const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class Catalogue extends Component{
+  constructor(props){
+    super(props);
+  }
 
-componentWillMount(){
-  this.props.dispatch(connected());
-  // this.props.dispatch(startSetAppartements());
-  // this.props.dispatch(initializeFilters());
-}
+
+  componentWillMount(){
+    this.props.dispatch(connected());
+
+    this.props.dispatch(startSetAppartements());
+    this.props.dispatch(initializeFilters());
+  }
    render(){
+
+     const backToHome=()=>{
+       this.props.history.push('/');
+     }
+     
      return(
       <div className="catalogueVisitor">
           <AppartementsListFilters />
-          <AppartementsListVisitor />
+          <AppartementsListVisitor backToHome={backToHome} />
      </div>
      );
 }};

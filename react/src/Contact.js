@@ -19,6 +19,7 @@ class Contact extends Component{
       interrogation: '',
       error: false,
       notification: false,
+      invalidEmail: false
     };
   }
   componentWillMount(){
@@ -44,7 +45,9 @@ formValidate(){
   }
   if(!this.state.mail.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)){
     this.setState(()=>({invalidEmail: true}));
-      return false;
+    setTimeout(()=>{
+      this.setState(()=>({invalidEmail: false}))
+    },1000)
   }
   return true;
 }
@@ -58,6 +61,9 @@ envoyerQuestion(e){
       setTimeout(()=>{
         this.setState(()=>({error: false}));
       }, 1000);
+      return;
+    }
+    if(this.state.invalidEmail){
       return;
     }
     const nom = this.state.nom;
@@ -123,9 +129,10 @@ render(){
             value={this.state.interrogation}
             ></textarea></div>
             <p className="errorOrNotification">
-              {this.state.error ? <span className="questionError">Remplir correctement tous les champs</span> : ''}
+              {this.state.error ? <span className="questionError">Merci de remplir tous les champs</span> : ''}
                 {this.state.notification ? <span className="questionNotification">
                 Bien envoyé</span> : ''}
+                {this.state.invalidEmail ? <span className="questionError">Email invalide</span> : ''}
                 </p>
             <button className="btn btn-primary form-control btn-lg questionButton"
              type="submit">Envoyer</button>
@@ -183,9 +190,10 @@ render(){
             value={this.state.interrogation}
             ></textarea></div>
             <p className="errorOrNotification">
-              {this.state.error ? <span className="questionError">Remplir correctement tous les champs</span> : ''}
+              {this.state.error ? <span className="questionError">Merci de remplir tous les champs</span> : ''}
                 {this.state.notification ? <span className="questionNotification">
                 Bien envoyé</span> : ''}
+                {this.state.invalidEmail ? <span className="questionError">Email invalide</span> : ''}
                 </p>
             <button className="btn btn-primary form-control
              btn-lg questionButtonMobile" type="submit">Envoyer</button>
