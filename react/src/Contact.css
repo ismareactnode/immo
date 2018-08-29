@@ -19,6 +19,11 @@
 }
 .questionError{
   color: red;
+  font-weight: bold;
+}
+.questionNotification{
+  color: green;
+  font-weight: bold; 
 }
 #formQuestion{
   background-color: rgb(1,63,138);

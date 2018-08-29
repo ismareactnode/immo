@@ -18,7 +18,7 @@ class Contact extends Component{
       mail: '',
       interrogation: '',
       error: false,
-      notification: false
+      notification: false,
     };
   }
   componentWillMount(){
@@ -41,6 +41,10 @@ onChangeInterrogation(e){
 formValidate(){
   if (!this.state.nom | !this.state.mail | !this.state.interrogation){
     return false;
+  }
+  if(!this.state.mail.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)){
+    this.setState(()=>({invalidEmail: true}));
+      return false;
   }
   return true;
 }
@@ -81,7 +85,9 @@ envoyerQuestion(e){
       this.props.history.push('/');
     }, 1000)
   })
-  .catch((err)=>{console.log('error : ', err);})
+  .catch((err)=>{
+    console.log('error : ', err);
+  })
 }
 render(){
 
@@ -116,8 +122,11 @@ render(){
             onChange={e=>this.onChangeInterrogation(e)}
             value={this.state.interrogation}
             ></textarea></div>
-            <p className="errorOrNotification">{this.state.error ?
-               <span className="questionError">Tous les champs sont obligatoires</span> : ''}</p>
+            <p className="errorOrNotification">
+              {this.state.error ? <span className="questionError">Remplir correctement tous les champs</span> : ''}
+                {this.state.notification ? <span className="questionNotification">
+                Bien envoyé</span> : ''}
+                </p>
             <button className="btn btn-primary form-control btn-lg questionButton"
              type="submit">Envoyer</button>
 
@@ -173,8 +182,11 @@ render(){
             onChange={e=>this.onChangeInterrogation(e)}
             value={this.state.interrogation}
             ></textarea></div>
-            <p className="errorQuestion">{this.state.error ?
-               'Tous les champs sont obligatoires' : ''}</p>
+            <p className="errorOrNotification">
+              {this.state.error ? <span className="questionError">Remplir correctement tous les champs</span> : ''}
+                {this.state.notification ? <span className="questionNotification">
+                Bien envoyé</span> : ''}
+                </p>
             <button className="btn btn-primary form-control
              btn-lg questionButtonMobile" type="submit">Envoyer</button>
             </form>
