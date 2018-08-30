@@ -75,7 +75,7 @@ onChangePieces(e){
         : null
       }
       <div className="listFiltersItem">
-        <input type="text" placeholder="ville, quartier"
+        <input type="text" placeholder="quartier"
           className="form-control"
         onChange={e=>this.props.dispatch(setTextFilter(e.target.value))} />
       </div>
@@ -97,7 +97,7 @@ onChangePieces(e){
     <Mobile>
 
       <div className="btn-group dropright">
-        <button type="button" className="btn btn-primary dropdown-toggle"
+        <button type="button" className="btn btn-primary dropdown-toggle filterButton"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Filtres
         </button>
@@ -136,7 +136,7 @@ onChangePieces(e){
               </div>
               : null
             }
-            <input type="text" placeholder="ville, quartier"
+            <input type="text" placeholder="quartier"
               className="form-control"
             onChange={e=>this.props.dispatch(setTextFilter(e.target.value))} />
             <button

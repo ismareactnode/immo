@@ -1,5 +1,8 @@
 .biensEtAlerte{
   display: flex;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: #F7F8FA;
 }
 .biensEtAlerteMobile{
 }

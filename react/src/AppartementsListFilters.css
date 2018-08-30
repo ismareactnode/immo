@@ -5,6 +5,9 @@
   left: 2px;
   top: 7px;
 }
+.filterButton{
+  background-color: #8281B8;
+}
 
 .listFilters{
   display: flex;

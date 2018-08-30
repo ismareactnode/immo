@@ -18,24 +18,44 @@ font-weight: bold;
 }
 .navbar{
 	margin-bottom: 0;
+	background-color: white;
 }
 .navbar-brand{
 	margin-right: 100px;
 }
+.logoDevaux{
+	position: absolute;
+	top: 0;
+	left: 3%;
+	background: url('logo.JPG') center fixed no-repeat;
+}
+.navbar-toggle{
+	background-color: #8281B8;
 
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
 .navbar-header{
 	background-color: white;
 }
 .navbar-collapse>.navbar-nav>li>a:hover{
-	background-color: rgb(48, 66, 130);
+	background-color: #8281B8;
 	color: white;
 	border-radius: 5px;
 }
 .dropdown-menu>li>a{
 	text-align: center;
 }
+.dropdown-menu>li>a:hover{
+	background-color: #8281B8;
+	color:white;
+}
 .navbar-collapse>.navbar-nav>li>a{
 	text-align: center;
+}
+.menuBase{
+	margin-left: 40%;
 }
 #drop{
 	margin-top: 15px;

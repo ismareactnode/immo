@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import Responsive from 'react-responsive';
 import './Header.css';
 import { Link } from 'react-router-dom';
-import Responsive from 'react-responsive';
 
 const Desktop = props => <Responsive {...props} minWidth={768} />;
 const Mobile = props => <Responsive {...props} maxWidth={767} />;
@@ -45,17 +44,32 @@ class Header extends React.Component{
 				        <span className="icon-bar"></span>
 				        <span className="icon-bar"></span>
 				      </button>
-				      <a className="navbar-brand" href="#">IMMO DEVAUX</a>
+				      <a className="navbar-brand logoDevaux" href="#">
+							<img className="logoDevaux" src="logo.JPG" alt="IMMODEVAUX" />
+</a>
 				    </div>
 
 				    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				      <ul className="nav navbar-nav">
+
+
+						  <Desktop>
+							<ul className="nav navbar-nav menuBase">
 						 	 <li><Link to="/">ACCUEIL</Link></li>
 				        <li><Link to="/catalogue">ACHETER </Link></li>
 				        <li><Link to="/estimation">VENDRE</Link></li>
 								<li><Link to="/faireGerer">FAIRE GERER</Link></li>
 								<li><Link to="/conseils">CONSEILS</Link></li>
 						  </ul>
+							 </Desktop>
+							 <Mobile>
+							<ul className="nav navbar-nav">
+							 <li><Link to="/">ACCUEIL</Link></li>
+								<li><Link to="/catalogue">ACHETER </Link></li>
+								<li><Link to="/estimation">VENDRE</Link></li>
+								<li><Link to="/faireGerer">FAIRE GERER</Link></li>
+								<li><Link to="/conseils">CONSEILS</Link></li>
+							</ul>
+							 </Mobile>
 
 				      <ul className="nav navbar-nav navbar-right">
 				        <li className="dropdown">

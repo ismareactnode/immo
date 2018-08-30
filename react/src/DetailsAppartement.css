@@ -20,6 +20,9 @@
 .detailRetourMobile>a{
   color: white;
 }
+.detailRetourMobile{
+  background-color: #8281B8;
+}
 .detailsTextContainer{
   flex: 1;
   display: flex;
