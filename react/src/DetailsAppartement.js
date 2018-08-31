@@ -14,7 +14,7 @@ class DetailsAppartement extends Component{
     console.log(this.props.match.params);
   }
   render(){
-    const { genre, quartier, superficie, prix, photo, nbPieces} = this.props.appartement;
+    const { genre, quartier, superficie, prix, photo, nbPieces, descriptif } = this.props.appartement;
     return(
       <div>
 
@@ -38,6 +38,7 @@ class DetailsAppartement extends Component{
         <div className="detailsTextContainer">
           <div className="detailsText">
             <h4>ACHAT {genre} {nbPieces ? nbPieces : ''} à {quartier}</h4>
+            <p>{descriptif}</p>
           </div>
 
 

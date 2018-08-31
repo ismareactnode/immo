@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { removeAppartment } from './actions/appartementsActions';
-import { connect } from 'react-redux';
 import './AppartementForm.css';
 
 class AppartementForm extends React.Component{
@@ -56,7 +55,7 @@ onPhotoChange = e => {
 }
 
 onDescriptifChange = e => {
-  const descriptif = e.target.descriptif;
+  const descriptif = e.target.value;
   this.setState(()=>({descriptif}));
 }
 
@@ -74,7 +73,7 @@ onPrixChange = e => {
 onSubmit = e => {
   e.preventDefault();
 if(!this.state.quartier || !this.state.prix || !this.state.superficie
-   || !this.state.genre ){
+   || !this.state.genre || !this.state.descriptif){
       this.setState(()=>({
         error: 'il faut tout remplir'
       }))
@@ -89,6 +88,7 @@ if(!this.state.quartier || !this.state.prix || !this.state.superficie
     genre: this.state.genre,
     nbPieces: this.state.nbPieces,
     photo: this.state.photo,
+    descriptif: this.state.descriptif
   });
 }}
 
