@@ -28,7 +28,8 @@ class AppartementsListVisitor extends React.Component{
       tel: '',
       notification: false,
       error: false,
-      invalidEmail: false
+      invalidEmail: false,
+      invalidEmailNotification: false,
     };
     this.onChangeGenre = this.onChangeGenre.bind(this);
     this.onChangeSuperficie = this.onChangeSuperficie.bind(this);
@@ -68,15 +69,21 @@ class AppartementsListVisitor extends React.Component{
     this.setState(()=>({nom}));
   }
   formValidate(){
+      this.setState(()=>({invalidEmail: false}));
       if (!this.state.genre | !this.state.superficie | !this.state.quartier
       | !this.state.budget | !this.state.nom | !this.state.mail ){
-      return false;
+          this.setState(()=>({error: true}));
+          setTimeout(()=>{
+            this.setState(()=>({error: false}));
+          }, 1000);
+        return false;
       }
       if(!this.state.mail.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)){
-        this.setState(()=>({invalidEmail: true}));
+        this.setState(()=>({invalidEmailNotification: true}))
         setTimeout(()=>{
-          this.setState(()=>({invalidEmail: false}))
-        },1000)
+          this.setState(()=>({invalidEmailNotification: false}))
+        },1000);
+        return false;
       }
       return true;
     }
@@ -84,18 +91,10 @@ class AppartementsListVisitor extends React.Component{
   envoyer(e){
       e.preventDefault();
       if(!this.formValidate()){
-        console.log('error');
-        this.setState(()=>({error: true}));
-
-        setTimeout(()=>{
-          this.setState(()=>({error: false}));
-        }, 1000);
+        console.log('formvalidate false, donc on sort');
         return;
       }
-      if(this.state.invalidEmail){
-        return;
-      }
-
+      console.log('on passe');
     const date = moment().format(' DD/MM/YYYY, h:mm ');
     const recherche = {
       genre: this.state.genre,
@@ -235,7 +234,7 @@ class AppartementsListVisitor extends React.Component{
                          {this.state.error ? <span className="questionError">Merci de remplir tous les champs</span> : ''}
                            {this.state.notification ? <span className="questionNotification">
                            Bien envoyé</span> : ''}
-                           {this.state.invalidEmail ? <span className="questionError">Email invalide</span> : ''}
+                           {this.state.invalidEmailNotification ? <span className="questionError">Email invalide</span> : ''}
                            </p>
                    </form>
 
@@ -347,7 +346,7 @@ class AppartementsListVisitor extends React.Component{
                          {this.state.error ? <span className="questionError">Merci de remplir tous les champs</span> : ''}
                            {this.state.notification ? <span className="questionNotification">
                            Bien envoyé</span> : ''}
-                           {this.state.invalidEmail ? <span className="questionError">Email invalide</span> : ''}
+                           {this.state.invalidEmailNotification ? <span className="questionError">Email invalide</span> : ''}
                            </p>
                        <div className="alerteButtonContainerMobile"><button className="btn btn-primary col-sm-12"
                        onClick={this.envoyer}>Enregistrer</button></div>

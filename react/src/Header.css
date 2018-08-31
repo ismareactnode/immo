@@ -40,7 +40,7 @@ font-weight: bold;
 	background-color: white;
 }
 .navbar-collapse>.navbar-nav>li>a:hover{
-	background-color: #8281B8;
+	background-color: rgb(1,63,138);
 	color: white;
 	border-radius: 5px;
 }
@@ -48,7 +48,7 @@ font-weight: bold;
 	text-align: center;
 }
 .dropdown-menu>li>a:hover{
-	background-color: #8281B8;
+	background-color: rgb(1,63,138);
 	color:white;
 }
 .navbar-collapse>.navbar-nav>li>a{
