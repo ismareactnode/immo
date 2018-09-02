@@ -13,7 +13,7 @@ const Arrow = ({ direction, clickFunction, glyph }) => (
   </div>
 );
 
-const imgUrls = ['./immeublePantin.jpg', './terrassePantin.jpg', 'appartPantin.jpg'];
+const imgUrls = ['./tof2.jpg', './loft.jpg', 'loft2.jpg'];
 const descriptifs = [{type: 'Appartement', nbPieces: '2 pièces', superficie: '67m2',
  prix: '200 000€', quartier: 'Eglise de Pantin'},
   {type:'Maison', nbPieces: '5 pièces',
@@ -90,23 +90,47 @@ class Carousel extends Component {
   }
     render () {
       return (
-        <div className="caroussel">
-        <Arrow
-          direction="left"
-          clickFunction={ this.previousSlide }
-          glyph="glyphicon-chevron-left"
-            />
+        <div>
+          <Desktop>
+              <div className="caroussel">
+              <Arrow
+                direction="left"
+                clickFunction={ this.previousSlide }
+                glyph="glyphicon-chevron-left"
+                  />
 
-          <ImageSlide
-          url={ imgUrls[this.state.currentImageIndex] }
-           />
-          <Descriptif
-            text={descriptifs[this.state.currentImageIndex]}
-          />
-          <Arrow
-            direction="right"
-            clickFunction={ this.nextSlide }
-            glyph="glyphicon-chevron-right"  />
+                <ImageSlide
+                url={ imgUrls[this.state.currentImageIndex] }
+                 />
+                <Descriptif
+                  text={descriptifs[this.state.currentImageIndex]}
+                />
+                <Arrow
+                  direction="right"
+                  clickFunction={ this.nextSlide }
+                  glyph="glyphicon-chevron-right"  />
+              </div>
+            </Desktop>
+            <Mobile>
+                <div className="carousselMobile">
+                <Arrow
+                  direction="left"
+                  clickFunction={ this.previousSlide }
+                  glyph="glyphicon-chevron-left"
+                    />
+
+                  <ImageSlide
+                  url={ imgUrls[this.state.currentImageIndex] }
+                   />
+                  <Descriptif
+                    text={descriptifs[this.state.currentImageIndex]}
+                  />
+                  <Arrow
+                    direction="right"
+                    clickFunction={ this.nextSlide }
+                    glyph="glyphicon-chevron-right"  />
+                </div>
+              </Mobile>
         </div>
       );
     }

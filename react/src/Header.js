@@ -61,7 +61,7 @@ class Header extends React.Component{
 						  </ul>
 							 </Desktop>
 							 <Mobile>
-							<ul className="nav navbar-nav">
+							<ul className="nav navbar-nav menuBaseMobile">
 							 <li><Link to="/">ACCUEIL</Link></li>
 								<li><Link to="/catalogue">ACHETER </Link></li>
 								<li><Link to="/estimation">VENDRE</Link></li>

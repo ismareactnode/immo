@@ -37,8 +37,8 @@ this.props.connected();
       <div
       onClick={e=>{this.estimer(e)}}
       className="estimerDiv hidden-xs">
-        <p>Estimez</p>
-        <p> votre bien en ligne</p>
+        <p>ESTIMEZ</p>
+        <p>VOTRE BIEN EN LIGNE</p>
       </div>
 
       <div className="banniereSlider">

@@ -19,6 +19,12 @@ position: relative;
 .caroussel{
   position: relative;
   margin-top: 30px;
+  width: 70%;
+  margin: auto;
+}
+.carousselMobile{
+  position: relative;
+  margin-top: 30px;
 }
 
 .leftArrow{

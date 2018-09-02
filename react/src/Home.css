@@ -1,5 +1,6 @@
 .home{
   flex: 4;
+
 }
 
 .competences{
@@ -11,10 +12,11 @@
 
 
 .estimerDiv{
+  font-family: 'Lato', sans-serif;
   padding-top: 1%;
   height: 60px;
   width: 160px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
 background-color: rgb(1,63,138);
 box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
@@ -40,14 +42,14 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
 
 
 .banniereSlider{
-  height: 500px;
+  height: 540px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .banniereEstimer{
-  height: 350px;
+  height: 240px;
   width: 100%;
   background-color: #F6F6F6;
   display: flex;
@@ -62,28 +64,29 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
   margin-bottom: 30px;
 }
 .banniereEstimerMobile>p:first-child{
-  fontWeight: normal;
+  font-weight: bold;
   text-align: center;
   font-size: 1.2em;
   margin-bottom: 30px;
 }
 .banniereEstimerMobile>p:nth-child(2){
-  fontWeight: normal;
+  font-weight: normal;
   text-align: center;
   font-size: 0.9em;
+  width: 80%;
   margin-bottom: 30px;
 }
 .banniereEstimerMobile>p:nth-child(3){
-
+  margin-top: 20px;
   text-align: center;
   font-size: 0.9em;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .banniereEstimerMobile{
   padding-left: 5px;
   padding-right: 5px;
   font-size: 1.2em;
-  height: 350px;
+  height: 250px;
   width: 100%;
   background-color: #F6F6F6;
   display: flex;
@@ -99,20 +102,21 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
   font-size: 1.2em;
 }
 .banniereCompetences{
- height: 500px;
+ height: 400px;
  background-color: white;
  padding-top: 0;
 }
 .banniereCompetencesMobile{
- padding-top: 20px;
  padding-left: 7px;
  padding-right: 7px;
  background-color: white;
 }
 
 .banniereCompetences>h2{
+  font-size: 1.7em;
+  font-weight: bold;
   text-align: center;
-  margin-top: 5%;
+  margin-top: 70px;
 margin-bottom: 0;
 }
 
@@ -120,7 +124,7 @@ margin-bottom: 0;
   font-size: 1.4em;
   font-weight: bold;
   text-align: center;
-  margin-top: 16%;
+  margin-top: 9%;
 margin-bottom: 0;
 }
 
@@ -129,7 +133,7 @@ margin-bottom: 0;
 display: flex;
 justify-content: center;
 align-items: center;
-height: 97%;
+height: 90%;
 width: 100%;
 }
 
@@ -253,8 +257,9 @@ width: 100%;
   flex: 3;
 }
 .BanniereDerniersBiens{
-  height: 100%;
+  height: 650px;
   width: 100%;
+  padding-top: 1px;
   background-color: #F6F6F6;
 }
 .BanniereDerniersBiensMobile{
@@ -262,14 +267,18 @@ width: 100%;
   width: 100%;
   background-color: #F6F6F6;
   padding-top: 30px;
+  margin-bottom: 5px;
 }
 .BanniereDerniersBiensMobile>h2{
-  text-align: center;
-  font-size: 1.6em;
   font-weight: bold;
+  text-align: center;
+  font-size: 1.4em;
 }
 .BanniereDerniersBiens>h2{
-  margin-top: 70px;
-  text-align: center;
 
+  font-weight: bold;
+  margin-top: 70px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.7em;
 }
