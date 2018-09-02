@@ -3,7 +3,7 @@ var {mongoose} = require('../mongoose');
 var Appart = mongoose.model('Appart',{
   genre:{
     type: String,
-    default: 'appartement',
+    default: 'Appartement',
     required: true,
     minlength: 3,
     trim: true

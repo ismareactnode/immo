@@ -15,7 +15,7 @@ constructor(props){
   this.state = {
     genre: 'Appartement',
     superficie: '',
-    rue: '',
+    quartier: '',
     renovations: 'Rénové entre 2013 et 2018',
     sended: undefined,
     notification: false,
@@ -53,15 +53,12 @@ constructor(props){
 
  estimer(e){
   e.preventDefault();
-
-
-
   document.cookie=`genre=${this.state.genre}`;
   document.cookie=`superficie=${this.state.superficie}`;
   document.cookie=`renovations=${this.state.renovations}`;
-  document.cookie=`rue=${this.state.rue}`;
+  document.cookie=`quartier=${this.state.quartier}`;
   if(!this.state.genre || !this.state.superficie ||
-     !this.state.renovations || !this.state.rue){
+     !this.state.renovations || !this.state.quartier){
        return this.setState(()=>({missing: true}));
      }
   this.setState(()=>({sended: true}));
@@ -83,10 +80,10 @@ onChangeRenovations(e){
   const renovations = e.target.value;
   this.setState({renovations});
 }
-onChangeRue(e){
+onChangeQuartier(e){
   this.setState(()=>({missing: false}));
-  const rue = e.target.value;
-  this.setState({rue});
+  const quartier = e.target.value;
+  this.setState({quartier});
 }
 
 desend(e){
@@ -97,12 +94,12 @@ componentWillMount(){
   const genreCookie = this.getCookie('genre');
   const superficieCookie = this.getCookie('superficie');
   const renovationsCookie = this.getCookie('renovations');
-  const rueCookie = this.getCookie('rue');
+  const quartierCookie = this.getCookie('quartier');
   if(superficieCookie){
     this.setState(()=>({superficie: superficieCookie}));
   };
-  if(rueCookie){
-    this.setState(()=>({rue: rueCookie}));
+  if(quartierCookie){
+    this.setState(()=>({quartier: quartierCookie}));
   };
   if(renovationsCookie){
     this.setState(()=>({renovations: renovationsCookie}));
@@ -204,10 +201,10 @@ componentWillMount(){
                                <div className="form-group col-sm-12 col-lg-6">
                                  <input
                                  className="form-control"
-                                 onChange = { e => this.onChangeRue(e)}
-                                 name="rue"
-                                 value={this.state.rue}
-                                 type="text"  placeholder="rue"
+                                 onChange = { e => this.onChangeQuartier(e)}
+                                 name="quartier"
+                                 value={this.state.quartier}
+                                 type="text"  placeholder="quartier"
                                  />
                                 </div>
 
@@ -302,10 +299,10 @@ componentWillMount(){
                                  <div className="form-group col-sm-12 col-lg-6">
                                    <input
                                    className="form-control"
-                                   onChange = { e => this.onChangeRue(e)}
-                                   name="rue"
-                                   value={this.state.rue}
-                                   type="text"  placeholder="rue"
+                                   onChange = { e => this.onChangeQuartier(e)}
+                                   name="quartier"
+                                   value={this.state.quartier}
+                                   type="text"  placeholder="quartier"
                                    />
                                   </div>
                                </div>

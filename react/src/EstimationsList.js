@@ -16,7 +16,7 @@ class EstimationsList extends Component{
                <th scope="col">Date</th>
                <th scope="col">Genre</th>
                <th scope="col">Superficie</th>
-               <th scope="col">Rue</th>
+               <th scope="col">Quartier</th>
                <th scope="col">Rénovations</th>
                <th scope="col">Nom</th>
                <th scope="col">Email</th>
@@ -30,7 +30,7 @@ class EstimationsList extends Component{
                             <td>{produit.date}</td>
                             <td>{produit.genre}</td>
                             <td>{produit.superficie} m2</td>
-                            <td>{produit.rue}</td>
+                            <td>{produit.quartier}</td>
                             <td>{produit.renovations}</td>
                             <td>{produit.nom}</td>
                             <td>{produit.email}</td>

@@ -18,17 +18,16 @@ class Header extends React.Component{
 							    ADMINISTRATEUR
 							  </div>
 
-
+								<Link to="/adminDashboard"><h3>Tableau de bord</h3></Link>
 								<h3><strong>{localStorage.getItem('name')}</strong></h3>
 
 						</div>
 						</Desktop>
 
 						<Mobile>
-							<div id="headerAdmin" classNameName="col-sm-12">
-								<div id="agence">
-										ADMINISTRATEUR
-									</div>
+							<div id="headerAdminMobile" classNameName="col-sm-12">
+
+															<Link to="/adminDashboard"><h3>Tableau de bord</h3></Link>
 							</div>
 						</Mobile>
 					</div>

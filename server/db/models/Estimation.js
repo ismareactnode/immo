@@ -21,7 +21,7 @@ var Estimation = mongoose.model('Estimation',{
     type: String,
     required: true
   },
-  rue: {
+  quartier: {
     type: String
   },
   nom: {
@@ -56,7 +56,7 @@ var exemple = new Estimation({
   etat: 'etat',
   superficie: 'superficie',
   renovations: 'renovations',
-  rue: 'rue',
+  quartier: 'quartier',
   nom: 'nom',
   tel: 'tel',
   email: 'email',

@@ -67,6 +67,7 @@ Appart.find({genre, quartier, prix:{$gt: prixMin, $lt: prixMax}, superficie: {$g
 .then(()=>{
   Estimation.find({genre, quartier, superficie: {$gt: superficieMin}})
   .then((results)=>{
+    console.log('une estim correspond à cette recherche');
     results.forEach((estimated)=>{
       estimation.push(estimated._id);
       Estimation.findById(estimated._id)

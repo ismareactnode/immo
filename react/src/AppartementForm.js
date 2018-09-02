@@ -7,7 +7,7 @@ class AppartementForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      genre: props.appartement ? props.appartement.genre : 'appartement',
+      genre: props.appartement ? props.appartement.genre : 'Appartement',
       nbPieces: props.appartement ? props.appartement.nbPieces : 'studio',
       superficie: props.appartement ? props.appartement.superficie : '',
       prix: props.appartement ? props.appartement.prix.toString()  : '',
@@ -37,6 +37,7 @@ onSuperficieChange = e => {
 
 onGenreChange = e => {
   const genre = e.target.value;
+  console.log(`genre : ${genre}`);
   this.setState(() => ({
     genre
   }));

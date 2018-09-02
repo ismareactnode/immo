@@ -105,7 +105,7 @@ formValidate(){
     const genre = this.getCookie('genre');
     const superficie = this.getCookie('superficie');
     const renovations = this.getCookie('renovations');
-    const rue = this.getCookie('rue');
+    const quartier = this.getCookie('quartier');
     const date = moment().format(' DD/MM/YYYY, h:mm ');
 
     const produit = {
@@ -115,7 +115,7 @@ formValidate(){
       genre,
       superficie,
       renovations,
-      rue,
+      quartier,
       date
     };
     fetch('/estimation',

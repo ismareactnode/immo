@@ -28,7 +28,7 @@ export const editAppartment = (id, updates) => {
 export const startAddAppartement = (appartementData = {}, token) => {
 return function(){
     const {
-      genre = 'appartement',
+      genre = 'Appartement',
       nbPieces = 'studio',
       superficie = 0,
       quartier = '',
@@ -36,6 +36,7 @@ return function(){
       descriptif = "",
       photo="default.jpeg"
     } = appartementData;
+    console.log(`appartementData.genre : ${appartementData.genre}`);
     try{
        fetch('/apparts',
       {
