@@ -141,7 +141,7 @@ class AppartementsListVisitor extends React.Component{
        <div>
 
           <Desktop>
-            <div className="biensEtAlerte">
+            <div className="biensEtAlerte" id="listFilters">
               <div className="alerteForm">
                 <h3>Votre alerte</h3>
                   <form

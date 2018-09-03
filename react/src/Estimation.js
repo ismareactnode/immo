@@ -144,9 +144,11 @@ componentWillMount(){
       }else{
           return(
             <div className="col-sm-12" className="estimation">
-
+              <div className="fleche">
+                <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
+              </div>
               <Desktop>
-                  <div className="banniereForm">
+                  <div className="banniereForm" id="banniereForm">
 
                       <div className="bienEstimerForm">
                         <form

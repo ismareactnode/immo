@@ -32,12 +32,14 @@ this.props.connected();
     return(
     <div className="home">
 
-
+      <div className="fleche">
+        <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
+      </div>
     <Desktop>
       <div
       onClick={e=>{this.estimer(e)}}
       className="estimerDiv hidden-xs">
-        <p>ESTIMEZ</p>
+        <p id="estimez">ESTIMEZ</p>
         <p>VOTRE BIEN EN LIGNE</p>
       </div>
 
@@ -195,7 +197,7 @@ this.props.connected();
       <div
       onClick={e=>{this.estimer(e)}}
       className="estimerDiv hidden-xs">
-        <p>Estimez</p>
+        <p id="estimez">Estimez</p>
         <p> votre bien en ligne</p>
       </div>
 

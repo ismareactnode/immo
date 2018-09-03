@@ -13,6 +13,9 @@ const FaireGerer = (props) => {
     <div>
         <Desktop>
           <div className="faireGerer">
+          <div className="fleche">
+            <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
+          </div>
             <div className="faireGererBanniere">
             </div>
             <div className="faireGererPapierPeint">

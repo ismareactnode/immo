@@ -35,9 +35,12 @@ class Catalogue extends Component{
      const backToHome=()=>{
        this.props.history.push('/');
      }
-     
+
      return(
       <div className="catalogueVisitor">
+      <div className="fleche">
+        <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
+      </div>
           <AppartementsListFilters />
           <AppartementsListVisitor backToHome={backToHome} />
      </div>

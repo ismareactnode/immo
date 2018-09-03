@@ -1,6 +1,7 @@
 .estimation{
   /*background-color: pink;*/
   width: 100%;
+  position: relative;
 }
 
 .missing{
