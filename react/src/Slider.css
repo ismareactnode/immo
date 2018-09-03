@@ -1,7 +1,8 @@
 .slider{
   height: 100%;
   width: 100%;
-  background: url('./immeuble.jpg') no-repeat center;
+  background: linear-gradient(to left bottom, rgba(59, 84, 141, 0.3),
+   rgba(95,134, 234, 0.1)), url('./immeuble.jpg') no-repeat center;
   background-size: cover;
   position: relative;
 }

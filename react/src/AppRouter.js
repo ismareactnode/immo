@@ -27,7 +27,7 @@ import Catalogue from './Catalogue';
 import FaireGerer from './FaireGerer';
 import Conseils from './Conseils';
 import DetailsAppartement from './DetailsAppartement';
-
+import ScrollToTop from './ScrollToTop';
 import Quartier from './Quartier';
 
 class AppRouter extends React.Component{
@@ -35,6 +35,7 @@ class AppRouter extends React.Component{
     return(
 
 <BrowserRouter>
+<ScrollToTop>
 <div className="main">
 <Header />
 <Switch>
@@ -64,6 +65,7 @@ class AppRouter extends React.Component{
 </Switch>
 <Footer />
 </div>
+</ScrollToTop>
 </BrowserRouter>
     );
   };

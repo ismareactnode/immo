@@ -99,12 +99,11 @@ render(){
 
   return(
     <div className="contactContainer">
-
     <Desktop>
     <div id="Contact">
         <div id="formQuestion" className="col-sm-12 col-md-6">
             <form onSubmit={e=>this.envoyerQuestion(e)}>
-              <h3>Posez votre question</h3>
+              <h4>Posez votre question</h4>
             <div className="form-group">
             <label>Votre nom : </label>
             <input
@@ -142,7 +141,7 @@ render(){
 
         <div id="message" className="col-sm-12 col-md-6">
 
-          <h3>Contact</h3>
+          <h4>Contact</h4>
            <div className="messagePart">
              <div className="contactMail">
                <span className="glyphicon glyphicon-envelope mailIcone"></span>
@@ -165,7 +164,7 @@ render(){
     <div id="ContactMobile">
         <div id="formQuestionMobile" className="col-sm-12 col-md-6">
             <form onSubmit={e=>this.envoyerQuestion(e)}>
-              <h3>Posez votre question</h3>
+              <h4>Posez votre question</h4>
             <div className="form-group">
             <label>Votre nom : </label>
             <input
@@ -202,7 +201,7 @@ render(){
 
         <div id="messageMobile" className="col-sm-12 col-md-6">
 
-          <h3>Contact</h3>
+          <h4>Contact</h4>
            <div className="messagePartMobile">
              <div className="contactMailMobile">
                <span className="glyphicon glyphicon-envelope mailIconeMobile"></span>

@@ -33,17 +33,19 @@
  margin-top: 20px;
 }
 #formQuestionMobile{
+  margin-top: 5px;
   background-color: rgb(1,63,138);
   box-shadow: 1px 2px 2px rgba(105, 111, 171, 0.4);
   padding-top: 10px;
   padding-bottom: 15px;
 }
-#formQuestionMobile>form>h3{
+#formQuestionMobile>form>h4{
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.4em;
   margin-bottom: 30px;
 }
-#formQuestion>form>h3{
+#formQuestion>form>h4{
+  font-size: 1.5em;
 text-align: center;
 margin-top: 6%;
 margin-bottom: 7%;
@@ -119,24 +121,26 @@ margin: auto;
   border-radius: 5px;
   margin-top: 12px;
 }
-#message>h3{
+#message>h4{
   text-align: center;
   margin-top: 6%;
-
+  font-size: 1.5em;
 }
-#messageMobile>h3{
+#messageMobile>h4{
   text-align: center;
   margin-top: 6%;
   margin-bottom: 30px;
+  font-size: 1.4em;
 
 }
-.messagePart{
 
+.messagePart{
   flex: 1;
   width: 80%;
   margin: auto;
   text-align: center;
   border-bottom: 2px solid silver;
+  font-size: 1em;
 }
 .messagePartMobile{
   width: 100%;
@@ -155,6 +159,7 @@ margin: auto;
   justify-content: center;
   align-items: center;
 }
+
 .contactNumero{
   display: flex;
   flex-direction: column;
@@ -233,8 +238,6 @@ margin: auto;
 }
 .contactMailMobile:nth-child(2){
   flex: 3;
-
-
   display: flex;
   flex-direction: column;
   justify-content: center;

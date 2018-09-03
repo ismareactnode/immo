@@ -21,7 +21,8 @@
 
   flex: 2;
   width: 100%;
-  background: url('papierPeint.jpg') center
+  background: linear-gradient(to left bottom, rgba(59, 84, 141, 0.3),
+   rgba(95,134, 234, 0.1)), url('papierPeint.jpg') center
   no-repeat fixed;
   background-size: cover;
 }
