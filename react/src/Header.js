@@ -19,7 +19,7 @@ class Header extends React.Component{
 							  </div>
 
 								<Link to="/adminDashboard"><h3>Tableau de bord</h3></Link>
-								<h3><strong>{localStorage.getItem('name')}</strong></h3>
+								
 
 						</div>
 						</Desktop>

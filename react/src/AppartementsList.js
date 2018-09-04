@@ -10,8 +10,9 @@ class AppartementsList extends React.Component{
 
     render(){
       return(
-       <div id="AppartementsList">
-           <h4>{Object.keys(this.props.appartements).length} résultat{Object.keys(this.props.appartements).length>1 ? 's' : ''}</h4>
+       <div className="AppartementsList">
+           <h4>{Object.keys
+             (this.props.appartements).length} résultat{Object.keys(this.props.appartements).length>1 ? 's' : ''}</h4>
 
           { Object.values(this.props.appartements).map(appartement =>
             <AppartementItem key={appartement._id} {...appartement}  />)

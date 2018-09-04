@@ -5,13 +5,13 @@ import Responsive from 'react-responsive';
 import { setTextFilter, setGenreFilter, sortByPrix, sortBySuperficie,
   setNbPieces } from './actions/filtersActions';
 
-import './AppartementsListFilters.css';
+import './AppartementsListFiltersAdmin.css';
 
 const Desktop = props => <Responsive {...props} minWidth={768} />;
 const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 
-class AppartementsListFilters extends Component{
+class AppartementsListFiltersAdmin extends Component{
 
 
  constructor(props){
@@ -37,8 +37,9 @@ onChangePieces(e){
     return(
       <div>
         <Desktop>
-        <div className="AppartementsListFilters">
+        <div className="AppartementsListFiltersAdmin">
         <div className="listFiltersContainer">
+              <h3>Catalogue</h3>
         <div className="listFilters">
           <div className="listFiltersItem">
             <select
@@ -164,4 +165,4 @@ const mapStateToProps = (state) => {
     filters: state.filters
   }
 }
-export default connect (mapStateToProps)(AppartementsListFilters);
+export default connect (mapStateToProps)(AppartementsListFiltersAdmin);

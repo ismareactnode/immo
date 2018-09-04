@@ -55,7 +55,8 @@ componentWillMount(){
       <Desktop>
         <div className="adminMain">
           <div className="adminButton">
-            <button onClick={e => {this.logOut(e)}}>Déconnexion</button>
+            <button className="btn btn-primary col-sm-12"
+             onClick={e => {this.logOut(e)}}>Déconnexion</button>
          </div>
 
 
@@ -99,16 +100,17 @@ componentWillMount(){
       </Desktop>
 
       <Mobile>
-          <div id="button">
-            <button onClick={e => {this.logOut(e)}}>Déconnexion</button>
+          <div className="adminButtonMobile">
+            <button className="btn btn-primary "
+             onClick={e => {this.logOut(e)}}>Déconnexion</button>
          </div>
 
 
-       <div id="AdminDashboard">
+       <div id="AdminDashboardMobile">
           <div id="contenu">
             <div id="gauche">
             <NavLink to="/Admincatalogue">
-              <div id="catalogueProduits">
+              <div id="catalogueProduitsMobile">
 
                     <h4>Catalogue</h4>
                     <p>Gérer tous vos biens</p>
@@ -117,7 +119,7 @@ componentWillMount(){
             </NavLink>
 
             <NavLink to="/AdminQuestions">
-              <div id="questions">
+              <div id="questionsMobile">
                 <h4>Visiteurs</h4>
                 <p>Leurs questions posées</p>
               </div>
@@ -126,7 +128,7 @@ componentWillMount(){
 
             <div id= "droite">
                <NavLink to="AdminEstimation">
-                  <div id="demandesEstimation">
+                  <div id="demandesEstimationMobile">
                     <h4>Vendeurs</h4>
                     Leur demandes d estimation
                   </div>
@@ -134,7 +136,7 @@ componentWillMount(){
 
 
               <NavLink to="AdminRecherches">
-                <div id="recherches">
+                <div id="recherchesMobile">
                   <h4>Acheteurs</h4>
                     Leurs critères de recherche
                  </div>

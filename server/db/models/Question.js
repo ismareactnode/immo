@@ -21,10 +21,4 @@ var Question =  mongoose.model('Question', {
   }
 });
 
-var exemple = new Question({
-  nom: 'zorro',
-  mail: 'zorro@gmail.com',
-  interrogation: 'ca a marché?'
-})
-exemple.save();
 module.exports = { Question };

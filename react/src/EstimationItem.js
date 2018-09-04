@@ -23,8 +23,9 @@ class EstimationItem extends Component{
   }
 
   componentWillMount(){
-    let estimation_mail = this.props.match.params.estimation_mail;
-    fetch(`/estimationItem/${estimation_mail}`)
+    let estimation_id = this.props.match.params.estimation_mail;
+    console.log('estimation_id :', estimation_id);
+    fetch(`/estimationItem/${estimation_id}`)
     .then((estimation)=>{
       return estimation.json();
     })

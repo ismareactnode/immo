@@ -53,6 +53,9 @@ var Recherche = mongoose.model('Recherche',{
    [{
      type: mongoose.Schema.Types.ObjectId , ref: 'Estimation'
    }],
+   estimationsMail :{
+     type: Array
+   }
 });
 
 module.exports = { Recherche };

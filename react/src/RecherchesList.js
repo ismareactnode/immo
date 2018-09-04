@@ -45,7 +45,7 @@ class RecherchesList extends Component{
                               (appart)=><a href={`/editAppartement/${appart}`}>{appart} </a>
                             )}</td>
                             <td>{Object.values(produit.estimation).map(
-                              estimation => <Link to={`/estimationItem/${estimation.email}`}></Link>
+                              estimation => <Link to={`/estimationItem/${estimation._id}`}>{estimation._id}</Link>
                             )}</td>
                             <td>{}</td>
                           </tr>);}

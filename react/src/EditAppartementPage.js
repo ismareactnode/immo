@@ -9,9 +9,7 @@ import { connected } from './actions/connectedAction';
 // import { startRemoveAppartment } from './actions/appartementsActions';;
 import { removeAppartementFromRedux } from './actions/appartementsActions';
 // import { RemoveAppartementFromMongo } from './actions/appartementsActions';
-
-
-
+import './EditAppartementPage.css';
 
 class EditAppartementPage extends Component{
 
@@ -33,8 +31,9 @@ class EditAppartementPage extends Component{
       }
     }
   />
-  <Link to={`/confirmationSuppression/${this.props.appartement._id}`}><li>Supprimer</li></Link>
-  <a href="/AdminRecherches">Liste des Recherches</a>
+  <div className="confirmationSupressionButton">
+  <Link to={`/confirmationSuppression/${this.props.appartement._id}`}><button   className="btn btn-primary">Supprimer</button></Link>
+ </div>
   </div>
 );
 }

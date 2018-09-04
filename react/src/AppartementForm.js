@@ -97,6 +97,9 @@ render(){
 
   return(
   <div id="appartementForm">
+  <Link to={'/AdminCatalogue'}>
+  <button type="button" className="btn btn-primary retourListeCatalogue">Retour
+   </button></Link>
     <form
       id="appartementForm"
       onSubmit={e=>{this.onSubmit(e)}}
@@ -204,9 +207,7 @@ render(){
     </div>
 
 
-    <Link to={'/AdminCatalogue'}>
-   <button type="button" className="btn btn-light col-sm-4">Retour à la liste
-     </button></Link>
+
 
   </div>
   );

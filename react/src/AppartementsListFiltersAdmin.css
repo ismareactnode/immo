@@ -23,18 +23,19 @@
   font-family: 'Lato', sans-serif;
 
 }
-.AppartementsListFilters{
+.AppartementsListFiltersAdmin{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 .listFiltersContainer{
+
   font-family: 'Lato', sans-serif;
+
   width: 600px;
   height: 50px;
-margin-top: 35px;
+
   position: fixed;
   z-index: 1;
   border-radius: 5px;

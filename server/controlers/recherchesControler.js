@@ -37,6 +37,7 @@ const postRecherches = (req, res) =>   {
   }
 recherche.appart=[];
 recherche.estimation=[];
+recherche.estimationsMail=[];
 Object.values(recherche).forEach((data)=>console.log(data));
 const genre = recherche.genre;
 const quartier = recherche.quartier;

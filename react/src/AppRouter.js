@@ -51,7 +51,7 @@ class AppRouter extends React.Component{
         <Route path="/estimation" component={Estimation} />
         <Route path="/recherche" component={Recherche} />
         <Route exact path="/rechercheItem/:recherche_mail" component={RechercheItem} />
-        <Route exact path="/estimationItem/:estimation_mail" component={EstimationItem} />
+        <Route exact path="/estimationItem/:estimation_id" component={EstimationItem} />
         <Route path="/catalogue/:id" component={CatalogueFiche} />
         <Route exact path="/agence" component={Agence} />
           <Route exact path="/quartier" component={Quartier} />

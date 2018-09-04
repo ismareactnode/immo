@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Responsive from 'react-responsive';
 import './AdminCatalogue.css';
 
 import { connected } from './actions/connectedAction';
@@ -10,10 +10,14 @@ import { startSetAppartements } from './actions/appartementsActions';
 import { initializeFilters } from './actions/filtersActions';
 
 import AppartementsList from './AppartementsList';
-import AppartementsListFilters from './AppartementsListFilters';
+import AppartementsListFiltersAdmin from './AppartementsListFiltersAdmin';
 import AdminAppartementAddPage from './AdminAppartementAddPage';
 import { Link } from 'react-router-dom';
 import './AppartementDashboard.css';
+
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class AdminCatalogue extends Component{
 
@@ -25,13 +29,20 @@ componentWillMount(){
    render(){
      return(
       <div className="adminCatalogue">
-          <NavLink to="/AdminDashboard"><button className="btn btn-primary retourMenu">
-          Retour au menu</button></NavLink>
           <div id='AppartDashboard'>
-           <button
-           className="btn btn-primary"
-           id="ajouter"><Link to='/AdminAddAppartement'>Ajouter un bien</Link></button>
-            <AppartementsListFilters />
+          <Desktop>
+             <button
+             className="btn btn-primary"
+             id="ajouter"><Link to='/AdminAddAppartement'>Ajouter un bien</Link>
+             </button>
+           </Desktop>
+           <Mobile>
+             <button
+             className="btn btn-primary ajouterCatalogueMobile"
+             id="ajouter"><Link to='/AdminAddAppartement'>+</Link>
+             </button>
+           </Mobile>
+            <AppartementsListFiltersAdmin />
             <AppartementsList />
          </div>
      </div>

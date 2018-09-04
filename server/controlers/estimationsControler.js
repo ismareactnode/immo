@@ -22,31 +22,55 @@ const getEstimationItem = (req, res) => {
     .catch((e)=>{console.log('error :', e)});
 }
 
-const postEstimation = (req, res) => {
 
+
+
+
+const postEstimation = (req, res) => {
   if(req.body.produit.genre === ''){
-    req.body.produit.genre = 'appartement';
+    req.body.produit.genre = 'Appartement';
   };
 
   const estimation = req.body.produit;
-  console.log(`estimation: ${estimation}`);
- let matchingRecherches = [];
+  let recherche = [];
+  const genre = estimation.genre;
+  const quartier = estimation.quartier;
 
- const renovations = estimation.renovations;
- const superficieMin = parseInt(estimation.superficie);
-Recherche.find({quartier: estimation.quartier, superficie: {$gt:superficieMin}})
-.then((results)=>{
-  results.forEach((recherche)=>{
-    matchingRecherches.push(recherche.mail);
-  })
-    estimation.recherche = matchingRecherches;
+ let superficie = parseInt(estimation.superficie);
+ let superficieMin = superficie *= 0.9;
+
+
+    estimation.recherche = recherche;
        var nouvelleEstimation = new Estimation(estimation);
       nouvelleEstimation.save()
       .then((nouvelleEstimation)=>{
-        console.log('estimation enregistrée :', estimation);
+
+        Recherche.find({quartier, genre})
+        .then((results)=>{
+          results.forEach((searched)=>{
+            console.log('searched', searched);
+            recherche.push(searched.mail);
+            Recherche.findById(searched._id)
+              .then((rechercheMatched)=>{
+                console.log('rechercheMatched', rechercheMatched);
+
+                let estimated = rechercheMatched.estimation;
+                estimated.push(nouvelleEstimation._id);
+                console.log('estimation._id', nouvelleEstimation._id);
+                console.log('estimated :', estimated);
+                var id = rechercheMatched._id.toString();
+                Recherche.findByIdAndUpdate(id,
+                  {$set: {estimation: estimated} },
+                  {new:true}
+                )
+                .then((updated)=>console.log('updated recherche :',
+              updated))
+              .catch((e)=>console.log('error',e));
+            });
+           });
+        });
         res.send(nouvelleEstimation);
       })
-    })
 .catch((err)=>{console.log('error : ', err);});
 }
 
