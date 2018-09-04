@@ -31,7 +31,6 @@ this.props.connected();
   render(){
     return(
     <div className="home">
-
       <div className="fleche">
         <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
       </div>

@@ -8,7 +8,10 @@ const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 const Agence = (props) => {
   return(
-    <div>
+    <div className="agenceContainer">
+    <div className="fleche">
+      <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
+    </div>
     <Desktop>
       <div className="agence">
         <div className="agenceNom">

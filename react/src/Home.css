@@ -1,7 +1,6 @@
 .home{
   flex: 4;
   position: relative;
-
 }
 
 .competences{
@@ -255,13 +254,7 @@ width: 100%;
   font-weight: bold;
   text-align: center;
 }
-.fleche{
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  color: rgb(1,63,138);
-  font-size: 40px;
-}
+
 .iconeText{
   flex: 3;
 }

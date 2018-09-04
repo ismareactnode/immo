@@ -8,13 +8,13 @@ const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 const Conseils = () => {
   return(
-    <div>
-
+    <div className="conseilsContainer">
+      <div className="fleche">
+        <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
+      </div>
     <Desktop>
     <div className="conseils">
-    <div className="fleche">
-      <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
-    </div>
+
       <div className="conseilsBanniere">
       </div>
 
@@ -47,9 +47,6 @@ Ainsi, peuvent bénéficier d'un conseil juridique immobilier, aussi bien les pr
 
     <Mobile>
     <div className="conseilsMobile">
-    <div className="flecheMobile">
-      <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
-    </div>
       <div className="conseilsBanniereMobile">
       </div>
 

@@ -4,6 +4,9 @@
   flex-direction: column;
   height: 850px;
   margin-bottom: 0;
+
+}
+.faireGererContainer{
   position: relative;
 }
 

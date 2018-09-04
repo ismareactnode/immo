@@ -13,8 +13,8 @@
     }
     .fleche{
       position: absolute;
-      bottom: 10px;
-      right: 20px;
+      bottom: -10px;
+      right:2px;
       color: rgb(1,63,138);
       font-size: 40px;
     }

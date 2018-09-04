@@ -8,7 +8,10 @@ const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 const Quartier = (props) => {
   return(
-  <div>
+  <div className="quartiersContainer">
+    <div className="fleche">
+      <a href="#headerNavbar"><span className="glyphicon glyphicon-upload"></span></a>
+    </div>
    <Desktop>
     <div className="quartiers">
         <div className="quartiersBanniere">
