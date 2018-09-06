@@ -109,7 +109,7 @@ class DetailsAppartement extends Component{
                    le bon choix pour un bon bobo.
                 </div>
                 <div className="detailsTextContainerMobile">
-                  <div className="caractRight">
+                  <div className="caractRightMobile">
                     <div className="caractRight1Mobile">
                         <div className="caracteristiquesGenrePrix">
                           <div className="caracteristiquesGenre">
