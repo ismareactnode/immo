@@ -30,9 +30,9 @@ flex-direction: column;
 
 .agenceHoraires{
   padding-left: 10px;
-  padding-top: 20px;
   padding-bottom: 30px;
   border-bottom: 1px solid silver;
+
 }
 .agenceHorairesMobile{
   padding-left: 10px;
@@ -52,7 +52,6 @@ flex-direction: column;
 .agenceMail{
   padding-left: 25px;
   padding-top: 20px;
-  border-bottom: 1px solid silver;
   color: rgb(1,63,138);
   font-weight: bold;
   padding-bottom: 14px;
@@ -83,6 +82,7 @@ flex-direction: column;
   height: 50px;
   text-align: center;
   color: rgb(1,63,138);
+  font-weight: bold;
 }
 .agenceContenu{
   flex: 10;
@@ -116,7 +116,7 @@ flex-direction: column;
   flex: 2;
   background-color: white;
   border-radius: 5px;
-
+  border-bottom: 1px solid silver;
 }
 
 .agenceContenuText>h5{
@@ -164,7 +164,7 @@ margin-bottom: 20px;
   line-height: 0.8em;
 }
 .agenceContenuTof{
-
+  height: 630px;
   flex: 1.4;
   margin-left: 20px;
   background-color: white;
@@ -181,15 +181,14 @@ margin-bottom: 20px;
 }
 .agenceTof{
   flex: 2;
-  background:  url('./agenceTof.JPG') no-repeat center;
-  background-size: cover;
+  background:  url('./agenceTof.JPG') no-repeat ;
 }
 .agenceTofMobile{
   height: 140px;
   width: 100%;
   background:  url('./agenceTof.JPG') no-repeat center;
   background-size: cover;
-  border-bottom: 2px solid silver;
+  border-bottom: 0.5px solid silver;
 }
 .agenceMobile>h3{
   text-align: center;
