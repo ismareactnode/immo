@@ -56,14 +56,18 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .banniereEstimer>p:first-child{
-  fontWeight: normal;
+  color: rgb(1,63,138);
+  font-weight: bold;
   font-size: 2em;
   margin-bottom: 30px;
 }
 .banniereEstimerMobile>p:first-child{
+  color: rgb(1,63,138);
+
   font-weight: bold;
   text-align: center;
   font-size: 1.2em;
@@ -77,7 +81,7 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
   margin-bottom: 30px;
 }
 .banniereEstimerMobile>p:nth-child(3){
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
   font-size: 0.9em;
   margin-bottom: 20px;
@@ -99,9 +103,26 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
 
 .banniereEstimer>p:nth-child(3)>a{
   font-size: 1.6em;
+  color: #696969;
+}
+.banniereEstimer>p:nth-child(3)>a:hover{
+  color: rgb(1,63,138);
+  font-weight: bold;
+  text-decoration: none;
+}
+.banniereEstimerMobile>p:nth-child(3){
+margin-top: 0;
 }
 .banniereEstimerMobile>p:nth-child(3)>a{
   font-size: 1.2em;
+  color: #696969;
+}
+
+.banniereEstimerMobile>p:nth-child(3)>a:hover{
+  color: rgb(1,63,138);
+  text-decoration: none;
+  font-weight: bold;
+
 }
 .banniereCompetences{
  height: 400px;
@@ -115,19 +136,25 @@ box-shadow: 1px 1px 2px rgba(1,63,138, 0.6);
 }
 
 .banniereCompetences>h2{
-  font-size: 1.7em;
+  font-size: 2em;
+
   font-weight: bold;
   text-align: center;
   margin-top: 70px;
-margin-bottom: 0;
+  margin-bottom: 0;
+  color: rgb(1,63,138);
+
 }
 
 .banniereCompetencesMobile>h2{
   font-size: 1.4em;
   font-weight: bold;
   text-align: center;
-  margin-top: 9%;
-margin-bottom: 0;
+  margin: auto;
+  margin-top: 27px;
+  width: 60%;
+color: rgb(1,63,138);
+
 }
 
 .containerCompetences{
@@ -275,12 +302,16 @@ width: 100%;
   font-weight: bold;
   text-align: center;
   font-size: 1.4em;
+  color: rgb(1,63,138);
+
 }
 .BanniereDerniersBiens>h2{
 
   font-weight: bold;
   margin-top: 70px;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   text-align: center;
-  font-size: 1.7em;
+  font-size: 2em;
+  color: rgb(1,63,138);
+
 }

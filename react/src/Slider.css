@@ -48,6 +48,11 @@
   align-items: center;
 }
 
+
+.haut>h4, .hautMobile>h4{
+  font-family: 'Lato', sans-serif;
+}
+
 .bas{
   flex: 6;
   display: flex;

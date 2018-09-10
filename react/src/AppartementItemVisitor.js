@@ -5,7 +5,8 @@ import { NavLink } from 'react-router-dom';
 
 import './AppartementItem.css';
 
-const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Desktop = props => <Responsive {...props} minWidth={992} />;
+const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
 const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 const AppartementItemVisitor = ({ _id, genre, nbPieces, quartier, superficie, prix, photo }) => {
@@ -34,6 +35,28 @@ const AppartementItemVisitor = ({ _id, genre, nbPieces, quartier, superficie, pr
     </NavLink>
   </div>
   </Desktop>
+
+  <Tablet>
+    <div id="carteSmallTablet" >
+      <NavLink to={`detailsAppartement/${_id}`}>
+        <div className="carteSmallFlexMobile">
+              <img src={photo} className="flexTofImage"/>
+              <div className="flexText">
+                  <ul>
+
+                  <li>{genre === 'appartement' || genre === 'maison'?
+                `${genre} ${nbPieces}`
+                  : `${genre}`}</li>
+
+                <li><span>{`${superficie} m2`}</span><span className="flexTextPrix">{`     ${prix} €  `}</span></li>
+                  <li></li>
+                    <li><span className="flexTextQuartier">{quartier}</span></li>
+                </ul>
+              </div>
+        </div>
+    </NavLink>
+  </div>
+  </Tablet>
 
   <Mobile>
     <div id="carteSmallMobile" >

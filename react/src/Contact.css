@@ -41,14 +41,17 @@
 }
 #formQuestionMobile>form>h4{
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.5em;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 #formQuestion>form>h4{
-  font-size: 1.5em;
+  font-size: 1.6em;
 text-align: center;
 margin-top: 6%;
 margin-bottom: 7%;
+font-weight: bold;
+
 }
 
 #tel{
@@ -124,14 +127,15 @@ margin: auto;
 #message>h4{
   text-align: center;
   margin-top: 6%;
-  font-size: 1.5em;
+  font-size: 1.6em;
+  font-weight: bold;
 }
 #messageMobile>h4{
   text-align: center;
   margin-top: 6%;
   margin-bottom: 30px;
-  font-size: 1.4em;
-
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .messagePart{
@@ -164,6 +168,7 @@ margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 6%;
 }
 .contactNumeroMobile{
   display: flex;
@@ -180,13 +185,13 @@ margin: auto;
 }
 .contactNumero:nth-child(2){
   align-items: flex-start;
-  font-size: 1.4em;
+  font-size: 1.3em;
   font-weight: bold;
   flex: 3;
 }
 .contactNumeroMobile:nth-child(2){
   align-items: flex-start;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: bold;
   flex: 3;
 }
@@ -227,14 +232,19 @@ margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 .contactMailMobile:nth-child(2)>a{
-    font-size: 1.2em;
+    font-size: 1.1em;
+  color: rgb(1,63,138);
+
       font-weight: bold;
 }
 .contactMail:nth-child(2)>a{
     font-size: 1.2em;
       font-weight: bold;
+      color: rgb(1,63,138);
+
 }
 .contactMailMobile:nth-child(2){
   flex: 3;
@@ -245,7 +255,6 @@ margin: auto;
 }
 .contactMail:nth-child(2){
   flex: 2;
-
 
   display: flex;
   flex-direction: column;

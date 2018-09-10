@@ -15,8 +15,9 @@ import AppartementsListFilters from './AppartementsListFilters';
 import AdminAppartementAddPage from './AdminAppartementAddPage';
 import './AppartementDashboard.css';
 
-const Desktop = props => <Responsive {...props} minWidth={768} />;
-const Mobile = props => <Responsive {...props} maxWidth={767} />;
+const Desktop = props => <Responsive {...props} minWidth={992} />;
+const Tablet = props => <Responsive {...props} minWidth={468} maxWidth={991} />;
+const Mobile = props => <Responsive {...props} maxWidth={467} />;
 
 class Catalogue extends Component{
   constructor(props){

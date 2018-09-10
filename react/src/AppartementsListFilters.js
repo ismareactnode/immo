@@ -7,8 +7,9 @@ import { setTextFilter, setGenreFilter, sortByPrix, sortBySuperficie,
 
 import './AppartementsListFilters.css';
 
-const Desktop = props => <Responsive {...props} minWidth={768} />;
-const Mobile = props => <Responsive {...props} maxWidth={767} />;
+const Desktop = props => <Responsive {...props} minWidth={992} />;
+const Tablet = props => <Responsive {...props} minWidth={468} maxWidth={991} />;
+const Mobile = props => <Responsive {...props} maxWidth={467} />;
 
 
 class AppartementsListFilters extends Component{
@@ -95,6 +96,64 @@ onChangePieces(e){
   </div>
   </div>
   </Desktop>
+
+  <Tablet>
+    <div>
+    <div className="btn-group dropright">
+      <button type="button" className="btn btn-primary dropdown-toggle btn-primary "
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filtres
+      </button>
+      <div className="dropdown-menu">
+          <select
+          className="form-control form-control-sm"
+            name = 'genre'
+            onChange={e=>this.onChangeGenre(e)}
+           >
+            <option
+              value={this.state.genre}
+            >Tout type</option>
+            <option>Appartement</option>
+            <option>Maison</option>
+            <option>Terrain</option>
+            <option>Commerce</option>
+          </select>
+          {
+            this.props.filters.genre === 'Appartement' ||
+            this.props.filters.genre === 'Maison'?
+            <div className="listFiltersItem">
+              <select
+              className="form-control"
+              name= 'nbPieces'
+              value={this.state.nbPieces}
+              onChange={e => this.onChangePieces(e)}
+              >
+                <option
+                >Pièces</option>
+                <option>Studio</option>
+                <option>2 pièces</option>
+                <option>3 pièces</option>
+                <option>4 pièces</option>
+                <option>5 pièces et +</option>
+              </select>
+            </div>
+            : null
+          }
+          <input type="text" placeholder="quartier"
+            className="form-control"
+          onChange={e=>this.props.dispatch(setTextFilter(e.target.value))} />
+          <button
+          className="btn btn-primary"
+          onClick={() => {this.props.dispatch(sortByPrix())}}
+          >Prix</button>
+          <button
+            className="btn btn-primary"
+        onClick={()=>{this.props.dispatch(sortBySuperficie())}}  >Superficie
+        </button>
+      </div>
+  </div>
+  </div>
+  </Tablet>
 
     <Mobile>
       <div>

@@ -12,7 +12,8 @@ import './AppartementsList.css';
 import AppartementItemVisitor from './AppartementItemVisitor';
 import selectAppartements from './selectors/appartements';
 
-const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Desktop = props => <Responsive {...props} minWidth={992} />;
+const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
 const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class AppartementsListVisitor extends React.Component{
@@ -248,6 +249,114 @@ class AppartementsListVisitor extends React.Component{
               </div>
           </div>
         </Desktop>
+
+
+        <Tablet>
+            <div className="biensEtAlerteMobile">
+               <div className="biensTablet">
+
+                { Object.values(this.props.appartements).map(appartement =>
+                  <AppartementItemVisitor key={appartement._id} {...appartement}  />)
+                }
+              </div>
+
+              <div className="alerteFormTablet">
+                <h3>Votre alerte</h3>
+                  <form
+                  onSubmit={e=>this.envoyer(e)}
+                  >
+                    <div className="alerteFormItem">
+                      <label>Type</label>
+                      <select
+                      className="form-control"
+                      required
+                      value={this.state.genre}
+                      onChange={(e)=>this.onChangeGenre(e)}
+                      name="genre">
+                        <option>Appartement</option>
+                        <option>Maison</option>
+                        <option>Terrain</option>
+                        <option>Commerce</option>
+                      </select>
+                    </div>
+                    <div className="alerteFormItem">
+                     <label>Superficie</label>
+                     <input
+                     className="form-control"
+                     required
+                     name="superficie"
+                     placeholder="superficie"
+                     value= {this.state.superficie}
+                     onChange = {e=>this.onChangeSuperficie(e)
+                       // this.setState(()=>({superficie: e.target.value}))
+                     }
+                     type="text"
+                     name="superficie"  placeholder="superficie" />
+                   </div>
+
+                     <div className="alerteFormItem">
+                       <label>Quartier</label>
+                       <input
+                       className="form-control"
+                       required
+                       placeholder="quartier"
+                       value={this.state.quartier}
+                       onChange = {e => this.onChangeQuartier(e)}
+                       type="text"  placeholder="quartier" />
+                       </div>
+
+                     <div className="alerteFormItem">
+                       <label>Budget</label>
+                       <input
+                       className="form-control"
+                       onChange = { e => this.onChangeBudget(e)}
+                       value={this.state.budget}
+                       type="text"  placeholder="budget"
+                       />
+                       </div>
+
+                     <div className="alerteFormItem">
+                     <label>Votre nom</label>
+                     <input
+                     className="form-control"
+                      type="text"
+                     required
+                      value={this.state.nom}
+                      onChange={e=>this.onChangeNom(e)}/>
+                      </div>
+
+                     <div className="alerteFormItem">
+                       <label>Votre adresse mail</label>
+                       <input
+                         className="form-control"
+                        required
+                        type="email"
+                        value={this.state.mail}
+                        onChange={e=>this.onChangeMail(e)}/>
+                       </div>
+                       <div className="alerteFormItem">
+                       <label>Votre téléphone</label>
+                       <input
+                         className="form-control"
+                       type="text"
+                       placeholder="facultatif"
+                       value={this.state.tel}
+                       onChange={e=>this.onChangeTel(e)}/>
+                       </div>
+
+                       <p className="notifError">
+                         {this.state.error ? <span className="questionError">Merci de remplir tous les champs</span> : ''}
+                           {this.state.notification ? <span className="questionNotification">
+                           Bien envoyé</span> : ''}
+                           {this.state.invalidEmailNotification ? <span className="questionError">Email invalide</span> : ''}
+                           </p>
+                       <div className="alerteButtonContainerMobile"><button className="btn btn-primary col-sm-12"
+                       onClick={this.envoyer}>Enregistrer</button></div>
+
+                   </form>
+              </div>
+          </div>
+        </Tablet>
 
         <Mobile>
             <div className="biensEtAlerteMobile">

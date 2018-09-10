@@ -4,7 +4,9 @@ import Responsive from 'react-responsive';
 import './Header.css';
 import { Link } from 'react-router-dom';
 
-const Desktop = props => <Responsive {...props} minWidth={768} />;
+
+const Desktop = props => <Responsive {...props} minWidth={992} />;
+const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
 const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class Header extends React.Component{
@@ -19,11 +21,16 @@ class Header extends React.Component{
 							  </div>
 
 								<Link to="/adminDashboard"><h3>Tableau de bord</h3></Link>
-								
+
 
 						</div>
 						</Desktop>
+						<Tablet>
+							<div id="headerAdminMobile" classNameName="col-sm-12">
 
+															<Link to="/adminDashboard"><h3>Tableau de bord</h3></Link>
+							</div>
+						</Tablet>
 						<Mobile>
 							<div id="headerAdminMobile" classNameName="col-sm-12">
 
@@ -60,6 +67,13 @@ class Header extends React.Component{
 								<li><Link to="/conseils">CONSEILS</Link></li>
 						  </ul>
 							 </Desktop>
+							 <Tablet>
+							 <ul className="nav navbar-nav menuBaseTablet">
+								<li><Link to="/">ACCUEIL</Link></li>
+								 <li><Link to="/catalogue">ACHETER </Link></li>
+								 <li><Link to="/estimation">VENDRE</Link></li>
+							 </ul>
+								</Tablet>
 							 <Mobile>
 							<ul className="nav navbar-nav menuBaseMobile">
 							 <li><Link to="/">ACCUEIL</Link></li>

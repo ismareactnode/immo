@@ -55,9 +55,19 @@ font-weight: bold;
 	text-align: center;
 }
 .menuBase{
-	margin-left: 40%;
+	margin-left: 20%;
 	font-family: 'Lato', sans-serif;
 }
+.menuBaseTablet{
+	font-family: 'Lato', sans-serif;
+	margin-left: 30%;
+
+}
+
+
+
+
+
 .menuBaseMobile{
 	font-family: 'Lato', sans-serif;
 }
