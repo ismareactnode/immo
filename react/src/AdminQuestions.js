@@ -16,9 +16,8 @@ class AdminQuestions extends Component{
   render(){
     return(
       <div id="AdminQuestions">
-        <h3>Questions des visiteurs</h3>
-        <NavLink to="/AdminDashboard"><button className="btn btn-light">
-        Retour au menu</button></NavLink>
+        <h3>Questions :</h3>
+
         <QuestionsList />
       </div>
     );

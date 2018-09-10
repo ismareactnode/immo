@@ -12,8 +12,8 @@ left: 1.7%;
   text-decoration: none;
     }
 
-.ajouterCatalogueMobile{
-
+.ajoutButton>a{
+font-weight: bold;
 }
 
 .retourMenu{

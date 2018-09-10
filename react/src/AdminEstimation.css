@@ -1,5 +1,28 @@
-#adminEstimation>a{
+#adminEstimation{
   float: right;
-  margin-top: 20px;
-  margin-right: 10px;
+  margin-top: 5.2%;
+  padding-top: 10px;
+
+width: 100%;
+}
+.adminEstimationContainer{
+  height: 100%;
+
+}
+#adminEstimationMobile{
+  float: right;
+  margin-top: 14%;
+  padding-top: 10px;
+height: 400px;
+width: 100%;
+}
+#adminEstimation>h3{
+  text-align: center;
+  color: rgb(1,63,138);
+  font-weight: bold;
+}
+#adminEstimationMobile>h3{
+  text-align: center;
+  color: rgb(1,63,138);
+  font-weight: bold;
 }

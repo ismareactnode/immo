@@ -66,15 +66,15 @@ componentWillMount(){
               <div id="catalogueProduits">
 
                     <h4>Catalogue</h4>
-                    <p>Gérer tous vos biens</p>
+                    <p>tous les biens</p>
 
                   </div>
             </NavLink>
 
             <NavLink to="/AdminQuestions">
               <div id="questions">
-                <h4>Visiteurs</h4>
-                <p>Leurs questions posées</p>
+                <h4>Questions</h4>
+                <p> visiteurs</p>
               </div>
             </NavLink>
             </div>
@@ -82,16 +82,16 @@ componentWillMount(){
             <div id= "droite">
                <NavLink to="AdminEstimation">
                   <div id="demandesEstimation">
-                    <h4>Vendeurs</h4>
-                    Leur demandes d estimation
+                    <h4>Estimations</h4>
+                     vendeurs
                   </div>
                 </NavLink>
 
 
               <NavLink to="AdminRecherches">
                 <div id="recherches">
-                  <h4>Acheteurs</h4>
-                    Leurs critères de recherche
+                  <h4>Recherches</h4>
+                     acheteurs
                  </div>
               </NavLink>
            </div>

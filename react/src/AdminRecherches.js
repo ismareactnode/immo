@@ -17,9 +17,8 @@ componentWillMount(){
   render(){
     return(
       <div id="adminRecherches">
-        <h3>Recherches de biens</h3>
-        <NavLink to="/AdminDashboard"><button className="btn btn-light">
-        Retour au menu</button></NavLink>
+        <h3>Recherches :</h3>
+
         <RecherchesList />
       </div>
     );

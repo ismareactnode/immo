@@ -31,16 +31,23 @@ componentWillMount(){
       <div className="adminCatalogue">
           <div id='AppartDashboard'>
           <Desktop>
+           <Link to='/AdminAddAppartement'>
              <button
-             className="btn btn-primary"
-             id="ajouter"><Link to='/AdminAddAppartement'>Ajouter un bien</Link>
+             className="btn btn-primary ajoutButton"
+             id="ajouter">
+             <span className="glyphicon glyphicon-plus"></span>
              </button>
+            </Link>
            </Desktop>
            <Mobile>
+            <Link to='/AdminAddAppartement'>
              <button
              className="btn btn-primary ajouterCatalogueMobile"
-             id="ajouter"><Link to='/AdminAddAppartement'>+</Link>
+             id="ajouter">
+ <span className="glyphicon glyphicon-plus"></span>
+
              </button>
+            </Link>
            </Mobile>
             <AppartementsListFiltersAdmin />
             <AppartementsList />

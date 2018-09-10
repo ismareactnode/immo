@@ -10,7 +10,6 @@ class RecherchesList extends Component{
   render(){
     return(
       <div id="recherchesList">
-        <h3>Critères de recherche:</h3>
            <table className="table table-striped table-bordered table-hover ">
             <thead className="thead-light">
              <tr>

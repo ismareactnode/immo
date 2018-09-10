@@ -156,7 +156,7 @@ onChangePieces(e){
   </Tablet>
 
     <Mobile>
-      <div>
+      <div className="listFilterMobile">
       <div className="btn-group dropright">
         <button type="button" className="btn btn-primary dropdown-toggle btn-primary "
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

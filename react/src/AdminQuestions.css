@@ -1,9 +1,17 @@
 #AdminQuestions{
+  height: 100%;
   margin-top: 80px;
+  padding-top: 0.5%;
 }
 
 #AdminQuestions>a{
   float: right;
   margin-top: 20px;
   margin-right: 10px;
+}
+
+#AdminQuestions>h3{
+  text-align: center;
+  color: rgb(1,63,138);
+  font-weight: bold;
 }

@@ -9,6 +9,10 @@ import { connected } from './actions/connectedAction';
 
 import { fetchEstimations } from './actions/estimationsActions';
 import './AdminEstimation.css';
+import Responsive from 'react-responsive';
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class AdminEstimation extends Component{
 
@@ -18,11 +22,21 @@ componentWillMount(){
 }
   render(){
     return(
-      <div id="adminEstimation">
-        <h3>Demandes d estimation</h3>
-          <NavLink to="/AdminDashboard"><button className="btn btn-light">
-          Retour au menu</button></NavLink>
-        <EstimationsList />
+      <div className="adminEstimationContainer">
+        <Desktop>
+          <div id="adminEstimation">
+            <h3>Estimations</h3>
+
+            <EstimationsList />
+          </div>
+        </Desktop>
+        <Mobile>
+          <div id="adminEstimationMobile">
+          <h3>Estimations</h3>
+
+            <EstimationsList />
+          </div>
+        </Mobile>
       </div>
     );
   };
