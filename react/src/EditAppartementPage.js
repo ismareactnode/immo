@@ -32,7 +32,8 @@ class EditAppartementPage extends Component{
     }
   />
   <div className="confirmationSupressionButton">
-  <Link to={`/confirmationSuppression/${this.props.appartement._id}`}><button   className="btn btn-primary">Supprimer</button></Link>
+  <Link to={`/confirmationSuppression/${this.props.appartement._id}`}><button
+     className="btn btn-primary">Supprimer</button></Link>
  </div>
   </div>
 );

@@ -11,21 +11,24 @@ const ConfirmationSuppression = ({ history, dispatch, appartement })=> {
 
   return(
   <div id="confirmation">
-  <p>Produit</p>
-  <ul>
-  <li>{appartement.type}</li>
-    <li>{appartement.quartier}</li>
-      <li>{appartement.superficie} m2</li>
-        <li>{appartement.prix} €</li>
-  </ul>
-     <p>Etes vous sur de vouloir supprimer cet appartement ? </p>
- <button
- onClick={()=>{
-  dispatch(removeAppartementFromMongo(appartement._id, localStorage.getItem('token')));
-  history.push('/AdminCatalogue');
-}}
- >Confirmer</button>
-  <Link to={`/editAppartement/${appartement._id}`}>Retour</Link>
+    <div className="confirmationContenu">
+        <h4>Etes vous sûr de vouloir supprimer ce bien ? </h4>
+        <ul>
+            <li>{appartement.genre}</li>
+              <li>{appartement.quartier}</li>
+              <li>{appartement.superficie} m2</li>
+            <li>{appartement.prix} €</li>
+          </ul>
+       <button className="btn btn-primary confirmButton"
+       onClick={()=>{
+        dispatch(removeAppartementFromMongo(appartement._id, localStorage.getItem('token')));
+        history.push('/AdminCatalogue');
+      }}
+       >Confirmer</button>
+      <button className="btn btn-primary deleteBack">
+      <Link to={`/editAppartement/${appartement._id}`}>Retour</Link>
+      </button>
+    </div>
   </div>
 );
 }

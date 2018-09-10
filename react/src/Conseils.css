@@ -9,12 +9,7 @@
 .conseilsContainer{
   position: relative;
 }
-.flecheMobile{
-  font-size: 25px;
-  position: absolute;
-  right: 10px;
-  bottom: 0px;
-}
+
 .conseilsPapierPeint{
   padding-top: 2%;
   padding-bottom: 2%;

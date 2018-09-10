@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { removeAppartment } from './actions/appartementsActions';
 import './AppartementForm.css';
 
+import Responsive from 'react-responsive';
+
+const Desktop = props => <Responsive {...props} minWidth={768} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
+
 class AppartementForm extends React.Component{
   constructor(props){
     super(props);
@@ -96,16 +101,19 @@ if(!this.state.quartier || !this.state.prix || !this.state.superficie
 render(){
 
   return(
-  <div id="appartementForm">
+
+  <div className="appartementFormContainer">
   <Link to={'/AdminCatalogue'}>
-  <button type="button" className="btn btn-primary retourListeCatalogue">Retour
+  <button type="button" className="btn btn-primary retourListeCatalogue">
+  <span className="glyphicon glyphicon-arrow-left"></span>
    </button></Link>
+    <Desktop>
     <form
       id="appartementForm"
       onSubmit={e=>{this.onSubmit(e)}}
       className="appartAddForm"
       >
-     <h2>{this.props.appartement?'Modifier' : 'Créer'}</h2>
+     <h2>{this.props.appartement?'Modifier' : 'Ajouter'}</h2>
 
 
         <div className="form-group">
@@ -187,10 +195,106 @@ render(){
       placeholder="fichier à ranger dans le dossier public"
       />
     </div>
-       <p><button type="submit" className="btn btn-primary col-sm-12">
+       <p><button type="submit" className="btn btn-primary col-sm-12 ajouterButton">
        {this.props.appartement?'Confirmer':'Ajouter'}</button></p>
        {this.state.error && <p>{this.state.error}</p>}
     </form>
+  </Desktop>
+
+  <Mobile>
+  <form
+    id="appartementFormMobile"
+    onSubmit={e=>{this.onSubmit(e)}}
+    className="appartAddForm"
+    >
+   <h2>{this.props.appartement?'Modifier' : 'Ajouter'}</h2>
+
+
+      <div className="form-group">
+      <select
+       className="form-control"
+        name="genre"
+        onChange={e=>this.onGenreChange(e)}
+        value = {this.state.genre}>
+       <option>Appartement</option>
+       <option>Maison</option>
+       <option>Terrain</option>
+       <option>Commerce</option>
+      </select>
+      </div>
+
+{ this.state.genre.toLowerCase() === 'appartement' ||
+ this.state.genre.toLowerCase() === 'maison'?
+    <div className="form-group">
+      <select
+      className="form-control"
+       name="nbPieces"
+       onChange={e=>this.onNbPiecesChange(e)}
+        value = {this.state.nbPieces}
+        >
+       <option defaultValue>Studio</option>
+       <option>2 pièces</option>
+       <option>3 pièces</option>
+       <option>4 pièces</option>
+       <option>5 pièces et +</option>
+      </select>
+    </div>
+  : null
+}
+     <div className="form-group">
+       <label>Quartier : </label>
+       <input
+       className="form-control"
+       name="quartier"
+       value={this.state.quartier}
+       onChange={e=>{this.onQuartierChange(e)}}
+        type="text" />
+    </div>
+
+   <div className="form-group">
+     <label>Superficie : </label>
+     <input
+      className="form-control"
+      name="superficie" value={this.state.superficie}
+      onChange={e=>{this.onSuperficieChange(e)}}
+      type="number" />
+  </div>
+
+  <div className="form-group">
+    <label>Descriptif : </label>
+    <textarea
+     className="form-control"
+     name="descriptif" value={this.state.descriptif}
+     onChange={e=>{this.onDescriptifChange(e)}}
+     type="number" />
+ </div>
+
+  <div className="form-group">
+    <label>Prix :   </label>
+    <input
+     className="form-control"
+    name="prix"
+    value={this.state.prix}
+    onChange={e=>{this.onPrixChange(e)}}
+    type="text" />
+  </div>
+  <div className = "form-group">
+    <label>nom du fichier photo : </label>
+    <input
+    onChange={e=>this.onPhotoChange(e)}
+     type="text"
+     className="form-control"
+     name="photo"
+     value = {this.state.photo}
+    placeholder="fichier à ranger dans le dossier public"
+    />
+  </div>
+     <p><button type="submit" className="btn btn-primary col-sm-12">
+     {this.props.appartement?'Confirmer':'Ajouter'}</button></p>
+     {this.state.error && <p>{this.state.error}</p>}
+  </form>
+</Mobile>
+
 {
   this.state.recherche ?
     <div>

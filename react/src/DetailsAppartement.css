@@ -24,7 +24,7 @@
   color: white;
 }
 .detailRetourMobile{
-  background-color: #8281B8;
+  background-color: rgb(1,63,138);
 }
 .detailsTextContainer{
 
@@ -32,7 +32,6 @@
   display: flex;
   padding-left: 5%;
   padding-right: 5%;
-  border: 2px solid red;
   width: 80%;
   margin:auto;
 }
@@ -62,9 +61,18 @@
 
 .detailsText{
   flex: 2.5;
+  height: 72%;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  box-shadow: 1px 2px 2px rgba(246,246,246, 0.9);
   background-color: #F6F6F6;
   padding-left: 6%;
   padding-top: 2%;
+}
+
+.detailsText>p{
+ margin-left: 20px;
 }
 .detailsTextMobile{
   background-color: white;
@@ -75,6 +83,7 @@
 }
 .detailsText>h4{
   font-weight: bold;
+  text-align: center;
 }
 
 .caractRight{
@@ -96,7 +105,7 @@ font-size: 1.2em;
 
 }
 .caractRight1{
-  flex: 1;
+  flex: 0.5;
   font-weight: bold;
   font-size: 1.1em;
   border: 2.5px solid #3C3F56;
@@ -104,6 +113,7 @@ font-size: 1.2em;
   border-top-left-radius: 5px;
   display: flex;
   flex-direction: column;
+  margin-top: 7px;
 }
 .caractRight1Mobile{
   flex: 1.5;
@@ -166,6 +176,9 @@ border: 1.5px solid #3C3F56;
 }
 .caractRight3{
   margin-top: 5px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border: 2.5px solid #3C3F56;
@@ -239,12 +252,16 @@ border: 1.5px solid #3C3F56;
   text-decoration: none;
 }
 .caracteristiquesGenre{
+  padding: 3px 3px;
   flex: 1.7;
   border-right: 1px solid rgba(192,192,192, 0.8);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.caracteristiquesPiecesSuperficie{
+  text-align: center;
 }
 .caracteristiquesPiecesSuperficieMobile{
   flex: 1;
