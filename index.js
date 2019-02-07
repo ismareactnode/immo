@@ -12,6 +12,20 @@ sur heroku, dans le dashboard, on a ajouté aux variables d'environnemnet dans
 la config cette clé DATABASE_URL avec en valeur l'url de la database sur
 mlab */
 
+const { getApparts, postApparts, putApparts, deleteApparts } =
+require('./server/controlers/appartementsControler');
+const { getQuestions, postQuestions } =
+require('./server/controlers/questionsControler');
+const { getEstimation, postEstimation, getEstimationItem } =
+ require('./server/controlers/estimationsControler');
+const { getRecherches, postRecherches, getRechercheItem } =
+require('./server/controlers/recherchesControler');
+const { userLogin, userCreate } = require('./server/controlers/usersControler')
+
+
+var {authenticate} = require('./server/middleware/authenticate');
+
+
 require('dotenv').config();
 
 var { mongoose, db } = require('./server/db/mongoose');
@@ -22,50 +36,10 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => { console.log('server connected on port', PORT);});
 
-
+app.use(bodyParser.json());
 
 /*  voici l'url de l'app déployée sur heroku*/
 // const url = 'https://vast-chamber-79371.herokuapp.com';
-
-
-app.get('/apparts', (req, res)=> {
-  User.find()
-  .then((docs)=>{res.send(docs)})
-  .catch((e)=>{res.status(400).send('error : ', e);})
-});
-
-
-app.post('/apparts', (req, res) => {
-  User.insert({quartier: 'boulmiche',
-                superficie: 45}), (result)=>{
-                res.send(result);
-                  }
-})
-
-
-
-// app.get('/users', (req, res) => {
-//   User.findById({_id:"5aaa4c81734d1d6b71217f6b"})
-//   .then((users)=>{console.log('users :', users);
-// res.send(users)})
-//   .catch((e)=>{console.log('error : ', e);})
-// })
-
-app.get('/users/:id', (req, res) => {
-  const _id = req.params.id;
-  User.findById({_id})
-  .then((users)=>{console.log('users :', users);
-res.send(users)})
-  .catch((e)=>{console.log('error : ', e);})
-})
-
-app.post('/users', (req, res) => {
-  var body = _.pick(req.body, ['email', 'password']);
-  var user = new User(body);
-  user.save()
-  .then((user)=>{res.send('inserted : ', user)})
-  // .catch((err)=>{res.status(400).send('error : ', err)});
-  })
 
 
 /* on relie la racine, la page d'accueil de l'appli, à la version buildée de
@@ -73,17 +47,92 @@ react/ On relie ainsi le front au back. */
   app.use('/', express.static(path.join(__dirname, 'react/build')));
 
 
-  /* les routes back sont gérées également, grace au proxy que l'on a déterminé
-  dans le package.json de react ("proxy": "localhost://4000")
-) */
+app.get('/apparts', (req, res)=> {
+  getApparts(req, res);
+});
 
-/* en dev, on lance les 2 serveurs en mm temps, grace à concurrently. le 3000
-se lance sur le navigateur automatiquement, mais il faut lancer
-localhost:4000 car le serveur est dessus */
+app.post('/apparts', authenticate, (req, res) => {
+  postApparts(req, res);
+});
 
+app.put('/apparts/:id', authenticate, (req, res)=>{
+  putApparts(req, res);
+});
+
+app.delete('/apparts/:id', authenticate, (req, res) => {
+  deleteApparts(req, res);
+});
+
+app.get('/estimations', (req, res)=>{
+  getEstimation(req, res);
+});
+
+app.get('/estimationItem/:estimation_id', (req, res) => {
+  getEstimationItem(req, res);
+})
+app.post('/estimation', (req, res)=>{
+postEstimation(req, res);
+});
+
+app.post('/question', (req, res)=>{
+  postQuestions(req, res);
+});
+
+app.get('/questions', (req, res)=>{
+  getQuestions(req, res);
+});
+
+app.get('/recherches', (req, res)=>{
+  getRecherches(req, res);
+});
+
+app.get('/rechercheItem/:recherche_mail', (req, res) =>{
+  getRechercheItem(req, res);
+})
+app.post('/recherches', (req, res)=>{
+  postRecherches(req, res);
+});
+
+//Création de user   (uniquement par le superAdmin) avec un autre authenticate propre à moi
+app.post('/userCreation/PrivateUrlPassword', (req, res) => {
+  userCreate(req, res);
+});// ({_id:"5aaa4c81734d1d6b71217f6b"})
+
+app.post('/users/login', (req, res) => {
+  userLogin(req, res);
+});
 
 /*  les url farfelues sont gérées par le serveur sur node, qui balance alors
 l'index.html du build de react, lequel enverra un notfound */
-  app.get('/*', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'react/build/index.html'));
-  })
+   app.get('/*', (req, res)=>{
+     res.sendFile(path.join(__dirname, 'react/build/index.html'));
+   })
+
+
+
+
+
+// app.get('/users', (req, res) => {
+//   User.findById  console.log('body :', body);
+// ({_id:"5aaa4c81734d1d6b71217f6b"})
+//   .then((users)=>{console.log('users :', users);
+// res.send(users)})kl935780@gmail.comkl935780@gmail.com
+//   .catch((e)=>{console.log('error : ', e);})
+// })
+
+
+
+// app.get('/users/me', authenticate, (req, res)=>{
+//   res.send(req.kl935780@gmail.com
+
+// });
+//
+//
+// //logdbOut
+// app.delete('/users/me/token', authenticate, (req, res) => {
+//   req.user.removeToken(req.token).then(()=>{
+//     res.status(200).send();
+//   }, () => {
+//     res.status(400).send();
+//   });
+// });

@@ -63,7 +63,7 @@ app.get('/estimations', (req, res)=>{
   getEstimation(req, res);
 });
 
-app.get('/estimationItem/:estimation_mail', (req, res) => {
+app.get('/estimationItem/:estimation_id', (req, res) => {
   getEstimationItem(req, res);
 })
 app.post('/estimation', (req, res)=>{

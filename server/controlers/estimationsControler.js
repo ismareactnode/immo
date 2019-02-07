@@ -13,10 +13,10 @@ const getEstimation = (req, res) => {
 }
 
 const getEstimationItem = (req, res) => {
-  const estimation_mail = req.params.estimation_mail.toString();
-  console.log(`estimation_mail : ${req.params.estimation_mail}`);
-    Recherche.findOne({mail: estimation_mail})
+  const estimation_id = req.params.estimation_id.toString();
+    Recherche.findOne({_id: estimation_id})
     .then((estimation)=>{
+      console.log('succes');
       res.status(200).send(estimation);
     })
     .catch((e)=>{console.log('error :', e)});

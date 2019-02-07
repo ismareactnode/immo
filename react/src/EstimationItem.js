@@ -23,7 +23,7 @@ class EstimationItem extends Component{
   }
 
   componentWillMount(){
-    let estimation_id = this.props.match.params.estimation_mail;
+    let estimation_id = this.props.match.params.estimation_id;
     console.log('estimation_id :', estimation_id);
     fetch(`/estimationItem/${estimation_id}`)
     .then((estimation)=>{
@@ -40,7 +40,6 @@ class EstimationItem extends Component{
   render(){
   return(
     <div className="estimationItem">
-      <h2>Estimaiton</h2>
       <div className="estimationInfos">
       <ul>
         <li className=""><label>Nom : </label>{this.state.nom}</li>

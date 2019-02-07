@@ -10,6 +10,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "node test.js",
+    "nodemon": "nodemon index.js",
     "node": "nodemon indexDev.js",
     "react": "npm start --prefix react",
     "dev": "concurrently \"npm run node\" \"npm run react\""

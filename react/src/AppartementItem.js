@@ -23,10 +23,12 @@ const AppartementItem = ({ _id, genre, nbPieces, quartier, superficie, prix, pho
 
           <li><span>{`${superficie} m2`}</span><span className="flexTextPrix">{`     ${prix} €  `}</span></li>
               <li><span className="flexTextQuartier">{quartier}</span></li>
-          </ul>
-            <Link to={`/confirmationSuppression/${_id}`}>
-            <button id="delete" type="btn btn-danger btn-sm">Supprimer</button>
+
+            <li><Link to={`/confirmationSuppression/${_id}`}>
+            <button id="delete" type="btn btn-primary btn-sm">Supprimer</button>
             </Link>
+            </li>
+              </ul>
          </div>
         </div>
     </Link>
